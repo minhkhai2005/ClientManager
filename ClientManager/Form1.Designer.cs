@@ -28,13 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.noInternetConnection1 = new NoInternetConnectionControl.NoInternetConnection();
+            this.SuspendLayout();
+            // 
+            // noInternetConnection1
+            // 
+            this.noInternetConnection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.noInternetConnection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noInternetConnection1.Location = new System.Drawing.Point(0, 0);
+            this.noInternetConnection1.MinimumSize = new System.Drawing.Size(1400, 1000);
+            this.noInternetConnection1.Name = "noInternetConnection1";
+            this.noInternetConnection1.Size = new System.Drawing.Size(1400, 1000);
+            this.noInternetConnection1.TabIndex = 0;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1384, 961);
+            this.Controls.Add(this.noInternetConnection1);
+            this.MaximizeBox = false;
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private NoInternetConnectionControl.NoInternetConnection noInternetConnection1;
     }
 }
 
