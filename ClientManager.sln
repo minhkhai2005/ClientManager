@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientManager", "ClientMana
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoInternetConnectionControl", "NoInternetConnectionControl\NoInternetConnectionControl.csproj", "{6E0482FA-515A-4E03-95EA-C6519871655B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SidebarControl", "SidebarControl\SidebarControl.csproj", "{1FD9D7DC-981C-4C78-A8DE-FDF0DA90E0DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6E0482FA-515A-4E03-95EA-C6519871655B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E0482FA-515A-4E03-95EA-C6519871655B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E0482FA-515A-4E03-95EA-C6519871655B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD9D7DC-981C-4C78-A8DE-FDF0DA90E0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD9D7DC-981C-4C78-A8DE-FDF0DA90E0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD9D7DC-981C-4C78-A8DE-FDF0DA90E0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD9D7DC-981C-4C78-A8DE-FDF0DA90E0DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
