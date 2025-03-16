@@ -68,5 +68,8 @@
   <ItemGroup>
     <None Include="Resources\Screenshot 2025-03-15 204957.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\momo-studio-Meu3EAmoVZM-unsplash.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

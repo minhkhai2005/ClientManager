@@ -16,5 +16,10 @@ namespace forGot_passWord_control
         {
             InitializeComponent();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
