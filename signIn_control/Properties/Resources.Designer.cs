@@ -63,6 +63,16 @@ namespace signIn_control.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap momo_studio_Meu3EAmoVZM_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("momo-studio-Meu3EAmoVZM-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2025_03_15_204957 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2025-03-15 204957", resourceCulture);
