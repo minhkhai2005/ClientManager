@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CacGiaoDich
 {
-    public partial class UserControl1: UserControl
+    public partial class Old_transactions: UserControl
     {
-        public UserControl1()
+        public Old_transactions()
         {
             InitializeComponent();
         }

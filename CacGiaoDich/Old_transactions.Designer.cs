@@ -1,6 +1,6 @@
 ﻿namespace CacGiaoDich
 {
-    partial class UserControl1
+    partial class Old_transactions
     {
         /// <summary>
         /// Required designer variable.
