@@ -47,11 +47,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Old_transactions.cs">
+    <Compile Include="History_transactions.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Old_transactions.Designer.cs">
-      <DependentUpon>Old_transactions.cs</DependentUpon>
+    <Compile Include="History_transactions.Designer.cs">
+      <DependentUpon>History_transactions.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -61,8 +61,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old_transactions.resx">
-      <DependentUpon>Old_transactions.cs</DependentUpon>
+    <EmbeddedResource Include="History_transactions.resx">
+      <DependentUpon>History_transactions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
