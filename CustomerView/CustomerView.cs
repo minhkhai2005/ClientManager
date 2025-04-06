@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Customer__View
+namespace CustomerView
 {
     public partial class CustomerView : UserControl
     {
