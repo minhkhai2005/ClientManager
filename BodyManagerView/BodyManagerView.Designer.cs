@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Email = new System.Windows.Forms.Label();
-            this.Phone = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Phone = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Email = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DoneBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,28 +65,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(554, 583);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.Email);
-            this.flowLayoutPanel1.Controls.Add(this.textBox1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(554, 40);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.Phone);
-            this.flowLayoutPanel2.Controls.Add(this.textBox2);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 40);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(554, 40);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.button1);
@@ -96,48 +74,6 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(554, 40);
             this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // Email
-            // 
-            this.Email.AutoSize = true;
-            this.Email.Font = new System.Drawing.Font("Afacad Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(3, 0);
-            this.Email.MinimumSize = new System.Drawing.Size(70, 0);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(70, 28);
-            this.Email.TabIndex = 0;
-            this.Email.Text = "Email";
-            // 
-            // Phone
-            // 
-            this.Phone.AutoSize = true;
-            this.Phone.Font = new System.Drawing.Font("Afacad Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Phone.Location = new System.Drawing.Point(3, 0);
-            this.Phone.MinimumSize = new System.Drawing.Size(70, 0);
-            this.Phone.Name = "Phone";
-            this.Phone.Size = new System.Drawing.Size(70, 28);
-            this.Phone.TabIndex = 0;
-            this.Phone.Text = "Phone";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(79, 6);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(241, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(79, 6);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(241, 20);
-            this.textBox2.TabIndex = 1;
             // 
             // button1
             // 
@@ -152,6 +88,70 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Sign out";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.Phone);
+            this.flowLayoutPanel2.Controls.Add(this.textBox2);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 40);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(554, 40);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // Phone
+            // 
+            this.Phone.AutoSize = true;
+            this.Phone.Font = new System.Drawing.Font("Afacad Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Phone.Location = new System.Drawing.Point(3, 0);
+            this.Phone.MinimumSize = new System.Drawing.Size(70, 0);
+            this.Phone.Name = "Phone";
+            this.Phone.Size = new System.Drawing.Size(70, 28);
+            this.Phone.TabIndex = 0;
+            this.Phone.Text = "Phone";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(79, 6);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(241, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.Email);
+            this.flowLayoutPanel1.Controls.Add(this.textBox1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(554, 40);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // Email
+            // 
+            this.Email.AutoSize = true;
+            this.Email.Font = new System.Drawing.Font("Afacad Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.Location = new System.Drawing.Point(3, 0);
+            this.Email.MinimumSize = new System.Drawing.Size(70, 0);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(70, 28);
+            this.Email.TabIndex = 0;
+            this.Email.Text = "Email";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(79, 6);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(241, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // panel1
             // 
@@ -169,7 +169,7 @@
             this.DoneBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DoneBtn.Font = new System.Drawing.Font("Afacad Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoneBtn.ForeColor = System.Drawing.Color.White;
-            this.DoneBtn.Location = new System.Drawing.Point(463, 432);
+            this.DoneBtn.Location = new System.Drawing.Point(443, 379);
             this.DoneBtn.Margin = new System.Windows.Forms.Padding(20);
             this.DoneBtn.Name = "DoneBtn";
             this.DoneBtn.Size = new System.Drawing.Size(85, 28);
@@ -188,11 +188,11 @@
             this.Padding = new System.Windows.Forms.Padding(12);
             this.Size = new System.Drawing.Size(578, 607);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -30,52 +30,54 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Information = new System.Windows.Forms.Label();
-            this.EmployeeStartDate = new System.Windows.Forms.Label();
-            this.EmployeeRole = new System.Windows.Forms.Label();
-            this.Salary = new System.Windows.Forms.Label();
-            this.EmployeePhone = new System.Windows.Forms.Label();
-            this.EmployeeShift = new System.Windows.Forms.Label();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
             this.DelBtn = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Email = new System.Windows.Forms.Label();
-            this.DateOfBirth = new System.Windows.Forms.Label();
-            this.StoreID = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.CancelBtn = new System.Windows.Forms.Button();
-            this.SaveBtn = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.EmployeeShift = new System.Windows.Forms.Label();
+            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.EmployeePhone = new System.Windows.Forms.Label();
+            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Salary = new System.Windows.Forms.Label();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.EmployeeRole = new System.Windows.Forms.Label();
             this.RoleList = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.EmployeeStartDate = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Information = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.StoreID = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.DateOfBirth = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Email = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EmployeeID = new System.Windows.Forms.Label();
+            this.EmployeeIDTextBox = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
-            this.flowLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
-            this.flowLayoutPanel10.SuspendLayout();
             this.flowLayoutPanel12.SuspendLayout();
+            this.flowLayoutPanel10.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
+            this.flowLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -97,6 +99,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.DelBtn, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel7, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel6, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel5, 0, 4);
@@ -119,59 +122,31 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(378, 402);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel7
             // 
-            this.flowLayoutPanel1.Controls.Add(this.Information);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(378, 34);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel7.Controls.Add(this.EmployeeID);
+            this.flowLayoutPanel7.Controls.Add(this.EmployeeIDTextBox);
+            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 204);
+            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(378, 34);
+            this.flowLayoutPanel7.TabIndex = 6;
             // 
-            // flowLayoutPanel2
+            // DelBtn
             // 
-            this.flowLayoutPanel2.Controls.Add(this.EmployeeStartDate);
-            this.flowLayoutPanel2.Controls.Add(this.dateTimePicker1);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 34);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(378, 34);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.EmployeeRole);
-            this.flowLayoutPanel3.Controls.Add(this.RoleList);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 68);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(378, 34);
-            this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.Salary);
-            this.flowLayoutPanel4.Controls.Add(this.maskedTextBox3);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 102);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(378, 34);
-            this.flowLayoutPanel4.TabIndex = 3;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.EmployeePhone);
-            this.flowLayoutPanel5.Controls.Add(this.maskedTextBox4);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 136);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(378, 34);
-            this.flowLayoutPanel5.TabIndex = 4;
+            this.DelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.DelBtn.FlatAppearance.BorderSize = 0;
+            this.DelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DelBtn.Font = new System.Drawing.Font("Afacad SemiBold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DelBtn.ForeColor = System.Drawing.Color.White;
+            this.DelBtn.Location = new System.Drawing.Point(3, 241);
+            this.DelBtn.Name = "DelBtn";
+            this.DelBtn.Size = new System.Drawing.Size(88, 30);
+            this.DelBtn.TabIndex = 0;
+            this.DelBtn.Text = "Delete";
+            this.DelBtn.UseVisualStyleBackColor = false;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
             // 
             // flowLayoutPanel6
             // 
@@ -184,58 +159,34 @@
             this.flowLayoutPanel6.Size = new System.Drawing.Size(378, 34);
             this.flowLayoutPanel6.TabIndex = 5;
             // 
-            // flowLayoutPanel7
+            // EmployeeShift
             // 
-            this.flowLayoutPanel7.Controls.Add(this.DelBtn);
-            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 204);
-            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(378, 34);
-            this.flowLayoutPanel7.TabIndex = 6;
+            this.EmployeeShift.AutoSize = true;
+            this.EmployeeShift.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeShift.Location = new System.Drawing.Point(3, 0);
+            this.EmployeeShift.MinimumSize = new System.Drawing.Size(75, 0);
+            this.EmployeeShift.Name = "EmployeeShift";
+            this.EmployeeShift.Size = new System.Drawing.Size(75, 21);
+            this.EmployeeShift.TabIndex = 1;
+            this.EmployeeShift.Text = "Shift";
             // 
-            // Information
+            // maskedTextBox5
             // 
-            this.Information.AutoSize = true;
-            this.Information.Font = new System.Drawing.Font("Afacad", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Information.Location = new System.Drawing.Point(3, 0);
-            this.Information.Name = "Information";
-            this.Information.Size = new System.Drawing.Size(113, 28);
-            this.Information.TabIndex = 0;
-            this.Information.Text = "Information";
+            this.maskedTextBox5.Location = new System.Drawing.Point(84, 3);
+            this.maskedTextBox5.Name = "maskedTextBox5";
+            this.maskedTextBox5.Size = new System.Drawing.Size(198, 20);
+            this.maskedTextBox5.TabIndex = 2;
             // 
-            // EmployeeStartDate
+            // flowLayoutPanel5
             // 
-            this.EmployeeStartDate.AutoSize = true;
-            this.EmployeeStartDate.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeStartDate.Location = new System.Drawing.Point(3, 0);
-            this.EmployeeStartDate.MinimumSize = new System.Drawing.Size(75, 0);
-            this.EmployeeStartDate.Name = "EmployeeStartDate";
-            this.EmployeeStartDate.Size = new System.Drawing.Size(75, 21);
-            this.EmployeeStartDate.TabIndex = 0;
-            this.EmployeeStartDate.Text = "Start date";
-            // 
-            // EmployeeRole
-            // 
-            this.EmployeeRole.AutoSize = true;
-            this.EmployeeRole.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeRole.Location = new System.Drawing.Point(3, 0);
-            this.EmployeeRole.MinimumSize = new System.Drawing.Size(75, 0);
-            this.EmployeeRole.Name = "EmployeeRole";
-            this.EmployeeRole.Size = new System.Drawing.Size(75, 21);
-            this.EmployeeRole.TabIndex = 1;
-            this.EmployeeRole.Text = "Role";
-            // 
-            // Salary
-            // 
-            this.Salary.AutoSize = true;
-            this.Salary.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Salary.Location = new System.Drawing.Point(3, 0);
-            this.Salary.MinimumSize = new System.Drawing.Size(75, 0);
-            this.Salary.Name = "Salary";
-            this.Salary.Size = new System.Drawing.Size(75, 21);
-            this.Salary.TabIndex = 1;
-            this.Salary.Text = "Salary";
+            this.flowLayoutPanel5.Controls.Add(this.EmployeePhone);
+            this.flowLayoutPanel5.Controls.Add(this.maskedTextBox4);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 136);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(378, 34);
+            this.flowLayoutPanel5.TabIndex = 4;
             // 
             // EmployeePhone
             // 
@@ -248,16 +199,34 @@
             this.EmployeePhone.TabIndex = 1;
             this.EmployeePhone.Text = "Phone";
             // 
-            // EmployeeShift
+            // maskedTextBox4
             // 
-            this.EmployeeShift.AutoSize = true;
-            this.EmployeeShift.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeShift.Location = new System.Drawing.Point(3, 0);
-            this.EmployeeShift.MinimumSize = new System.Drawing.Size(75, 0);
-            this.EmployeeShift.Name = "EmployeeShift";
-            this.EmployeeShift.Size = new System.Drawing.Size(75, 21);
-            this.EmployeeShift.TabIndex = 1;
-            this.EmployeeShift.Text = "Shift";
+            this.maskedTextBox4.Location = new System.Drawing.Point(84, 3);
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(198, 20);
+            this.maskedTextBox4.TabIndex = 2;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.Salary);
+            this.flowLayoutPanel4.Controls.Add(this.maskedTextBox3);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 102);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(378, 34);
+            this.flowLayoutPanel4.TabIndex = 3;
+            // 
+            // Salary
+            // 
+            this.Salary.AutoSize = true;
+            this.Salary.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Salary.Location = new System.Drawing.Point(3, 0);
+            this.Salary.MinimumSize = new System.Drawing.Size(75, 0);
+            this.Salary.Name = "Salary";
+            this.Salary.Size = new System.Drawing.Size(75, 21);
+            this.Salary.TabIndex = 1;
+            this.Salary.Text = "Salary";
             // 
             // maskedTextBox3
             // 
@@ -266,33 +235,85 @@
             this.maskedTextBox3.Size = new System.Drawing.Size(198, 20);
             this.maskedTextBox3.TabIndex = 2;
             // 
-            // maskedTextBox4
+            // flowLayoutPanel3
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(84, 3);
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(198, 20);
-            this.maskedTextBox4.TabIndex = 2;
+            this.flowLayoutPanel3.Controls.Add(this.EmployeeRole);
+            this.flowLayoutPanel3.Controls.Add(this.RoleList);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 68);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(378, 34);
+            this.flowLayoutPanel3.TabIndex = 2;
             // 
-            // maskedTextBox5
+            // EmployeeRole
             // 
-            this.maskedTextBox5.Location = new System.Drawing.Point(84, 3);
-            this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.Size = new System.Drawing.Size(198, 20);
-            this.maskedTextBox5.TabIndex = 2;
+            this.EmployeeRole.AutoSize = true;
+            this.EmployeeRole.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeRole.Location = new System.Drawing.Point(3, 0);
+            this.EmployeeRole.MinimumSize = new System.Drawing.Size(75, 0);
+            this.EmployeeRole.Name = "EmployeeRole";
+            this.EmployeeRole.Size = new System.Drawing.Size(75, 21);
+            this.EmployeeRole.TabIndex = 1;
+            this.EmployeeRole.Text = "Role";
             // 
-            // DelBtn
+            // RoleList
             // 
-            this.DelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.DelBtn.FlatAppearance.BorderSize = 0;
-            this.DelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DelBtn.Font = new System.Drawing.Font("Afacad SemiBold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DelBtn.ForeColor = System.Drawing.Color.White;
-            this.DelBtn.Location = new System.Drawing.Point(3, 3);
-            this.DelBtn.Name = "DelBtn";
-            this.DelBtn.Size = new System.Drawing.Size(88, 30);
-            this.DelBtn.TabIndex = 0;
-            this.DelBtn.Text = "Delete";
-            this.DelBtn.UseVisualStyleBackColor = false;
+            this.RoleList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RoleList.FormattingEnabled = true;
+            this.RoleList.Location = new System.Drawing.Point(84, 3);
+            this.RoleList.Name = "RoleList";
+            this.RoleList.Size = new System.Drawing.Size(198, 21);
+            this.RoleList.TabIndex = 2;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.EmployeeStartDate);
+            this.flowLayoutPanel2.Controls.Add(this.dateTimePicker1);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 34);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(378, 34);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // EmployeeStartDate
+            // 
+            this.EmployeeStartDate.AutoSize = true;
+            this.EmployeeStartDate.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeStartDate.Location = new System.Drawing.Point(3, 0);
+            this.EmployeeStartDate.MinimumSize = new System.Drawing.Size(75, 0);
+            this.EmployeeStartDate.Name = "EmployeeStartDate";
+            this.EmployeeStartDate.Size = new System.Drawing.Size(75, 21);
+            this.EmployeeStartDate.TabIndex = 0;
+            this.EmployeeStartDate.Text = "Start date";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(84, 3);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.Information);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(378, 34);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // Information
+            // 
+            this.Information.AutoSize = true;
+            this.Information.Font = new System.Drawing.Font("Afacad", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Information.Location = new System.Drawing.Point(3, 0);
+            this.Information.Name = "Information";
+            this.Information.Size = new System.Drawing.Size(113, 28);
+            this.Information.TabIndex = 0;
+            this.Information.Text = "Information";
             // 
             // tableLayoutPanel3
             // 
@@ -315,39 +336,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(378, 402);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.Controls.Add(this.Email);
-            this.flowLayoutPanel8.Controls.Add(this.textBox1);
-            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 27);
-            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(378, 35);
-            this.flowLayoutPanel8.TabIndex = 0;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Controls.Add(this.DateOfBirth);
-            this.flowLayoutPanel9.Controls.Add(this.textBox2);
-            this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(0, 62);
-            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(378, 31);
-            this.flowLayoutPanel9.TabIndex = 1;
-            // 
-            // flowLayoutPanel10
-            // 
-            this.flowLayoutPanel10.Controls.Add(this.StoreID);
-            this.flowLayoutPanel10.Controls.Add(this.textBox3);
-            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(0, 93);
-            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(378, 34);
-            this.flowLayoutPanel10.TabIndex = 2;
-            // 
             // flowLayoutPanel12
             // 
             this.flowLayoutPanel12.Controls.Add(this.SaveBtn);
@@ -359,75 +347,6 @@
             this.flowLayoutPanel12.Name = "flowLayoutPanel12";
             this.flowLayoutPanel12.Size = new System.Drawing.Size(378, 48);
             this.flowLayoutPanel12.TabIndex = 4;
-            // 
-            // Email
-            // 
-            this.Email.AutoSize = true;
-            this.Email.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(3, 0);
-            this.Email.MinimumSize = new System.Drawing.Size(90, 0);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(90, 21);
-            this.Email.TabIndex = 0;
-            this.Email.Text = "Email";
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.AutoSize = true;
-            this.DateOfBirth.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateOfBirth.Location = new System.Drawing.Point(3, 0);
-            this.DateOfBirth.MinimumSize = new System.Drawing.Size(90, 0);
-            this.DateOfBirth.Name = "DateOfBirth";
-            this.DateOfBirth.Size = new System.Drawing.Size(90, 21);
-            this.DateOfBirth.TabIndex = 0;
-            this.DateOfBirth.Text = "Date of birth";
-            // 
-            // StoreID
-            // 
-            this.StoreID.AutoSize = true;
-            this.StoreID.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StoreID.Location = new System.Drawing.Point(3, 0);
-            this.StoreID.MinimumSize = new System.Drawing.Size(90, 0);
-            this.StoreID.Name = "StoreID";
-            this.StoreID.Size = new System.Drawing.Size(90, 21);
-            this.StoreID.TabIndex = 1;
-            this.StoreID.Text = "Store ID";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(99, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(99, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(198, 20);
-            this.textBox2.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(99, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(198, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Afacad Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.CancelBtn.Location = new System.Drawing.Point(149, 3);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(110, 34);
-            this.CancelBtn.TabIndex = 0;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.UseVisualStyleBackColor = false;
             // 
             // SaveBtn
             // 
@@ -442,22 +361,128 @@
             this.SaveBtn.TabIndex = 1;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
-            // dateTimePicker1
+            // CancelBtn
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(84, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.CancelBtn.FlatAppearance.BorderSize = 0;
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Afacad Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.CancelBtn.Location = new System.Drawing.Point(149, 3);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(110, 34);
+            this.CancelBtn.TabIndex = 0;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // RoleList
+            // flowLayoutPanel10
             // 
-            this.RoleList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RoleList.FormattingEnabled = true;
-            this.RoleList.Location = new System.Drawing.Point(84, 3);
-            this.RoleList.Name = "RoleList";
-            this.RoleList.Size = new System.Drawing.Size(198, 21);
-            this.RoleList.TabIndex = 2;
+            this.flowLayoutPanel10.Controls.Add(this.StoreID);
+            this.flowLayoutPanel10.Controls.Add(this.textBox3);
+            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(0, 93);
+            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(378, 34);
+            this.flowLayoutPanel10.TabIndex = 2;
+            // 
+            // StoreID
+            // 
+            this.StoreID.AutoSize = true;
+            this.StoreID.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreID.Location = new System.Drawing.Point(3, 0);
+            this.StoreID.MinimumSize = new System.Drawing.Size(90, 0);
+            this.StoreID.Name = "StoreID";
+            this.StoreID.Size = new System.Drawing.Size(90, 21);
+            this.StoreID.TabIndex = 1;
+            this.StoreID.Text = "Store ID";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(99, 3);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(198, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Controls.Add(this.DateOfBirth);
+            this.flowLayoutPanel9.Controls.Add(this.textBox2);
+            this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(0, 62);
+            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(378, 31);
+            this.flowLayoutPanel9.TabIndex = 1;
+            // 
+            // DateOfBirth
+            // 
+            this.DateOfBirth.AutoSize = true;
+            this.DateOfBirth.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateOfBirth.Location = new System.Drawing.Point(3, 0);
+            this.DateOfBirth.MinimumSize = new System.Drawing.Size(90, 0);
+            this.DateOfBirth.Name = "DateOfBirth";
+            this.DateOfBirth.Size = new System.Drawing.Size(90, 21);
+            this.DateOfBirth.TabIndex = 0;
+            this.DateOfBirth.Text = "Date of birth";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(99, 3);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(198, 20);
+            this.textBox2.TabIndex = 2;
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.Controls.Add(this.Email);
+            this.flowLayoutPanel8.Controls.Add(this.textBox1);
+            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 27);
+            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(378, 35);
+            this.flowLayoutPanel8.TabIndex = 0;
+            // 
+            // Email
+            // 
+            this.Email.AutoSize = true;
+            this.Email.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.Location = new System.Drawing.Point(3, 0);
+            this.Email.MinimumSize = new System.Drawing.Size(90, 0);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(90, 21);
+            this.Email.TabIndex = 0;
+            this.Email.Text = "Email";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(99, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(198, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.AutoSize = true;
+            this.EmployeeID.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeID.Location = new System.Drawing.Point(3, 0);
+            this.EmployeeID.MinimumSize = new System.Drawing.Size(75, 0);
+            this.EmployeeID.Name = "EmployeeID";
+            this.EmployeeID.Size = new System.Drawing.Size(75, 21);
+            this.EmployeeID.TabIndex = 3;
+            this.EmployeeID.Text = "ID";
+            // 
+            // EmployeeIDTextBox
+            // 
+            this.EmployeeIDTextBox.Location = new System.Drawing.Point(84, 3);
+            this.EmployeeIDTextBox.Name = "EmployeeIDTextBox";
+            this.EmployeeIDTextBox.Size = new System.Drawing.Size(198, 20);
+            this.EmployeeIDTextBox.TabIndex = 4;
             // 
             // BodyEmployeeView
             // 
@@ -471,27 +496,28 @@
             this.Size = new System.Drawing.Size(778, 418);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel4.PerformLayout();
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.flowLayoutPanel5.PerformLayout();
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel5.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel8.PerformLayout();
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel9.PerformLayout();
+            this.flowLayoutPanel12.ResumeLayout(false);
             this.flowLayoutPanel10.ResumeLayout(false);
             this.flowLayoutPanel10.PerformLayout();
-            this.flowLayoutPanel12.ResumeLayout(false);
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
+            this.flowLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -532,5 +558,7 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox RoleList;
+        private System.Windows.Forms.Label EmployeeID;
+        private System.Windows.Forms.MaskedTextBox EmployeeIDTextBox;
     }
 }

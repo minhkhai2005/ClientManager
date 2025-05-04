@@ -12,6 +12,7 @@ namespace OverviewStoresTab
 {
     public partial class UserControl1: UserControl
     {
+        public event EventHandler MsgBtnClicked;
         public UserControl1()
         {
             InitializeComponent();
@@ -20,6 +21,11 @@ namespace OverviewStoresTab
         private void StoreName_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void msgBtn_Click(object sender, EventArgs e)
+        {
+            MsgBtnClicked?.Invoke(this, e);
         }
     }
 }

@@ -17,19 +17,14 @@ namespace Card_staff
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void ViewBtn_Click(object sender, EventArgs e)
         {
-            Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias; // Chống răng cưa
 
-            // Vẽ nền trong suốt để tránh hiển thị góc vuông
-            g.Clear(this.BackColor);
+        }
 
-            using (Brush brush = new SolidBrush(panelStatus.BackColor)) // Lấy màu của Panel
-            {
-                int diameter = Math.Min(panelStatus.Width, panelStatus.Height); // Giữ hình tròn đúng tỷ lệ
-                g.FillEllipse(brush, 0, 0, diameter, diameter); // Vẽ hình tròn
-            }
+        private void MessageBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

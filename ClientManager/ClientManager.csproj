@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{46844830-254D-49F9-BE3F-120A01A69298}</ProjectGuid>
+    <ProjectGuid>{A5103198-8ADC-45C6-975D-58E41EF70FD4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ClientManager</RootNamespace>
     <AssemblyName>ClientManager</AssemblyName>
@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ClientManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ClientManager.Designer.cs">
+      <DependentUpon>ClientManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ClientManager.resx">
+      <DependentUpon>ClientManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,9 +81,49 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConfigurationPage\ConfigurationPage.csproj">
+      <Project>{d9944b7b-4a76-4c99-b8e7-9b37684fc765}</Project>
+      <Name>ConfigurationPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomersPage\CustomersPage.csproj">
+      <Project>{f2722a37-5ce2-4ca3-858b-e1c2dcbcbc6a}</Project>
+      <Name>CustomersPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dashboard\Dashboard.csproj">
+      <Project>{2a530c2b-8d36-49ab-bf2f-1ee1745505aa}</Project>
+      <Name>Dashboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeePage\EmployeePage.csproj">
+      <Project>{79706f2d-6901-41c4-828b-3e51378a05c3}</Project>
+      <Name>EmployeePage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Header_control\Header_control.csproj">
+      <Project>{d90bfa5f-c571-4823-8d65-600f7b13c969}</Project>
+      <Name>Header_control</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagerView\ManagerView.csproj">
+      <Project>{7d990ac2-881f-42dd-9ee6-23e0aa5e134e}</Project>
+      <Name>ManagerView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NoInternetConnectionControl\NoInternetConnectionControl.csproj">
       <Project>{6e0482fa-515a-4e03-95ea-c6519871655b}</Project>
       <Name>NoInternetConnectionControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotificationsPage\NotificationsPage.csproj">
+      <Project>{60ca1597-7c85-46df-b8a9-8455f369f5db}</Project>
+      <Name>NotificationsPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SidebarControl\SidebarControl.csproj">
+      <Project>{1fd9d7dc-981c-4c78-a8de-fdf0da90e0df}</Project>
+      <Name>SidebarControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreDetail\StoreDetail.csproj">
+      <Project>{af52424f-1d8e-4cd4-a2e6-d1b9566e17ba}</Project>
+      <Name>StoreDetail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoresList\StoresList.csproj">
+      <Project>{0976edaa-0777-43ad-a965-fc4b105b8465}</Project>
+      <Name>StoresList</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF52424F-1D8E-4CD4-A2E6-D1B9566E17BA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>StoreDetail</RootNamespace>
+    <AssemblyName>StoreDetail</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StoreDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StoreDetail.Designer.cs">
+      <DependentUpon>StoreDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StoreDetail.resx">
+      <DependentUpon>StoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Card_staff\Card_staff.csproj">
+      <Project>{d7ccad7d-fa59-4b3b-a221-8547a9689264}</Project>
+      <Name>Card_staff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeView\EmployeeView.csproj">
+      <Project>{83f88c2d-6b3f-4e57-aa3d-3ba95870c673}</Project>
+      <Name>EmployeeView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Header_Inventory_Stores\Header_Inventory_Stores.csproj">
+      <Project>{55db4317-df1c-4dd7-82f2-0fafb4c332bb}</Project>
+      <Name>Header_Inventory_Stores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryProductCard\InventoryProductCard.csproj">
+      <Project>{67374619-db17-4dc3-8976-a84fe303182c}</Project>
+      <Name>InventoryProductCard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InvoiceDetailForm\Invoice_Detail.csproj">
+      <Project>{00f1b0d6-6ba2-4baf-9bfa-eda25c514c70}</Project>
+      <Name>Invoice_Detail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeftBodyOverviewTabStores\LeftBodyOverviewTabStores.csproj">
+      <Project>{43c0141a-92af-48db-a95c-b30acb61874e}</Project>
+      <Name>LeftBodyOverviewTabStores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoInternetConnectionControl\NoInternetConnectionControl.csproj">
+      <Project>{6E0482FA-515A-4E03-95EA-C6519871655B}</Project>
+      <Name>NoInternetConnectionControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OverviewStoresTab\OverviewStoresTab.csproj">
+      <Project>{0008c9a4-4e62-4bf1-9074-1dae0d87b12f}</Project>
+      <Name>OverviewStoresTab</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductAdd\ProductAdd.csproj">
+      <Project>{439af163-0bb5-4756-a652-649df7e2dd2d}</Project>
+      <Name>ProductAdd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductEdit\ProductEdit.csproj">
+      <Project>{349c9b79-206b-4b40-9265-210051a8ec9f}</Project>
+      <Name>ProductEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductView\ProductView.csproj">
+      <Project>{2a970e9e-657e-41db-a7ca-c6334afb9ed0}</Project>
+      <Name>ProductView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RightBodyOvervewTabStores\RightBodyOvervewTabStores.csproj">
+      <Project>{09338cbc-342b-4146-b01f-196b99e94d05}</Project>
+      <Name>RightBodyOvervewTabStores</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

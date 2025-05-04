@@ -54,13 +54,13 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(953, 155);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 155);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // StorePicture
             // 
             this.StorePicture.Image = ((System.Drawing.Image)(resources.GetObject("StorePicture.Image")));
-            this.StorePicture.Location = new System.Drawing.Point(812, 11);
+            this.StorePicture.Location = new System.Drawing.Point(759, 11);
             this.StorePicture.Margin = new System.Windows.Forms.Padding(10);
             this.StorePicture.Name = "StorePicture";
             this.StorePicture.Size = new System.Drawing.Size(128, 128);
@@ -84,7 +84,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 147);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 147);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // StoreName
@@ -142,6 +142,7 @@
             this.msgBtn.TabIndex = 3;
             this.msgBtn.Text = "Message";
             this.msgBtn.UseVisualStyleBackColor = false;
+            this.msgBtn.Click += new System.EventHandler(this.msgBtn_Click);
             // 
             // UserControl1
             // 
@@ -149,9 +150,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(953, 155);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(953, 155);
+            this.Size = new System.Drawing.Size(900, 155);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.StorePicture)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
@@ -6,6 +7,8 @@ namespace card_displaying
 {
     public partial class card_displaying_store_in4 : UserControl
     {
+        public event EventHandler<string> ViewBtnClicked;
+        public event EventHandler<string> MessageBtnClicked;
         public card_displaying_store_in4()
         {
             InitializeComponent();
@@ -53,6 +56,15 @@ namespace card_displaying
             g.DrawLine(pen, 0, panel1.Height / 2, panel1.Width, panel1.Height / 2);
         }
 
+        private void ViewBtn_Click(object sender, System.EventArgs e)
+        {
+            ViewBtnClicked?.Invoke(this, StoreID.Text);
+        }
+
+        private void MessageBtn_Click(object sender, EventArgs e)
+        {
+            MessageBtnClicked?.Invoke(this, StoreID.Text);
+        }
     }
 }
 
