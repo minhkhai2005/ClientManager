@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sign_In;
 
-namespace ClientManager
+namespace Sign_Up
 {
     static class Program
     {
@@ -17,7 +16,7 @@ namespace ClientManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Sign_In.Sign_in());
+            Application.Run(new Sign_up());
         }
     }
 }
