@@ -75,11 +75,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationPage", "Config
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoice_Detail", "InvoiceDetailForm\Invoice_Detail.csproj", "{00F1B0D6-6BA2-4BAF-9BFA-EDA25C514C70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "signIn_control", "signIn_control\signIn_control.csproj", "{FF7225F5-E8C6-4736-913F-7915D2DAA485}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sign_In", "Sign_In\Sign_In.csproj", "{DF0EB12A-A056-495A-B674-AF302397BA3C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sign_Up_control", "sign_Up_control\sign_Up_control.csproj", "{5B28D95D-7339-4AFB-AB65-15CAC8CE9F01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sign_Up", "Sign_Up\Sign_Up.csproj", "{3B84DFD8-A9B9-4B9F-86E5-F2AA0616889E}"
 EndProject
@@ -233,18 +229,10 @@ Global
 		{00F1B0D6-6BA2-4BAF-9BFA-EDA25C514C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00F1B0D6-6BA2-4BAF-9BFA-EDA25C514C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00F1B0D6-6BA2-4BAF-9BFA-EDA25C514C70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF7225F5-E8C6-4736-913F-7915D2DAA485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF7225F5-E8C6-4736-913F-7915D2DAA485}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF7225F5-E8C6-4736-913F-7915D2DAA485}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF7225F5-E8C6-4736-913F-7915D2DAA485}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF0EB12A-A056-495A-B674-AF302397BA3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DF0EB12A-A056-495A-B674-AF302397BA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF0EB12A-A056-495A-B674-AF302397BA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF0EB12A-A056-495A-B674-AF302397BA3C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B28D95D-7339-4AFB-AB65-15CAC8CE9F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B28D95D-7339-4AFB-AB65-15CAC8CE9F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B28D95D-7339-4AFB-AB65-15CAC8CE9F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B28D95D-7339-4AFB-AB65-15CAC8CE9F01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B84DFD8-A9B9-4B9F-86E5-F2AA0616889E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B84DFD8-A9B9-4B9F-86E5-F2AA0616889E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B84DFD8-A9B9-4B9F-86E5-F2AA0616889E}.Release|Any CPU.ActiveCfg = Release|Any CPU

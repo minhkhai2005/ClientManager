@@ -27,14 +27,6 @@ namespace sign_Up_control
 
         }
 
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-            using (SolidBrush brush = new SolidBrush(Color.FromArgb( 120,192, 255, 255))) // Màu xanh #2980B9 với độ trong suốt 100
-            {
-                e.Graphics.FillRectangle(brush, pictureBox1.ClientRectangle);
-            }
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(120, 192, 255, 255))) // Màu DeepSkyBlue trong suốt

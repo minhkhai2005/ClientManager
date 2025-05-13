@@ -9,6 +9,7 @@ namespace ClientManager
 {
     static class Program
     {
+        private static Sign_in signInPage; 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +18,17 @@ namespace ClientManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Sign_In.Sign_in());
+            var signInPage = new Sign_in();
+            signInPage.ShowDialog();
+            if (signInPage.DialogResult == DialogResult.OK)
+            {
+                Application.Run(new ClientManager());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
+
     }
 }

@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FirebaseAuthentication.cs" />
     <Compile Include="Sign_in.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +71,7 @@
     <EmbeddedResource Include="Sign_in.resx">
       <DependentUpon>Sign_in.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,9 +86,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\signIn_control\signIn_control.csproj">
-      <Project>{ff7225f5-e8c6-4736-913f-7915d2daa485}</Project>
-      <Name>signIn_control</Name>
+    <ProjectReference Include="..\Sign_Up\Sign_Up.csproj">
+      <Project>{3b84dfd8-a9b9-4b9f-86e5-f2aa0616889e}</Project>
+      <Name>Sign_Up</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
