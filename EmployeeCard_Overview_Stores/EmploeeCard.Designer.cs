@@ -64,7 +64,7 @@
             this.ViewBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.ViewBtn.FlatAppearance.BorderSize = 0;
             this.ViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ViewBtn.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ViewBtn.ForeColor = System.Drawing.Color.White;
             this.ViewBtn.Location = new System.Drawing.Point(333, 22);
             this.ViewBtn.MaximumSize = new System.Drawing.Size(90, 35);
@@ -78,21 +78,21 @@
             // EmployeeName
             // 
             this.EmployeeName.AutoSize = true;
-            this.EmployeeName.Font = new System.Drawing.Font("Afacad Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeName.Location = new System.Drawing.Point(92, 0);
             this.EmployeeName.Name = "EmployeeName";
-            this.EmployeeName.Size = new System.Drawing.Size(174, 36);
+            this.EmployeeName.Size = new System.Drawing.Size(210, 31);
             this.EmployeeName.TabIndex = 2;
             this.EmployeeName.Text = "Trần Minh Khải";
             // 
             // EmployeeRole
             // 
             this.EmployeeRole.AutoSize = true;
-            this.EmployeeRole.Font = new System.Drawing.Font("Afacad Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
             this.EmployeeRole.Location = new System.Drawing.Point(92, 40);
             this.EmployeeRole.Name = "EmployeeRole";
-            this.EmployeeRole.Size = new System.Drawing.Size(64, 19);
+            this.EmployeeRole.Size = new System.Drawing.Size(78, 17);
             this.EmployeeRole.TabIndex = 3;
             this.EmployeeRole.Text = "Employee";
             // 

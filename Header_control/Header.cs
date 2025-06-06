@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DatabaseClass;
+using Sign_In;
+using static Sign_In.Sign_in;
 namespace Header_control
 {
-    public partial class Header: UserControl
+    public partial class Header : UserControl
     {
         public event EventHandler showManagerDetails;
         public Header()
@@ -35,6 +37,7 @@ namespace Header_control
 
         private void uesrname_Click(object sender, EventArgs e)
         {
+           
             showManagerDetails?.Invoke(this, EventArgs.Empty);
         }
 
@@ -46,6 +49,16 @@ namespace Header_control
         private void userRole_Click(object sender, EventArgs e)
         {
             showManagerDetails?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public void UpdateHeader(string name)
+        {
+            uesrname.Text = name;
+
         }
     }
 }

@@ -98,5 +98,14 @@ namespace ClientManager
         {
 
         }
+
+        private void header1_Load(object sender, EventArgs e)
+        {
+            // Set the manager's name in the header
+            string email = Session.Email;
+            string managerName = DatabaseAccess.GetManagerNameByEmail(email);
+            header1.UpdateHeader(managerName);
+
+        }
     }
 }

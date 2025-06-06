@@ -156,6 +156,18 @@ namespace DatabaseClass
                 return (revenue, orders);
             }
         }
+        public static string GetManagerNameByEmail(string email)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT Manager_Name FROM Manager WHERE Manager_Email = @Email";
+                var managerName = connection.QueryFirstOrDefault<string>(sql, new { Email = email });
+
+                return managerName ?? ""; // Nếu không tìm thấy trả về chuỗi rỗng
+            }
+        }
 
 
 

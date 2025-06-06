@@ -51,21 +51,21 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.211987F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.78801F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 901);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 845);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(2, 85);
+            this.splitContainer1.Location = new System.Drawing.Point(2, 79);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.sidebar);
-            this.splitContainer1.Size = new System.Drawing.Size(1380, 814);
+            this.splitContainer1.Size = new System.Drawing.Size(1380, 764);
             this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
@@ -76,7 +76,7 @@
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.Margin = new System.Windows.Forms.Padding(1);
             this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(400, 812);
+            this.sidebar.Size = new System.Drawing.Size(400, 762);
             this.sidebar.TabIndex = 0;
             this.sidebar.sidebarPageChanged += new System.EventHandler<SidebarControl.sidebar.sidebarPage>(this.sidebar_sidebarPageChanged);
             // 
@@ -88,15 +88,16 @@
             this.header1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.header1.MaximumSize = new System.Drawing.Size(0, 78);
             this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(1380, 77);
+            this.header1.Size = new System.Drawing.Size(1380, 71);
             this.header1.TabIndex = 1;
             this.header1.showManagerDetails += new System.EventHandler(this.header1_showManagerDetails);
+            this.header1.Load += new System.EventHandler(this.header1_Load);
             // 
             // ClientManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 901);
+            this.ClientSize = new System.Drawing.Size(1384, 845);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientManager";
