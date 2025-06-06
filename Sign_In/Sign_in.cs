@@ -15,7 +15,10 @@ namespace Sign_In
 {
     public partial class Sign_in: Form
     {
-        public string Email { get; set; }
+        public static class Session
+        {
+            public static string Email { get; set; }
+        }
         public Sign_in()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace Sign_In
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
-                Email = EmailBox.Text;
+                Session.Email = EmailBox.Text;
                 this.Close();
             }
             else
@@ -41,6 +44,17 @@ namespace Sign_In
         {
             Sign_up sign_Up = new Sign_up();
             sign_Up.ShowDialog();
+        }
+
+        private void EmailBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+      
+
+        private void Sign_in_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

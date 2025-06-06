@@ -14,7 +14,8 @@ namespace DatabaseClass
     public class DatabaseAccess
     {
         // Thay doi Server, User Id va password tuong ung voi may cua ban
-        static string connectionString = "Server=100.117.185.44;Database=StoreManagement;User Id=minhkhai;Password=666778;TrustServerCertificate=True;";
+        static string connectionString = "Server=localhost;Database=StoreManagement;Integrated Security=True;TrustServerCertificate=True;";
+
 
         public class Manager
         {
@@ -122,5 +123,42 @@ namespace DatabaseClass
                 connection.Execute(sqlQuery, manager);
             }
         }
+
+        public static (double revenue, int orders) GetDashboardData(string email)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Dùng đúng tên cột Manager_Email
+                string getManagerIdSql = "SELECT Manager_ID FROM Manager WHERE Manager_Email = @Email";
+                var managerId = connection.QueryFirstOrDefault<string>(getManagerIdSql, new { Email = email });
+
+                if (string.IsNullOrEmpty(managerId))
+                {
+                    return (0, 0); // Không tìm thấy manager
+                }
+
+                string sql = @"
+            SELECT 
+                SUM(i.Invoice_TotalAmount) AS TotalRevenue,
+                COUNT(*) AS TotalOrders
+            FROM Invoice i
+            JOIN Customer c ON i.Customer_ID = c.Customer_ID
+            JOIN Store s ON c.Store_ID = s.Store_ID
+            WHERE s.Manager_ID = @ManagerId";
+
+                var result = connection.QueryFirstOrDefault<dynamic>(sql, new { ManagerId = managerId });
+
+                double revenue = result?.TotalRevenue is decimal d ? (double)d : 0;
+                int orders = result?.TotalOrders ?? 0;
+
+                return (revenue, orders);
+            }
+        }
+
+
+
+
     }
 }

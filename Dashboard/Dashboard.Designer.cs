@@ -34,9 +34,9 @@
             this.formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.RevenueText = new System.Windows.Forms.Label();
             this.RevenueValue = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.OrderText = new System.Windows.Forms.Label();
             this.OrderValue = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
@@ -125,6 +125,28 @@
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
+            // RevenueText
+            // 
+            this.RevenueText.AutoSize = true;
+            this.RevenueText.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RevenueText.Location = new System.Drawing.Point(3, 0);
+            this.RevenueText.Name = "RevenueText";
+            this.RevenueText.Size = new System.Drawing.Size(141, 37);
+            this.RevenueText.TabIndex = 0;
+            this.RevenueText.Text = "Revenue";
+            this.RevenueText.Click += new System.EventHandler(this.RevenueText_Click);
+            // 
+            // RevenueValue
+            // 
+            this.RevenueValue.AutoSize = true;
+            this.RevenueValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RevenueValue.Location = new System.Drawing.Point(3, 37);
+            this.RevenueValue.Name = "RevenueValue";
+            this.RevenueValue.Size = new System.Drawing.Size(150, 37);
+            this.RevenueValue.TabIndex = 1;
+            this.RevenueValue.Text = "$130,000";
+            this.RevenueValue.Click += new System.EventHandler(this.RevenueValue_Click);
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.OrderText);
@@ -137,44 +159,23 @@
             this.flowLayoutPanel2.TabIndex = 1;
             this.flowLayoutPanel2.WrapContents = false;
             // 
-            // RevenueText
-            // 
-            this.RevenueText.AutoSize = true;
-            this.RevenueText.Font = new System.Drawing.Font("Afacad", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RevenueText.Location = new System.Drawing.Point(3, 0);
-            this.RevenueText.Name = "RevenueText";
-            this.RevenueText.Size = new System.Drawing.Size(128, 43);
-            this.RevenueText.TabIndex = 0;
-            this.RevenueText.Text = "Revenue";
-            this.RevenueText.Click += new System.EventHandler(this.RevenueText_Click);
-            // 
-            // RevenueValue
-            // 
-            this.RevenueValue.AutoSize = true;
-            this.RevenueValue.Font = new System.Drawing.Font("Afacad", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RevenueValue.Location = new System.Drawing.Point(3, 43);
-            this.RevenueValue.Name = "RevenueValue";
-            this.RevenueValue.Size = new System.Drawing.Size(144, 43);
-            this.RevenueValue.TabIndex = 1;
-            this.RevenueValue.Text = "$130,000";
-            // 
             // OrderText
             // 
             this.OrderText.AutoSize = true;
-            this.OrderText.Font = new System.Drawing.Font("Afacad", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderText.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OrderText.Location = new System.Drawing.Point(3, 0);
             this.OrderText.Name = "OrderText";
-            this.OrderText.Size = new System.Drawing.Size(107, 43);
+            this.OrderText.Size = new System.Drawing.Size(115, 37);
             this.OrderText.TabIndex = 1;
             this.OrderText.Text = "Orders";
             // 
             // OrderValue
             // 
             this.OrderValue.AutoSize = true;
-            this.OrderValue.Font = new System.Drawing.Font("Afacad", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderValue.Location = new System.Drawing.Point(3, 43);
+            this.OrderValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderValue.Location = new System.Drawing.Point(3, 37);
             this.OrderValue.Name = "OrderValue";
-            this.OrderValue.Size = new System.Drawing.Size(110, 43);
+            this.OrderValue.Size = new System.Drawing.Size(114, 37);
             this.OrderValue.TabIndex = 2;
             this.OrderValue.Text = "12,380";
             // 
@@ -183,10 +184,10 @@
             this.Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Afacad SemiBold", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.Location = new System.Drawing.Point(3, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(213, 84);
+            this.Title.Size = new System.Drawing.Size(242, 84);
             this.Title.TabIndex = 2;
             this.Title.Text = "Dashboard";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

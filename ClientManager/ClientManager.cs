@@ -14,8 +14,10 @@ using StoreDetail; // Assuming you have a StoreDetail UserControl
 using EmployeePage; // Assuming you have an EmployeePage UserControl
 using CustomersPage; // Assuming you have a CustomersPage UserControl
 using NotificationsPage; // Assuming you have a NotificationsPage UserControl
-using ConfigurationPage;    
-
+using ConfigurationPage;
+using DatabaseClass;
+using Sign_In;
+using static Sign_In.Sign_in;
 namespace ClientManager
 {
     public partial class ClientManager : Form
@@ -62,11 +64,11 @@ namespace ClientManager
             switch (e)
             {
                 case SidebarControl.sidebar.sidebarPage.Dashboard:
-                    LoadPage(dashboardPage); // Ensure Dashboard is a UserControl  
-                    // lấy dữ liệu từ server
-                    // revenue
-                    // orders
-                    // dashboardPage.UpdateData(reveune, orders);
+                    // Ensure Dashboard is a UserControl  
+                    string email = Session.Email;
+                    (double revenue, int orders) = DatabaseAccess.GetDashboardData(email);
+                    dashboardPage.UpdateData(revenue, orders); // This line is commented out in the original code
+                    LoadPage(dashboardPage);
                     break;
                 case SidebarControl.sidebar.sidebarPage.Stores:
                     LoadPage(storesPage);  
@@ -90,6 +92,11 @@ namespace ClientManager
         {
             ManagerView.ManagerView managerView = new ManagerView.ManagerView();
             managerView.ShowDialog();
+        }
+
+        private void sidebar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
