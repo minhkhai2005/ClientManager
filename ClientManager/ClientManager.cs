@@ -63,6 +63,10 @@ namespace ClientManager
             {
                 case SidebarControl.sidebar.sidebarPage.Dashboard:
                     LoadPage(dashboardPage); // Ensure Dashboard is a UserControl  
+                    // lấy dữ liệu từ server
+                    // revenue
+                    // orders
+                    // dashboardPage.UpdateData(reveune, orders);
                     break;
                 case SidebarControl.sidebar.sidebarPage.Stores:
                     LoadPage(storesPage);  

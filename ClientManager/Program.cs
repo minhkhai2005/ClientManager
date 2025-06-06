@@ -18,7 +18,7 @@ namespace ClientManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var signInPage = new Sign_in();
+            signInPage = new Sign_in();
             signInPage.ShowDialog();
             if (signInPage.DialogResult == DialogResult.OK)
             {

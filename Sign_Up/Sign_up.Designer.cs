@@ -39,6 +39,8 @@
             this.EmailBox = new System.Windows.Forms.TextBox();
             this.SignUpBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.PhoneTextBox = new System.Windows.Forms.Label();
+            this.Phone = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 142);
+            this.label3.Location = new System.Drawing.Point(21, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 3;
@@ -81,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 174);
+            this.label5.Location = new System.Drawing.Point(21, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 13);
             this.label5.TabIndex = 4;
@@ -89,32 +91,32 @@
             // 
             // ConfirmBox
             // 
-            this.ConfirmBox.Location = new System.Drawing.Point(118, 171);
+            this.ConfirmBox.Location = new System.Drawing.Point(118, 202);
             this.ConfirmBox.Name = "ConfirmBox";
             this.ConfirmBox.PasswordChar = '*';
             this.ConfirmBox.Size = new System.Drawing.Size(204, 20);
-            this.ConfirmBox.TabIndex = 3;
+            this.ConfirmBox.TabIndex = 4;
             this.ConfirmBox.UseSystemPasswordChar = true;
             // 
             // PasswordBox
             // 
-            this.PasswordBox.Location = new System.Drawing.Point(118, 142);
+            this.PasswordBox.Location = new System.Drawing.Point(118, 170);
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.PasswordChar = '*';
             this.PasswordBox.Size = new System.Drawing.Size(204, 20);
-            this.PasswordBox.TabIndex = 2;
+            this.PasswordBox.TabIndex = 3;
             this.PasswordBox.UseSystemPasswordChar = true;
             // 
             // NameBox
             // 
-            this.NameBox.Location = new System.Drawing.Point(118, 110);
+            this.NameBox.Location = new System.Drawing.Point(118, 106);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(204, 20);
             this.NameBox.TabIndex = 1;
             // 
             // EmailBox
             // 
-            this.EmailBox.Location = new System.Drawing.Point(118, 78);
+            this.EmailBox.Location = new System.Drawing.Point(118, 74);
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(204, 20);
             this.EmailBox.TabIndex = 0;
@@ -124,7 +126,7 @@
             this.SignUpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.SignUpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SignUpBtn.ForeColor = System.Drawing.Color.White;
-            this.SignUpBtn.Location = new System.Drawing.Point(24, 210);
+            this.SignUpBtn.Location = new System.Drawing.Point(24, 245);
             this.SignUpBtn.Name = "SignUpBtn";
             this.SignUpBtn.Size = new System.Drawing.Size(101, 32);
             this.SignUpBtn.TabIndex = 9;
@@ -137,16 +139,34 @@
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.label6.Location = new System.Drawing.Point(21, 263);
+            this.label6.Location = new System.Drawing.Point(21, 293);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Sign in";
             // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.AutoSize = true;
+            this.PhoneTextBox.Location = new System.Drawing.Point(21, 142);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(38, 13);
+            this.PhoneTextBox.TabIndex = 12;
+            this.PhoneTextBox.Text = "Phone";
+            // 
+            // Phone
+            // 
+            this.Phone.Location = new System.Drawing.Point(118, 138);
+            this.Phone.Name = "Phone";
+            this.Phone.Size = new System.Drawing.Size(204, 20);
+            this.Phone.TabIndex = 2;
+            // 
             // Sign_up
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(387, 452);
+            this.Controls.Add(this.Phone);
+            this.Controls.Add(this.PhoneTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.SignUpBtn);
             this.Controls.Add(this.EmailBox);
@@ -177,6 +197,8 @@
         private System.Windows.Forms.TextBox EmailBox;
         private System.Windows.Forms.Button SignUpBtn;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label PhoneTextBox;
+        private System.Windows.Forms.TextBox Phone;
     }
 }
 

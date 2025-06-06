@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Authentication
 {
@@ -57,7 +58,14 @@ namespace Authentication
             //Console.WriteLine($"❌ Lỗi khi gửi email xác nhận: \n{result}");
             //MessageBox.Show($"Lỗi khi gửi email xác nhận: \n{result}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        public static async Task<bool> SignUp(string email, string password)
+        public class SignUpResult
+        {
+            public bool Success { get; set; }
+            public string Email { get; set; }
+            public string Username { get; set; }
+            public string UID { get; set; }
+        }
+        public static async Task<SignUpResult> SignUp(string email, string password)
         {
             var client = new HttpClient();
             var url = $"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={apiKey}";
@@ -78,13 +86,26 @@ namespace Authentication
                 //Console.WriteLine($"Đăng ký thành công! idToken: {auth.idToken}");
                 //MessageBox.Show("Đăng ký thành công!\nXác nhận email để hoàn tất đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await SendEmailVerification(auth.idToken);
-                return true;
+                
+                return new SignUpResult
+                {
+                    Success = true,
+                    Email = auth.email,
+                    Username = "", 
+                    UID = auth.localId
+                };
             }
             else
             {
                 //Console.WriteLine($"Lỗi khi đăng ký:\n{result}");
                 //MessageBox.Show($"Lỗi khi đăng ký:\n{result}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return new SignUpResult
+                {
+                    Success = false,
+                    Email = email,
+                    Username = "", 
+                    UID = null
+                };
             }
         }
 
