@@ -8,11 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ClientManager</RootNamespace>
     <AssemblyName>ClientManager</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <PreferNativeArm64>true</PreferNativeArm64>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -81,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -108,6 +110,10 @@
     <ProjectReference Include="..\Dashboard\Dashboard.csproj">
       <Project>{2a530c2b-8d36-49ab-bf2f-1ee1745505aa}</Project>
       <Name>Dashboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseClass\DatabaseClass.csproj">
+      <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
+      <Name>DatabaseClass</Name>
     </ProjectReference>
     <ProjectReference Include="..\EmployeePage\EmployeePage.csproj">
       <Project>{79706f2d-6901-41c4-828b-3e51378a05c3}</Project>

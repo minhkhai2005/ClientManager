@@ -20,8 +20,17 @@ namespace Dashboard
             InitializeComponent();
             TimeBox.DataSource = TimeBoxItems;
         }
-
+        public void UpdateData(double revenue, int orders)
+        {
+            RevenueValue.Text = revenue.ToString();
+            OrderValue.Text = orders.ToString();
+        }
         private void RevenueText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RevenueValue_Click(object sender, EventArgs e)
         {
 
         }
