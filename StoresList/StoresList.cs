@@ -28,7 +28,7 @@ namespace StoresList
                 ListViewItem item = new ListViewItem(store.Store_ID);
                 item.SubItems.Add(store.Store_Name);
                 item.SubItems.Add(store.Store_Address);
-                item.SubItems.Add(store.Status);
+                item.SubItems.Add(store.Store_Status ? "Open" : "Closed");
                 item.Tag = store; // Store the entire store object in the Tag property
                 listView1.Items.Add(item);
             }

@@ -17,7 +17,6 @@ namespace DatabaseClass
         // Thay doi Server, User Id va password tuong ung voi may cua ban
         //static string connectionString = "Server=localhost;Database=StoreManagement;Integrated Security=True;TrustServerCertificate=True;";
         static string connectionString = "Server=192.168.1.52;Database=StoreManagement;User Id=mk3d;Password=mk3d;TrustServerCertificate=True;";
-
         public class Manager
         {
             public string Manager_ID { get; set; }
@@ -71,7 +70,8 @@ namespace DatabaseClass
             public string Store_Name { get; set; }
             public string Store_Address { get; set; }
             public string Manager_ID { get; set; }
-            public string Status { get; set; }
+            public bool Store_Status { get; set; }
+            public string Store_Email { get; set; }
         }
         public class Product
         {
@@ -234,6 +234,35 @@ namespace DatabaseClass
                 AND s.Is_Active = 1;  -- Chỉ lấy ca làm việc đang hoạt động";
                 var result = connection.ExecuteScalar<List<Employee>>(sqlQuery, new { Store_ID = StoreID });
                 return result;
+            }
+        }
+        public static Store GetStoreByEmail(string StoreEmail)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Store WHERE Store_Email = @Store_Email";
+                return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_Email = StoreEmail });
+            }
+        }
+        public static void UpdateStore(string StoreID, Store store)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "UPDATE Store" +
+                    " SET Store_Status = @Store_Status " +
+                    ", Store_Name = @Store_Name, " +
+                    "Store_Address = @Store_Address, " +
+                    "Manager_ID = @Manager_ID " +
+                    "WHERE Store_ID = @Store_ID";
+                connection.Execute(sqlQuery, new { 
+                    Store_ID = StoreID,
+                    Store_Name =  store.Store_Name, 
+                    Store_Address = store.Store_Address,
+                    Manager_ID = store.Manager_ID,
+                    Store_Status = store.Store_Status
+            });
             }
         }
     }

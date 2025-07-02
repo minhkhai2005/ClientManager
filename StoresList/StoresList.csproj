@@ -75,6 +75,14 @@
       <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
       <Name>DatabaseClass</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sign_In\Sign_In.csproj">
+      <Project>{df0eb12a-a056-495a-b674-af302397ba3c}</Project>
+      <Name>Sign_In</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\smtp\smtp.csproj">
+      <Project>{5936ae91-e345-4cd1-94bc-0ff87e8dfbad}</Project>
+      <Name>smtp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StoreDetail\StoreDetail.csproj">
       <Project>{af52424f-1d8e-4cd4-a2e6-d1b9566e17ba}</Project>
       <Name>StoreDetail</Name>

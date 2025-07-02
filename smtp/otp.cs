@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
 using System.Runtime.Caching;
+using System.Security.Cryptography;
 
 
 namespace smtp
 {
     static public class otp
     {
+        static private MemoryCache cache = MemoryCache.Default;
         static public void StoreOtp(string email, string otp)
         {
             MemoryCache.Default.Set($"otp_{email}", otp,

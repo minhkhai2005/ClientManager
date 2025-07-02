@@ -39,7 +39,7 @@ namespace StoreDetail
                 // Update UI elements with store details
                 overviewHeader.UpdateStoreName(store.Store_Name);
                 overviewHeader.UpdateStoreAddress(store.Store_Address);
-                overviewHeader.UpdateStoreStatus(store.Status);
+                overviewHeader.UpdateStoreStatus(store.Store_Status?"Open":"Close");
 
                 rightBodyOverviewTabStores1.UpdateRevenue(storeRevenue); // Replace with actual revenue data
                 rightBodyOverviewTabStores1.UpdateOrders(storeOrders); // Replace with actual order count
