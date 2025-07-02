@@ -16,7 +16,7 @@ namespace DatabaseClass
     {
         // Thay doi Server, User Id va password tuong ung voi may cua ban
         //static string connectionString = "Server=localhost;Database=StoreManagement;Integrated Security=True;TrustServerCertificate=True;";
-        static string connectionString = "Server=100.117.185.44;Database=StoreManagement;User Id=minhkhai;Password=666778;TrustServerCertificate=True;";
+        static string connectionString = "Server=192.168.1.52;Database=StoreManagement;User Id=mk3d;Password=mk3d;TrustServerCertificate=True;";
 
         public class Manager
         {
