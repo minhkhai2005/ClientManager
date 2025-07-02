@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_Store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Store.Designer.cs">
+      <DependentUpon>Add_Store.cs</DependentUpon>
+    </Compile>
     <Compile Include="StoresList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -53,6 +59,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Add_Store.resx">
+      <DependentUpon>Add_Store.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StoresList.resx">
       <DependentUpon>StoresList.cs</DependentUpon>
     </EmbeddedResource>
