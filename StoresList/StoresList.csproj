@@ -62,6 +62,10 @@
       <Project>{c713d0bb-3e75-4ff1-9d65-fa3c7cfe3afc}</Project>
       <Name>card_displaying_store_in4</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DatabaseClass\DatabaseClass.csproj">
+      <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
+      <Name>DatabaseClass</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StoreDetail\StoreDetail.csproj">
       <Project>{af52424f-1d8e-4cd4-a2e6-d1b9566e17ba}</Project>
       <Name>StoreDetail</Name>

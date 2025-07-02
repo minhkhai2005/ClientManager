@@ -18,6 +18,7 @@ namespace Sign_In
         public static class Session
         {
             public static string Email { get; set; }
+            public static string UID { get; set; }
         }
         public Sign_in()
         {
@@ -26,12 +27,13 @@ namespace Sign_In
 
         private async void SignInBtn_Click(object sender, EventArgs e)
         {
-            bool result = await FirebaseAuthentication.SignIn(EmailBox.Text, PasswordBox.Text);
-            if (result)
+            var result = await FirebaseAuthentication.SignIn(EmailBox.Text, PasswordBox.Text);
+            if (result.Item1)
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 Session.Email = EmailBox.Text;
+                Session.UID = result.Item2; // Lưu UID vào Session
                 this.Close();
             }
             else

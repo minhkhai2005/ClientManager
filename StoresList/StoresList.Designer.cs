@@ -28,100 +28,119 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.card_displaying_store_in41 = new card_displaying.card_displaying_store_in4();
-            this.card_displaying_store_in42 = new card_displaying.card_displaying_store_in4();
-            this.card_displaying_store_in43 = new card_displaying.card_displaying_store_in4();
-            this.card_displaying_store_in44 = new card_displaying.card_displaying_store_in4();
-            this.card_displaying_store_in45 = new card_displaying.card_displaying_store_in4();
-            this.card_displaying_store_in46 = new card_displaying.card_displaying_store_in4();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnStoreName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnStoreAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnStoreStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnStoreID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // tableLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.card_displaying_store_in41);
-            this.flowLayoutPanel1.Controls.Add(this.card_displaying_store_in42);
-            this.flowLayoutPanel1.Controls.Add(this.card_displaying_store_in43);
-            this.flowLayoutPanel1.Controls.Add(this.card_displaying_store_in44);
-            this.flowLayoutPanel1.Controls.Add(this.card_displaying_store_in45);
-            this.flowLayoutPanel1.Controls.Add(this.card_displaying_store_in46);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(950, 880);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.listView1, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.354916F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.64508F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(950, 880);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // card_displaying_store_in41
+            // label1
             // 
-            this.card_displaying_store_in41.Location = new System.Drawing.Point(17, 17);
-            this.card_displaying_store_in41.Margin = new System.Windows.Forms.Padding(2);
-            this.card_displaying_store_in41.Name = "card_displaying_store_in41";
-            this.card_displaying_store_in41.Size = new System.Drawing.Size(317, 195);
-            this.card_displaying_store_in41.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Afacad SemiBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 43);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Stores";
             // 
-            // card_displaying_store_in42
+            // button1
             // 
-            this.card_displaying_store_in42.Location = new System.Drawing.Point(338, 17);
-            this.card_displaying_store_in42.Margin = new System.Windows.Forms.Padding(2);
-            this.card_displaying_store_in42.Name = "card_displaying_store_in42";
-            this.card_displaying_store_in42.Size = new System.Drawing.Size(317, 195);
-            this.card_displaying_store_in42.TabIndex = 1;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(3, 837);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 40);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // card_displaying_store_in43
+            // listView1
             // 
-            this.card_displaying_store_in43.Location = new System.Drawing.Point(17, 216);
-            this.card_displaying_store_in43.Margin = new System.Windows.Forms.Padding(2);
-            this.card_displaying_store_in43.Name = "card_displaying_store_in43";
-            this.card_displaying_store_in43.Size = new System.Drawing.Size(317, 195);
-            this.card_displaying_store_in43.TabIndex = 2;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnStoreID,
+            this.columnStoreName,
+            this.columnStoreAddress,
+            this.columnStoreStatus});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 56);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(944, 775);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
             // 
-            // card_displaying_store_in44
+            // columnStoreName
             // 
-            this.card_displaying_store_in44.Location = new System.Drawing.Point(338, 216);
-            this.card_displaying_store_in44.Margin = new System.Windows.Forms.Padding(2);
-            this.card_displaying_store_in44.Name = "card_displaying_store_in44";
-            this.card_displaying_store_in44.Size = new System.Drawing.Size(317, 195);
-            this.card_displaying_store_in44.TabIndex = 3;
+            this.columnStoreName.Text = "Store";
+            this.columnStoreName.Width = 200;
             // 
-            // card_displaying_store_in45
+            // columnStoreAddress
             // 
-            this.card_displaying_store_in45.Location = new System.Drawing.Point(17, 415);
-            this.card_displaying_store_in45.Margin = new System.Windows.Forms.Padding(2);
-            this.card_displaying_store_in45.Name = "card_displaying_store_in45";
-            this.card_displaying_store_in45.Size = new System.Drawing.Size(317, 195);
-            this.card_displaying_store_in45.TabIndex = 4;
+            this.columnStoreAddress.Text = "Address";
+            this.columnStoreAddress.Width = 200;
             // 
-            // card_displaying_store_in46
+            // columnStoreStatus
             // 
-            this.card_displaying_store_in46.Location = new System.Drawing.Point(338, 415);
-            this.card_displaying_store_in46.Margin = new System.Windows.Forms.Padding(2);
-            this.card_displaying_store_in46.Name = "card_displaying_store_in46";
-            this.card_displaying_store_in46.Size = new System.Drawing.Size(317, 195);
-            this.card_displaying_store_in46.TabIndex = 5;
+            this.columnStoreStatus.Text = "Status";
+            this.columnStoreStatus.Width = 200;
+            // 
+            // columnStoreID
+            // 
+            this.columnStoreID.Text = "Store ID";
             // 
             // StoreList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "StoreList";
             this.Size = new System.Drawing.Size(950, 880);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private card_displaying.card_displaying_store_in4 card_displaying_store_in41;
-        private card_displaying.card_displaying_store_in4 card_displaying_store_in42;
-        private card_displaying.card_displaying_store_in4 card_displaying_store_in43;
-        private card_displaying.card_displaying_store_in4 card_displaying_store_in44;
-        private card_displaying.card_displaying_store_in4 card_displaying_store_in45;
-        private card_displaying.card_displaying_store_in4 card_displaying_store_in46;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnStoreName;
+        private System.Windows.Forms.ColumnHeader columnStoreAddress;
+        private System.Windows.Forms.ColumnHeader columnStoreStatus;
+        private System.Windows.Forms.ColumnHeader columnStoreID;
     }
 }

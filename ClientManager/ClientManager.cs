@@ -31,8 +31,7 @@ namespace ClientManager
         public ClientManager()
         {
             InitializeComponent();
-            storesPage.ViewBtnClicked += StoresPage_ViewBtnClicked;
-            storesPage.MessageBtnClicked += StoresPage_MessageBtnClicked;
+            storesPage.StoreSelected += LoadDetailStore;
         }
 
         private void LoadPage(UserControl page)
@@ -41,24 +40,12 @@ namespace ClientManager
             page.Dock = DockStyle.Fill; // Fill entire panel  
             splitContainer1.Panel2.Controls.Add(page); // Add new control  
         }
-
-        private void StoresPage_ViewBtnClicked(object sender, string storeID)
+        private void LoadDetailStore(object sender, string storeID)
         {
-            // Handle the event when the View button is clicked in the StoresList UserControl
-            StoreDetail.StoreDetail storeDetail = new StoreDetail.StoreDetail();
+            // Handle the event when a store is selected in the StoresList UserControl
+            StoreDetail.StoreDetail storeDetail = new StoreDetail.StoreDetail(storeID);
             LoadPage(storeDetail); // Load the StoreDetail UserControl
         }
-
-        private void StoresPage_MessageBtnClicked(object sender, string storeID)
-        {
-            // Handle the event when the Message button is clicked in the StoresList UserControl
-            // You can implement your logic here
-            StoreDetail.StoreDetail storeDetail = new StoreDetail.StoreDetail();
-            storeDetail.ChangeTab(3); // Change to the Messages tab
-            LoadPage(storeDetail); // Load the StoreDetail UserControl
-
-        }
-
         private void sidebar_sidebarPageChanged(object sender, SidebarControl.sidebar.sidebarPage e)
         {
             switch (e)
@@ -71,6 +58,8 @@ namespace ClientManager
                     LoadPage(dashboardPage);
                     break;
                 case SidebarControl.sidebar.sidebarPage.Stores:
+                    var stores = DatabaseAccess.GetStoresByManagerID(Session.UID);
+                    storesPage.UpdateStoreList(stores); // Assuming you have a method to update the store list in StoresList UserControl
                     LoadPage(storesPage);  
                     break;
                 case SidebarControl.sidebar.sidebarPage.Employees:
@@ -90,7 +79,7 @@ namespace ClientManager
 
         private void header1_showManagerDetails(object sender, EventArgs e)
         {
-            ManagerView.ManagerView managerView = new ManagerView.ManagerView();
+            ManagerView.ManagerView managerView = new ManagerView.ManagerView(Session.UID);
             managerView.ShowDialog();
         }
 
@@ -103,8 +92,8 @@ namespace ClientManager
         {
             // Set the manager's name in the header
             string email = Session.Email;
-            string managerName = DatabaseAccess.GetManagerNameByEmail(email);
-            header1.UpdateHeader(managerName);
+            var manager = DatabaseAccess.GetManagerByEmail(email);
+            header1.UpdateHeader(manager.Manager_Name);
 
         }
     }

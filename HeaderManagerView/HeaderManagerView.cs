@@ -21,5 +21,9 @@ namespace HeaderManagerView
         {
 
         }
+        public void UpdateHeader(string name)
+        {
+            ManagerName.Text = name;
+        }
     }
 }

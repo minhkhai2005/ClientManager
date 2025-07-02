@@ -8,28 +8,43 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StoreDetail;
+using DatabaseClass;
 
 namespace StoresList
 {
     public partial class StoreList: UserControl
     {
-        public event EventHandler<string> ViewBtnClicked;
-        public event EventHandler<string> MessageBtnClicked;
+        public event EventHandler<string> StoreSelected;
         public StoreList()
         {
             InitializeComponent();
-            card_displaying_store_in41.ViewBtnClicked += ViewBtnClick;
-            card_displaying_store_in41.MessageBtnClicked += MessageBtnClick;
         }
 
-        private void ViewBtnClick(object sender, string StoreID)
+        public void UpdateStoreList(List<DatabaseAccess.Store> stores)
         {
-            ViewBtnClicked?.Invoke(this, StoreID);
+            listView1.Items.Clear();
+            foreach (var store in stores)
+            {
+                ListViewItem item = new ListViewItem(store.Store_ID);
+                item.SubItems.Add(store.Store_Name);
+                item.SubItems.Add(store.Store_Address);
+                item.SubItems.Add(store.Status);
+                item.Tag = store; // Store the entire store object in the Tag property
+                listView1.Items.Add(item);
+            }
         }
 
-        private void MessageBtnClick(object sender, string StoreID)
+        private void listView1_ItemActivate(object sender, EventArgs e)
         {
-            MessageBtnClicked?.Invoke(this, StoreID);
+            if (listView1.SelectedItems.Count > 0)
+            {
+                var selectedItem = listView1.SelectedItems[0];
+                var store = selectedItem.Tag as DatabaseAccess.Store;
+                if (store != null)
+                {
+                    StoreSelected?.Invoke(this, store.Store_ID);
+                }
+            }
         }
     }
 }

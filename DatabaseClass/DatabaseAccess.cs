@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
 
 
 namespace DatabaseClass
@@ -14,8 +15,8 @@ namespace DatabaseClass
     public class DatabaseAccess
     {
         // Thay doi Server, User Id va password tuong ung voi may cua ban
-        static string connectionString = "Server=localhost;Database=StoreManagement;Integrated Security=True;TrustServerCertificate=True;";
-
+        //static string connectionString = "Server=localhost;Database=StoreManagement;Integrated Security=True;TrustServerCertificate=True;";
+        static string connectionString = "Server=100.117.185.44;Database=StoreManagement;User Id=minhkhai;Password=666778;TrustServerCertificate=True;";
 
         public class Manager
         {
@@ -156,21 +157,84 @@ namespace DatabaseClass
                 return (revenue, orders);
             }
         }
-        public static string GetManagerNameByEmail(string email)
+        public static Manager GetManagerByEmail(string email)
         {
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string sql = "SELECT Manager_Name FROM Manager WHERE Manager_Email = @Email";
-                var managerName = connection.QueryFirstOrDefault<string>(sql, new { Email = email });
+                string sql = "SELECT * FROM Manager WHERE Manager_Email = @Email";
+                var manager = connection.QueryFirstOrDefault<Manager>(sql, new { Email = email });
 
-                return managerName ?? ""; // Nếu không tìm thấy trả về chuỗi rỗng
+                return manager; // Nếu không tìm thấy trả về chuỗi rỗng
             }
         }
 
+        public static Manager GetManagerByUID(string UID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Manager WHERE Manager_ID = @Manager_ID";
+                return connection.QueryFirstOrDefault<Manager>(sqlQuery, new { Manager_ID = UID });
+            }
+        }
 
-
-
+        public static List<Store> GetStoresByManagerID(string managerID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Store WHERE Manager_ID = @Manager_ID";
+                return connection.Query<Store>(sqlQuery, new { Manager_ID = managerID }).ToList();
+            }
+        }
+        public static Store GetStoreByID(string storeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Store WHERE Store_ID = @Store_ID";
+                return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_ID = storeID });
+            }
+        }
+        public static double GetStoreRevenue(string StoreID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT SUM(Invoice_TotalAmount) from Invoice i\r\nJOIN Employee e on i.Employee_ID = e.Employee_ID\r\nWHERE e.Store_Id = @Store_ID";
+                var result = connection.ExecuteScalar<double>(sqlQuery, new { Store_ID = StoreID });
+                return result;
+            }
+        }
+        public static int GetStoreOrders(string StoreID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT COUNT(*) FROM Invoice i\r\nJOIN Employee e on i.Employee_ID = e.Employee_ID\r\nWHERE e.Store_Id = @Store_ID";
+                var result = connection.ExecuteScalar<int>(sqlQuery, new { Store_ID = StoreID });
+                return result;
+            }
+        }
+        public static List<Employee> GetOnDutyEmployee(string StoreID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = @"SELECT 
+                e.Employee_ID, e.Employee_Name, e.Employee_Gender, e.Employee_Birth, e.Employee_PhoneNumber, e.Employee_Email, e.Employee_Salary, e.Store_Id
+                FROM Employee e
+                INNER JOIN Shift s ON e.Employee_ID = s.Employee_ID
+                INNER JOIN Store st ON e.Store_Id = st.Store_ID
+                WHERE e.Store_Id = @Store_ID  -- Thay đổi Store_ID tại đây
+                AND s.Day_of_Week = DATEPART(WEEKDAY, GETDATE())  -- Ngày trong tuần hiện tại
+                AND CAST(GETDATE() AS TIME) BETWEEN s.Shift_Start AND s.Shift_Finish  -- Đang trong giờ làm việc
+                AND s.Is_Active = 1;  -- Chỉ lấy ca làm việc đang hoạt động";
+                var result = connection.ExecuteScalar<List<Employee>>(sqlQuery, new { Store_ID = StoreID });
+                return result;
+            }
+        }
     }
 }

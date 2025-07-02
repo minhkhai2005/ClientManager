@@ -88,7 +88,7 @@ namespace Authentication
             }
         }
 
-        public static async Task<bool> SignIn(string email, string password)
+        public static async Task<(bool, string)> SignIn(string email, string password)
         {
             var client = new HttpClient();
             var url = $"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={apiKey}";
@@ -111,18 +111,15 @@ namespace Authentication
                 bool verified = await CheckEmailVerified(auth.idToken);
                 if (!verified)
                 {
-                    //Console.WriteLine("❌ Tài khoản chưa xác minh email. Vui lòng kiểm tra hộp thư.");
-                    //MessageBox.Show("Tài khoản chưa xác minh email. Vui lòng kiểm tra hộp thư.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
+                    return (false, null);
                 }
 
-                //Console.WriteLine($"✅ Đăng nhập thành công! idToken: {auth.idToken}");
-                return true;
+                // Đăng nhập thành công, trả về true và UID (localId)
+                return (true, auth.localId);
             }
             else
             {
-                //Console.WriteLine($"❌ Lỗi khi đăng nhập:\n{result}");
-                return false;
+                return (false, null);
             }
         }
 

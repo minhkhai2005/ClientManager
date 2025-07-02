@@ -33,7 +33,6 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.EmployeeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EmployeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EmployeeRole = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EmployeeStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +69,6 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.EmployeeName,
             this.EmployeeID,
-            this.EmployeeRole,
             this.EmployeeStatus});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Font = new System.Drawing.Font("Afacad", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,11 +90,6 @@
             // 
             this.EmployeeID.Text = "ID";
             this.EmployeeID.Width = 89;
-            // 
-            // EmployeeRole
-            // 
-            this.EmployeeRole.Text = "Role";
-            this.EmployeeRole.Width = 80;
             // 
             // EmployeeStatus
             // 
@@ -125,7 +118,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader EmployeeName;
         private System.Windows.Forms.ColumnHeader EmployeeID;
-        private System.Windows.Forms.ColumnHeader EmployeeRole;
         private System.Windows.Forms.ColumnHeader EmployeeStatus;
     }
 }

@@ -11,6 +11,7 @@ using EmployeeView;
 using ProductView;
 using ProductEdit;
 using InvoiceDetailForm;
+using DatabaseClass;
 
 namespace StoreDetail
 {
@@ -19,36 +20,48 @@ namespace StoreDetail
         public StoreDetail()
         {
             InitializeComponent();
-            AddSomeEmployee();
-            AddSomeInvoices();
         }
+        public StoreDetail(string storeID)
+        {
+            InitializeComponent();
+            // Load store details based on the storeID
+            LoadStoreDetails(storeID);
+        }
+        public void LoadStoreDetails(string storeID)
+        {
+            // Fetch store details from the database using the storeID
+            DatabaseAccess.Store store = DatabaseAccess.GetStoreByID(storeID);
+            double storeRevenue = DatabaseAccess.GetStoreRevenue(storeID);
+            int storeOrders = DatabaseAccess.GetStoreOrders(storeID);
+            List<DatabaseAccess.Employee> onDutyEmployees = DatabaseAccess.GetOnDutyEmployee(storeID);
+            if (store != null)
+            {
+                // Update UI elements with store details
+                overviewHeader.UpdateStoreName(store.Store_Name);
+                overviewHeader.UpdateStoreAddress(store.Store_Address);
+                overviewHeader.UpdateStoreStatus(store.Status);
 
+                rightBodyOverviewTabStores1.UpdateRevenue(storeRevenue); // Replace with actual revenue data
+                rightBodyOverviewTabStores1.UpdateOrders(storeOrders); // Replace with actual order count
+                if (onDutyEmployees != null)
+                {
+                    leftBodyOverviewTabStores1.UpdateEmployeeList(onDutyEmployees); // Update employee list
+                }
+                    
+            }
+            else
+            {
+                MessageBox.Show("Store not found.");
+            }
+        }
         public void ChangeTab(int tabIndex)
         {
             tabControl1.SelectTab(tabIndex);
         }
-
-        // this function is only used for testing purpose
-        public void AddSomeEmployee()
-        {
-            string[] listViewItem1 = { "Tran Minh Khai", "Manager", "Working" };
-            string[] listViewItem2 = { "Nguyen Van A", "Staff", "Working" };
-            string[] listViewItem3 = { "Nguyen Van B", "Staff", "Working" };
-            EmployeeListView.Items.Add(new ListViewItem(listViewItem1));
-            EmployeeListView.Items.Add(new ListViewItem(listViewItem2));
-            EmployeeListView.Items.Add(new ListViewItem(listViewItem3));
-        }
-        // this function is only used for testing purpose
-        public void AddSomeInvoices()
-        {
-            string[] invoice1 = { "INV001", "2023-10-01", "100.00", "20" };
-            InvoicesListView.Items.Add(new ListViewItem(invoice1));
-        }
-
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             EmployeeView.EmployeeView employeeView = new EmployeeView.EmployeeView();
-            employeeView.ShowDialog();
+            employeeView.ShowDialog();   
         }
 
         private void overviewHeader_MsgBtnClicked(object sender, EventArgs e)

@@ -16,5 +16,13 @@ namespace BodyManagerView
         {
             InitializeComponent();
         }
+        public void UpdateEmail(string email)
+        {
+            textBox1.Text = email;
+        }
+        public void UpdatePhone(string phone)
+        {
+            textBox2.Text = phone;
+        }
     }
 }

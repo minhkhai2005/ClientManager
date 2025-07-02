@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DatabaseClass;
 
 namespace LeftBodyOverviewTabStores
 {
@@ -30,6 +31,18 @@ namespace LeftBodyOverviewTabStores
             {
                 string employeeId = item.SubItems[0].Text;
                 EmployeeSelected?.Invoke(this, employeeId);
+            }
+        }
+        public void UpdateEmployeeList(List<DatabaseAccess.Employee> employees)
+        {
+            listView1.Clear();
+            foreach (var employee in employees)
+            {
+                ListViewItem item = new ListViewItem(employee.Employee_ID);
+                item.SubItems.Add(employee.Employee_Name);
+                item.SubItems.Add(employee.Employee_ID);
+                item.SubItems.Add("Working");
+                listView1.Items.Add(item);
             }
         }
     }

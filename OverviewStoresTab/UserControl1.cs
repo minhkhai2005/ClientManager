@@ -27,5 +27,17 @@ namespace OverviewStoresTab
         {
             MsgBtnClicked?.Invoke(this, e);
         }
+        public void UpdateStoreName(string storeName)
+        {
+            StoreName.Text = storeName;
+        }
+        public void UpdateStoreAddress(string storeAddress)
+        {
+            StoreAddress.Text = storeAddress;
+        }
+        public void UpdateStoreStatus(string storeStatus)
+        {
+            StoreStatus.Text = storeStatus;
+        }
     }
 }

@@ -25,6 +25,14 @@ namespace RightBodyOvervewTabStores
             LanguagesBox.SelectedIndex = 0;
             TimeBox.SelectedIndex = 0;
         }
+        public void UpdateRevenue(double revenue)
+        {
+            RevenueNumber.Text = $"${revenue:0.00}";
+        }
+        public void UpdateOrders(int orders)
+        {
+            OrderNumber.Text = orders.ToString();
+        }
 
     }
 }
