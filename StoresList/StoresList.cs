@@ -46,5 +46,16 @@ namespace StoresList
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Add_Store ad = new Add_Store();
+            ad.ShowDialog();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
