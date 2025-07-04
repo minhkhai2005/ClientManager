@@ -263,5 +263,14 @@ namespace DatabaseClass
                 return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_Email = StoreEmail });
             }
         }
+        public static List<Employee> GetEmployeesByStoreID(string storeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Employee WHERE Store_ID = @Store_ID";
+                return connection.Query<Employee>(sqlQuery, new { Store_ID = storeID }).ToList();
+            }
+        }
     }
 }
