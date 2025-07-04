@@ -52,12 +52,13 @@ namespace StoresList
                 }
                 else
                 {
-                    newStore.Manager_ID = Sign_In.Sign_in.Session.Email;
-                    DatabaseAccess.UpdateStore(newStore.Store_ID, newStore);
+                    newStore.Manager_ID = Sign_In.Sign_in.Session.UID;
+                    newStore.UpdateStore();
                     MessageBox.Show("Cửa hàng đã được thêm thành công!");
                     this.Close();
                 }
             }
+            else
             {
                 MessageBox.Show("Invalid OTP. Please try again.");
             }

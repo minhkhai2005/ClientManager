@@ -7,6 +7,7 @@ using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 using System.Net.NetworkInformation;
+using System.Configuration;
 
 
 namespace DatabaseClass
@@ -14,9 +15,8 @@ namespace DatabaseClass
 
     public class DatabaseAccess
     {
-        // Thay doi Server, User Id va password tuong ung voi may cua ban
-        //static string connectionString = "Server=localhost;Database=StoreManagement;Integrated Security=True;TrustServerCertificate=True;";
-        static string connectionString = "Server=192.168.1.52;Database=StoreManagement;User Id=mk3d;Password=mk3d;TrustServerCertificate=True;";
+        static string connectionString = ConfigurationManager.ConnectionStrings["StoreManagementDB"].ConnectionString;
+
         public class Manager
         {
             public string Manager_ID { get; set; }
@@ -72,6 +72,24 @@ namespace DatabaseClass
             public string Manager_ID { get; set; }
             public bool Store_Status { get; set; }
             public string Store_Email { get; set; }
+            public int UpdateStore()
+            {
+                try
+                {
+                    using (var connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string sqlQuery = "UPDATE Store SET Store_Name = @Store_Name, Store_Address = @Store_Address, Manager_ID = @Manager_ID, Store_Status = @Store_Status, Store_Email = @Store_Email WHERE Store_ID = @Store_ID";
+                        return connection.Execute(sqlQuery, new { Store_Name, Store_Address, Manager_ID, Store_Status, Store_Email, Store_ID });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception or handle it as needed
+                    Console.WriteLine($"Error updating store: {ex.Message}");
+                    return -1; // Return -1 to indicate failure
+                }
+            }
         }
         public class Product
         {
@@ -243,26 +261,6 @@ namespace DatabaseClass
                 connection.Open();
                 string sqlQuery = "SELECT * FROM Store WHERE Store_Email = @Store_Email";
                 return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_Email = StoreEmail });
-            }
-        }
-        public static void UpdateStore(string StoreID, Store store)
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string sqlQuery = "UPDATE Store" +
-                    " SET Store_Status = @Store_Status " +
-                    ", Store_Name = @Store_Name, " +
-                    "Store_Address = @Store_Address, " +
-                    "Manager_ID = @Manager_ID " +
-                    "WHERE Store_ID = @Store_ID";
-                connection.Execute(sqlQuery, new { 
-                    Store_ID = StoreID,
-                    Store_Name =  store.Store_Name, 
-                    Store_Address = store.Store_Address,
-                    Manager_ID = store.Manager_ID,
-                    Store_Status = store.Store_Status
-            });
             }
         }
     }
