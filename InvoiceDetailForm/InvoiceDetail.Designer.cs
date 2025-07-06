@@ -41,6 +41,7 @@
             this.invoice_Detail1.Name = "invoice_Detail1";
             this.invoice_Detail1.Size = new System.Drawing.Size(482, 645);
             this.invoice_Detail1.TabIndex = 0;
+            this.invoice_Detail1.CancelClicked += new System.EventHandler(this.invoice_Detail1_CancelClicked);
             // 
             // InvoiceDetail
             // 

@@ -35,9 +35,19 @@ namespace OverviewStoresTab
         {
             StoreAddress.Text = storeAddress;
         }
-        public void UpdateStoreStatus(string storeStatus)
+        public void UpdateStoreStatus(bool storeStatus)
         {
-            StoreStatus.Text = storeStatus;
+            if (storeStatus)
+            {
+                // open
+                StoreStatus.Text = "●Open";
+                StoreStatus.ForeColor = Color.FromArgb(255, 46, 204, 113);
+            }
+            else
+            {
+                StoreStatus.Text = "●Close";
+                StoreStatus.ForeColor = Color.FromArgb(255, 231, 76, 60);
+            }
         }
     }
 }

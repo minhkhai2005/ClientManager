@@ -29,38 +29,14 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.OverviewTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rightBodyOverviewTabStores1 = new RightBodyOvervewTabStores.RightBodyOverviewTabStores();
-            this.leftBodyOverviewTabStores1 = new LeftBodyOverviewTabStores.LeftBodyOverviewTabStores();
             this.overviewHeader = new OverviewStoresTab.UserControl1();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.InventoryTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.addBtn = new System.Windows.Forms.Button();
             this.header_Inventory_Stores1 = new Header_Inventory_Stores.Header_Inventory_Stores();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.header_Inventory_Stores2 = new Header_Inventory_Stores.Header_Inventory_Stores();
-            this.addEmployeeBtn = new System.Windows.Forms.Button();
-            this.EmployeeListView = new System.Windows.Forms.ListView();
-            this.EmployeeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Role = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.header_Inventory_Stores3 = new Header_Inventory_Stores.Header_Inventory_Stores();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.sendBtn = new System.Windows.Forms.Button();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.header_Inventory_Stores4 = new Header_Inventory_Stores.Header_Inventory_Stores();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.InvoicesListView = new System.Windows.Forms.ListView();
-            this.InvoiceID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.InvoiceTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.InvoiceTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NumItems = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,27 +44,52 @@
             this.columnProductStock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductSold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EmployeeTab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.header_Inventory_Stores2 = new Header_Inventory_Stores.Header_Inventory_Stores();
+            this.addEmployeeBtn = new System.Windows.Forms.Button();
+            this.EmployeeListView = new System.Windows.Forms.ListView();
+            this.EmployeeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.IDColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MessageTab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.header_Inventory_Stores3 = new Header_Inventory_Stores.Header_Inventory_Stores();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.sendBtn = new System.Windows.Forms.Button();
+            this.InvoiceTab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.header_Inventory_Stores4 = new Header_Inventory_Stores.Header_Inventory_Stores();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.InvoiceListView = new System.Windows.Forms.ListView();
+            this.InvoiceID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InvoiceTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NumItems = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.leftBodyOverviewTabStores1 = new LeftBodyOverviewTabStores.LeftBodyOverviewTabStores();
+            this.StatusColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.OverviewTab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.InventoryTab.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.EmployeeTab.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.MessageTab.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this.InvoiceTab.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.OverviewTab);
+            this.tabControl1.Controls.Add(this.InventoryTab);
+            this.tabControl1.Controls.Add(this.EmployeeTab);
+            this.tabControl1.Controls.Add(this.MessageTab);
+            this.tabControl1.Controls.Add(this.InvoiceTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -96,18 +97,20 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(939, 831);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Enter += new System.EventHandler(this.tabControl1_Enter);
             // 
-            // tabPage1
+            // OverviewTab
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage1.Font = new System.Drawing.Font("Afacad", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(931, 797);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Overview";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.OverviewTab.Controls.Add(this.tableLayoutPanel1);
+            this.OverviewTab.Font = new System.Drawing.Font("Afacad", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OverviewTab.Location = new System.Drawing.Point(4, 30);
+            this.OverviewTab.Name = "OverviewTab";
+            this.OverviewTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OverviewTab.Size = new System.Drawing.Size(931, 797);
+            this.OverviewTab.TabIndex = 0;
+            this.OverviewTab.Text = "Overview";
+            this.OverviewTab.UseVisualStyleBackColor = true;
+            this.OverviewTab.Enter += new System.EventHandler(this.OverviewTab_Enter);
             // 
             // tableLayoutPanel1
             // 
@@ -137,16 +140,6 @@
             this.rightBodyOverviewTabStores1.Size = new System.Drawing.Size(457, 614);
             this.rightBodyOverviewTabStores1.TabIndex = 1;
             // 
-            // leftBodyOverviewTabStores1
-            // 
-            this.leftBodyOverviewTabStores1.BackColor = System.Drawing.Color.White;
-            this.leftBodyOverviewTabStores1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.leftBodyOverviewTabStores1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftBodyOverviewTabStores1.Location = new System.Drawing.Point(3, 174);
-            this.leftBodyOverviewTabStores1.Name = "leftBodyOverviewTabStores1";
-            this.leftBodyOverviewTabStores1.Size = new System.Drawing.Size(456, 614);
-            this.leftBodyOverviewTabStores1.TabIndex = 2;
-            // 
             // overviewHeader
             // 
             this.overviewHeader.BackColor = System.Drawing.Color.White;
@@ -158,16 +151,17 @@
             this.overviewHeader.TabIndex = 3;
             this.overviewHeader.MsgBtnClicked += new System.EventHandler(this.overviewHeader_MsgBtnClicked);
             // 
-            // tabPage2
+            // InventoryTab
             // 
-            this.tabPage2.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 30);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(931, 797);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Inventory";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.InventoryTab.Controls.Add(this.tableLayoutPanel2);
+            this.InventoryTab.Location = new System.Drawing.Point(4, 30);
+            this.InventoryTab.Name = "InventoryTab";
+            this.InventoryTab.Padding = new System.Windows.Forms.Padding(3);
+            this.InventoryTab.Size = new System.Drawing.Size(931, 797);
+            this.InventoryTab.TabIndex = 1;
+            this.InventoryTab.Text = "Inventory";
+            this.InventoryTab.UseVisualStyleBackColor = true;
+            this.InventoryTab.Enter += new System.EventHandler(this.InventoryTab_Enter);
             // 
             // tableLayoutPanel2
             // 
@@ -211,16 +205,64 @@
             this.header_Inventory_Stores1.Size = new System.Drawing.Size(917, 130);
             this.header_Inventory_Stores1.TabIndex = 3;
             // 
-            // tabPage3
+            // listView1
             // 
-            this.tabPage3.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 30);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(931, 797);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Employee";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnProductName,
+            this.columnProductID,
+            this.columnProductPrice,
+            this.columnProductStock,
+            this.columnProductSold,
+            this.columnProductStatus});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 143);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(919, 592);
+            this.listView1.TabIndex = 4;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemActivate += new System.EventHandler(this.InventoryListView_ItemActivate);
+            // 
+            // columnProductName
+            // 
+            this.columnProductName.Text = "Name";
+            this.columnProductName.Width = 200;
+            // 
+            // columnProductID
+            // 
+            this.columnProductID.Text = "ID";
+            this.columnProductID.Width = 120;
+            // 
+            // columnProductPrice
+            // 
+            this.columnProductPrice.Text = "Price";
+            this.columnProductPrice.Width = 120;
+            // 
+            // columnProductStock
+            // 
+            this.columnProductStock.Text = "Stock";
+            // 
+            // columnProductSold
+            // 
+            this.columnProductSold.Text = "Sold";
+            // 
+            // columnProductStatus
+            // 
+            this.columnProductStatus.Text = "Status";
+            // 
+            // EmployeeTab
+            // 
+            this.EmployeeTab.Controls.Add(this.tableLayoutPanel3);
+            this.EmployeeTab.Location = new System.Drawing.Point(4, 30);
+            this.EmployeeTab.Name = "EmployeeTab";
+            this.EmployeeTab.Padding = new System.Windows.Forms.Padding(3);
+            this.EmployeeTab.Size = new System.Drawing.Size(931, 797);
+            this.EmployeeTab.TabIndex = 2;
+            this.EmployeeTab.Text = "Employee";
+            this.EmployeeTab.UseVisualStyleBackColor = true;
+            this.EmployeeTab.Enter += new System.EventHandler(this.EmployeeTab_Enter);
             // 
             // tableLayoutPanel3
             // 
@@ -268,7 +310,7 @@
             this.EmployeeListView.BackColor = System.Drawing.Color.White;
             this.EmployeeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.EmployeeName,
-            this.Role,
+            this.IDColumn,
             this.Status});
             this.EmployeeListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmployeeListView.FullRowSelect = true;
@@ -286,26 +328,27 @@
             this.EmployeeName.Text = "Name";
             this.EmployeeName.Width = 224;
             // 
-            // Role
+            // IDColumn
             // 
-            this.Role.Text = "Role";
-            this.Role.Width = 257;
+            this.IDColumn.Text = "ID";
+            this.IDColumn.Width = 139;
             // 
             // Status
             // 
             this.Status.Text = "Status";
             this.Status.Width = 224;
             // 
-            // tabPage4
+            // MessageTab
             // 
-            this.tabPage4.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 30);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(931, 797);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Message";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.MessageTab.Controls.Add(this.tableLayoutPanel4);
+            this.MessageTab.Location = new System.Drawing.Point(4, 30);
+            this.MessageTab.Name = "MessageTab";
+            this.MessageTab.Padding = new System.Windows.Forms.Padding(3);
+            this.MessageTab.Size = new System.Drawing.Size(931, 797);
+            this.MessageTab.TabIndex = 3;
+            this.MessageTab.Text = "Message";
+            this.MessageTab.UseVisualStyleBackColor = true;
+            this.MessageTab.Enter += new System.EventHandler(this.MessageTab_Enter);
             // 
             // tableLayoutPanel4
             // 
@@ -370,16 +413,17 @@
             this.sendBtn.Text = "Send";
             this.sendBtn.UseVisualStyleBackColor = false;
             // 
-            // tabPage5
+            // InvoiceTab
             // 
-            this.tabPage5.Controls.Add(this.tableLayoutPanel5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 30);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(931, 797);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Invoices";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.InvoiceTab.Controls.Add(this.tableLayoutPanel5);
+            this.InvoiceTab.Location = new System.Drawing.Point(4, 30);
+            this.InvoiceTab.Name = "InvoiceTab";
+            this.InvoiceTab.Padding = new System.Windows.Forms.Padding(3);
+            this.InvoiceTab.Size = new System.Drawing.Size(931, 797);
+            this.InvoiceTab.TabIndex = 4;
+            this.InvoiceTab.Text = "Invoices";
+            this.InvoiceTab.UseVisualStyleBackColor = true;
+            this.InvoiceTab.Enter += new System.EventHandler(this.InvoiceTab_Enter);
             // 
             // tableLayoutPanel5
             // 
@@ -411,30 +455,31 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.InvoicesListView);
+            this.panel1.Controls.Add(this.InvoiceListView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 148);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(919, 640);
             this.panel1.TabIndex = 2;
             // 
-            // InvoicesListView
+            // InvoiceListView
             // 
-            this.InvoicesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.InvoiceListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.InvoiceID,
             this.InvoiceTime,
             this.InvoiceTotal,
-            this.NumItems});
-            this.InvoicesListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InvoicesListView.FullRowSelect = true;
-            this.InvoicesListView.HideSelection = false;
-            this.InvoicesListView.Location = new System.Drawing.Point(0, 0);
-            this.InvoicesListView.Name = "InvoicesListView";
-            this.InvoicesListView.Size = new System.Drawing.Size(917, 638);
-            this.InvoicesListView.TabIndex = 0;
-            this.InvoicesListView.UseCompatibleStateImageBehavior = false;
-            this.InvoicesListView.View = System.Windows.Forms.View.Details;
-            this.InvoicesListView.ItemActivate += new System.EventHandler(this.InvoiceListView_ItemActivate);
+            this.NumItems,
+            this.StatusColumn});
+            this.InvoiceListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InvoiceListView.FullRowSelect = true;
+            this.InvoiceListView.HideSelection = false;
+            this.InvoiceListView.Location = new System.Drawing.Point(0, 0);
+            this.InvoiceListView.Name = "InvoiceListView";
+            this.InvoiceListView.Size = new System.Drawing.Size(917, 638);
+            this.InvoiceListView.TabIndex = 0;
+            this.InvoiceListView.UseCompatibleStateImageBehavior = false;
+            this.InvoiceListView.View = System.Windows.Forms.View.Details;
+            this.InvoiceListView.ItemActivate += new System.EventHandler(this.InvoiceListView_ItemActivate);
             // 
             // InvoiceID
             // 
@@ -456,47 +501,20 @@
             this.NumItems.Text = "Number of items";
             this.NumItems.Width = 194;
             // 
-            // listView1
+            // leftBodyOverviewTabStores1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnProductName,
-            this.columnProductID,
-            this.columnProductPrice,
-            this.columnProductStock,
-            this.columnProductSold,
-            this.columnProductStatus});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 143);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(919, 592);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.leftBodyOverviewTabStores1.BackColor = System.Drawing.Color.White;
+            this.leftBodyOverviewTabStores1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.leftBodyOverviewTabStores1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftBodyOverviewTabStores1.Location = new System.Drawing.Point(3, 174);
+            this.leftBodyOverviewTabStores1.Name = "leftBodyOverviewTabStores1";
+            this.leftBodyOverviewTabStores1.Size = new System.Drawing.Size(456, 614);
+            this.leftBodyOverviewTabStores1.TabIndex = 2;
             // 
-            // columnProductName
+            // StatusColumn
             // 
-            this.columnProductName.Text = "Name";
-            // 
-            // columnProductID
-            // 
-            this.columnProductID.Text = "ID";
-            // 
-            // columnProductPrice
-            // 
-            this.columnProductPrice.Text = "Price";
-            // 
-            // columnProductStock
-            // 
-            this.columnProductStock.Text = "Stock";
-            // 
-            // columnProductSold
-            // 
-            this.columnProductSold.Text = "Sold";
-            // 
-            // columnProductStatus
-            // 
-            this.columnProductStatus.Text = "Status";
+            this.StatusColumn.Text = "Status";
+            this.StatusColumn.Width = 100;
             // 
             // StoreDetail
             // 
@@ -506,15 +524,15 @@
             this.Name = "StoreDetail";
             this.Size = new System.Drawing.Size(939, 831);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.OverviewTab.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.InventoryTab.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
+            this.EmployeeTab.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
+            this.MessageTab.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
+            this.InvoiceTab.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -524,11 +542,11 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage OverviewTab;
+        private System.Windows.Forms.TabPage InventoryTab;
+        private System.Windows.Forms.TabPage EmployeeTab;
+        private System.Windows.Forms.TabPage MessageTab;
+        private System.Windows.Forms.TabPage InvoiceTab;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private RightBodyOvervewTabStores.RightBodyOverviewTabStores rightBodyOverviewTabStores1;
         private LeftBodyOverviewTabStores.LeftBodyOverviewTabStores leftBodyOverviewTabStores1;
@@ -541,7 +559,6 @@
         private System.Windows.Forms.Button addEmployeeBtn;
         private System.Windows.Forms.ListView EmployeeListView;
         private System.Windows.Forms.ColumnHeader EmployeeName;
-        private System.Windows.Forms.ColumnHeader Role;
         private System.Windows.Forms.ColumnHeader Status;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private Header_Inventory_Stores.Header_Inventory_Stores header_Inventory_Stores3;
@@ -551,7 +568,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private Header_Inventory_Stores.Header_Inventory_Stores header_Inventory_Stores4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView InvoicesListView;
+        private System.Windows.Forms.ListView InvoiceListView;
         private System.Windows.Forms.ColumnHeader InvoiceID;
         private System.Windows.Forms.ColumnHeader InvoiceTime;
         private System.Windows.Forms.ColumnHeader InvoiceTotal;
@@ -563,5 +580,7 @@
         private System.Windows.Forms.ColumnHeader columnProductStock;
         private System.Windows.Forms.ColumnHeader columnProductSold;
         private System.Windows.Forms.ColumnHeader columnProductStatus;
+        private System.Windows.Forms.ColumnHeader IDColumn;
+        private System.Windows.Forms.ColumnHeader StatusColumn;
     }
 }

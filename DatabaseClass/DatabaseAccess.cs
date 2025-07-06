@@ -23,6 +23,15 @@ namespace DatabaseClass
             public string Manager_Name { get; set; }
             public string Manager_Phone { get; set; }
             public string Manager_Email { get; set; }
+            public void UpdateManager()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "UPDATE Manager SET Manager_Name = @Manager_Name, Manager_Phone = @Manager_Phone, Manager_Email = @Manager_Email WHERE Manager_ID = @Manager_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
 
         }
         public class Employee
@@ -35,6 +44,22 @@ namespace DatabaseClass
             public string Employee_Email { get; set; }
             public double Employee_Salary { get; set; }
             public string Store_ID { get; set; }
+            public void UpdateEmployee() {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Employee SET 
+                                Employee_Name = @Employee_Name, 
+                                Employee_Gender = @Employee_Gender, 
+                                Employee_Birth = @Employee_Birth, 
+                                Employee_PhoneNumber = @Employee_PhoneNumber, 
+                                Employee_Email = @Employee_Email, 
+                                Employee_Salary = @Employee_Salary, 
+                                Store_ID = @Store_ID
+                            WHERE Employee_ID = @Employee_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
         }
         public class Customer
         {
@@ -43,6 +68,20 @@ namespace DatabaseClass
             public string Customer_Phone { get; set; }
             public bool Customer_Gender { get; set; }
             public string Store_ID { get; set; }
+            public void UpdateCustomer()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Customer SET 
+                                Customer_Name = @Customer_Name, 
+                                Customer_Phone = @Customer_Phone, 
+                                Customer_Gender = @Customer_Gender, 
+                                Store_ID = @Store_ID
+                            WHERE Customer_ID = @Customer_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
         }
         public class Export
         {
@@ -53,6 +92,22 @@ namespace DatabaseClass
             public string Export_Provider { get; set; }
             public double Export_Price { get; set; }
             public DateTime Export_Date { get; set; }
+            public void UpdateExport()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Export SET 
+                                Product_ID = @Product_ID, 
+                                Store_ID = @Store_ID, 
+                                Export_Quantity = @Export_Quantity, 
+                                Export_Provider = @Export_Provider, 
+                                Export_Price = @Export_Price, 
+                                Export_Date = @Export_Date
+                            WHERE Export_ID = @Export_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
         }
         public class Import
         {
@@ -63,6 +118,22 @@ namespace DatabaseClass
             public string Import_Provider { get; set; }
             public double Import_Price { get; set; }
             public DateTime Import_Date { get; set; }
+            public void UpdateImport()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Import SET 
+                                Product_ID = @Product_ID, 
+                                Store_ID = @Store_ID, 
+                                Import_Quantity = @Import_Quantity, 
+                                Import_Provider = @Import_Provider, 
+                                Import_Price = @Import_Price, 
+                                Import_Date = @Import_Date
+                            WHERE Import_ID = @Import_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
         }
         public class Store
         {
@@ -90,6 +161,24 @@ namespace DatabaseClass
                     return -1; // Return -1 to indicate failure
                 }
             }
+            public int GetNumberOfSoldItem(string productID)
+            {
+                try
+                {
+                    using (var connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string sqlQuery = "SELECT \r\n    ISNULL(SUM(id.InvoiceDetail_Quantity), 0) AS Total_Sold_Quantity\r\nFROM InvoiceDetail id\r\nINNER JOIN Invoice i ON id.Invoice_ID = i.Invoice_ID\r\nINNER JOIN Customer c ON i.Customer_ID = c.Customer_ID\r\nWHERE id.Product_ID = @Product_ID  -- Replace with your specific Product_ID\r\n    AND c.Store_ID = @Store_ID   -- Replace with your specific Store_ID\r\n    AND i.Invoice_Status = 'Paid';  -- Only count paid invoices";
+                        return connection.Execute(sqlQuery, new { Store_Name, Product_ID = productID });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception or handle it as needed
+                    Console.WriteLine($"Error fetching information: {ex.Message}");
+                    return 0; 
+                }
+            }
         }
         public class Product
         {
@@ -97,6 +186,28 @@ namespace DatabaseClass
             public string Product_Name { get; set; }
             public string Product_Provider { get; set; }
             public string Product_Price { get; set; }
+            public void UpdateProduct()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Product SET 
+                                Product_Name = @Product_Name, 
+                                Product_Provider = @Product_Provider, 
+                                Product_Price = @Product_Price
+                            WHERE Product_ID = @Product_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
+            public static Product GetProductByID(string id)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Product WHERE Product_ID = @Product_ID";
+                    return connection.QueryFirstOrDefault<Product>(sqlQuery, new { Product_ID = id });
+                }
+            }
         }
         public class Inventory
         {
@@ -104,6 +215,18 @@ namespace DatabaseClass
             public string Product_ID { get; set; }
             public int Inventory_Stock { get; set; }
             public string Inventory_Status { get; set; }
+            public void UpdateInventory()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Inventory SET 
+                                Inventory_Stock = @Inventory_Stock, 
+                                Inventory_Status = @Inventory_Status
+                            WHERE Store_ID = @Store_ID AND Product_ID = @Product_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
         }
         public class Invoice
         {
@@ -115,6 +238,32 @@ namespace DatabaseClass
             public string Invoice_Note { get; set; }
             public int Invoice_TotalQuantity { get; set; }
             public DateTime Invoice_Date { get; set; }
+            public void UpdateInvoice()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Invoice SET 
+                                Employee_ID = @Employee_ID, 
+                                Customer_ID = @Customer_ID, 
+                                Invoice_TotalAmount = @Invoice_TotalAmount, 
+                                Invoice_Status = @Invoice_Status, 
+                                Invoice_Note = @Invoice_Note, 
+                                Invoice_TotalQuantity = @Invoice_TotalQuantity, 
+                                Invoice_Date = @Invoice_Date
+                            WHERE Invoice_ID = @Invoice_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
+            public static Invoice GetInvoiceByID(string id)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Invoice WHERE Invoice_ID = @Invoice_ID";
+                    return connection.QueryFirstOrDefault<Invoice>(sqlQuery, new { Invoice_ID = id });
+                }
+            }
         }
         public class InvoiceDetail
         {
@@ -123,16 +272,54 @@ namespace DatabaseClass
             public int InvoiceDetail_Quantity { get; set; }
             public double InvoiceDetail_UnitPrice { get; set; }
             public double InvoiceDetail_TotalPrice { get; set; }
+            public void UpdateInvoiceDetail()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE InvoiceDetail SET 
+                                InvoiceDetail_Quantity = @InvoiceDetail_Quantity, 
+                                InvoiceDetail_UnitPrice = @InvoiceDetail_UnitPrice, 
+                                InvoiceDetail_TotalPrice = @InvoiceDetail_TotalPrice
+                            WHERE Invoice_ID = @Invoice_ID AND Product_ID = @Product_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
+            public static List<InvoiceDetail> GetInvoiceDetailsByInvoiceID(string invoiceID)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM InvoiceDetail WHERE Invoice_ID = @Invoice_ID";
+                    return connection.Query<InvoiceDetail>(sqlQuery, new { Invoice_ID = invoiceID }).ToList();
+                }
+            }
+            
         }
         public class Shift
         {
             public string Employee_ID { get; set; }
-            public string Shift_Day { get; set; }
+            public int Day_of_Week { get; set; }
             public string Shift_Start { get; set; }
             public string Shift_Finish { get; set; }
+            public bool Is_Active { get; set; }
+            public void UpdateShift()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Shift SET 
+                                Day_of_Week = @Day_of_Week, 
+                                Shift_Start = @Shift_Start, 
+                                Shift_Finish = @Shift_Finish, 
+                                Is_Active = @Is_Active
+                            WHERE Employee_ID = @Employee_ID";
+                    connection.Execute(sqlQuery, this);
+                }
+            }
         }
 
-        // method 
+        // public method 
         public static void CreateNewManager(Manager manager)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -216,6 +403,15 @@ namespace DatabaseClass
                 return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_ID = storeID });
             }
         }
+        public static Store GetStoreByEmail(string email)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Store WHERE Store_Email = @Store_Email";
+                return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_Email = email });
+            }
+        }
         public static double GetStoreRevenue(string StoreID)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -226,7 +422,7 @@ namespace DatabaseClass
                 return result;
             }
         }
-        public static int GetStoreOrders(string StoreID)
+        public static int GetStoreNumberOfOrders(string StoreID)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -254,15 +450,6 @@ namespace DatabaseClass
                 return result;
             }
         }
-        public static Store GetStoreByEmail(string StoreEmail)
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string sqlQuery = "SELECT * FROM Store WHERE Store_Email = @Store_Email";
-                return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_Email = StoreEmail });
-            }
-        }
         public static List<Employee> GetEmployeesByStoreID(string storeID)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -270,6 +457,42 @@ namespace DatabaseClass
                 connection.Open();
                 string sqlQuery = "SELECT * FROM Employee WHERE Store_ID = @Store_ID";
                 return connection.Query<Employee>(sqlQuery, new { Store_ID = storeID }).ToList();
+            }
+        }
+        public static List<Product> GetProductsByStoreID(string storeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT p.Product_ID, Product_Name, Product_Provider, Product_Price from Product p \r\njoin Inventory i on p.Product_ID = i.Product_ID\r\nWHERE i.Store_ID = @Store_ID";
+                return connection.Query<Product>(sqlQuery, new { Store_ID = storeID }).ToList();
+            }
+        }
+        public static List<Inventory> GetInventoriesByStoreID(string storeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Inventory WHERE Store_ID = @Store_ID";
+                return connection.Query<Inventory>(sqlQuery, new { Store_ID = storeID }).ToList();
+            }
+        }
+        public static Product GetProductByID(string productID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Product WHERE Product_ID = @Product_ID";
+                return connection.QueryFirstOrDefault<Product>(sqlQuery, new { Product_ID = productID });
+            }
+        }
+        public static List<Invoice> GetInvoicesByStoreID(string storeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Invoice i\r\nJOIN Employee e ON e.Employee_ID = i.Employee_ID\r\nWHERE e.Store_ID = @Store_ID";
+                return connection.Query<Invoice>(sqlQuery, new { Store_ID = storeID }).ToList();
             }
         }
     }

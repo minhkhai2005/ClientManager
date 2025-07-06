@@ -77,17 +77,17 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(801, 108);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // StoreName
             // 
             this.StoreName.AutoSize = true;
-            this.StoreName.Font = new System.Drawing.Font("Afacad", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreName.Font = new System.Drawing.Font("Afacad", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StoreName.Location = new System.Drawing.Point(3, 0);
             this.StoreName.Name = "StoreName";
-            this.StoreName.Size = new System.Drawing.Size(218, 49);
+            this.StoreName.Size = new System.Drawing.Size(188, 43);
             this.StoreName.TabIndex = 0;
             this.StoreName.Text = "Tên cửa hàng";
             // 
@@ -95,7 +95,7 @@
             // 
             this.StoreAddress.AutoSize = true;
             this.StoreAddress.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StoreAddress.Location = new System.Drawing.Point(3, 63);
+            this.StoreAddress.Location = new System.Drawing.Point(3, 64);
             this.StoreAddress.Name = "StoreAddress";
             this.StoreAddress.Size = new System.Drawing.Size(218, 21);
             this.StoreAddress.TabIndex = 1;

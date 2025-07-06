@@ -44,6 +44,7 @@ namespace ClientManager
         {
             // Handle the event when a store is selected in the StoresList UserControl
             StoreDetail.StoreDetail storeDetail = new StoreDetail.StoreDetail(storeID);
+            storeDetail.OverviewTabRefresh();
             LoadPage(storeDetail); // Load the StoreDetail UserControl
         }
         private void sidebar_sidebarPageChanged(object sender, SidebarControl.sidebar.sidebarPage e)
