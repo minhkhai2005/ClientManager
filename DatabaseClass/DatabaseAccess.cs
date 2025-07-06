@@ -15,7 +15,7 @@ namespace DatabaseClass
 
     public class DatabaseAccess
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["StoreManagementDB"].ConnectionString;
+        static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
 
         public class Manager
         {
@@ -272,5 +272,34 @@ namespace DatabaseClass
                 return connection.Query<Employee>(sqlQuery, new { Store_ID = storeID }).ToList();
             }
         }
+        public static string statusEmployee(string employeeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = @"SELECT 1 FROM Employee e JOIN Shift s ON e.Employee_ID = s.Employee_ID
+                                WHERE e.Employee_ID = @Employee_ID AND s.Is_Active = 1";
+                var result = connection.ExecuteScalar<int?>(sql, new { Employee_ID = employeeID });
+                return (result.HasValue && result.Value == 1) ? "Đang làm việc" : "Nghỉ việc";
+            }
+        }
+        public static string roleemployee(string employeeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT e.Employee_Role
+            FROM Employee e
+            JOIN Shift s ON e.Employee_ID = s.Employee_ID
+            WHERE e.Employee_ID = @Employee_ID";
+
+                string role = connection.QueryFirstOrDefault<string>(sql, new { Employee_ID = employeeID });
+
+                return role ?? "Không xác định";
+            }
+        }
+
     }
 }
