@@ -301,5 +301,45 @@ namespace DatabaseClass
             }
         }
 
+        public static void CreateNewEmployee(Employee employee)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = @"INSERT INTO Employee (
+                        Employee_ID, 
+                        Employee_Name, 
+                        Employee_Gender, 
+                        Employee_Birth, 
+                        Employee_PhoneNumber, 
+                        Employee_Email, 
+                        Employee_Salary, 
+                        Store_ID
+                    ) 
+                    VALUES (
+                        @Employee_ID, 
+                        @Employee_Name, 
+                        @Employee_Gender, 
+                        @Employee_Birth, 
+                        @Employee_PhoneNumber, 
+                        @Employee_Email, 
+                        @Employee_Salary, 
+                        @Store_ID
+                    )";
+
+                connection.Execute(sql, employee);
+            }
+        }
+        public static string getstoreidbyemployeeid(string employeeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT Store_ID FROM Employee WHERE Employee_ID = @Employee_ID";
+                var store_ID = connection.ExecuteScalar<string>(sqlQuery, new { Employee_ID = employeeID });
+                return store_ID;
+            }
+        }
     }
 }

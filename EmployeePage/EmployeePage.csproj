@@ -64,12 +64,21 @@
     <Compile Include="EmployeePage.Designer.cs">
       <DependentUpon>EmployeePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="list empoyee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="list empoyee.Designer.cs">
+      <DependentUpon>list empoyee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EmployeePage.resx">
       <DependentUpon>EmployeePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="list empoyee.resx">
+      <DependentUpon>list empoyee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

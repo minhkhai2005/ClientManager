@@ -1,22 +1,27 @@
-﻿using System;
+﻿using DatabaseClass;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DatabaseClass;
+using static DatabaseClass.DatabaseAccess;
 
 namespace EmployeePage
 {
     public partial class EmployeePage: UserControl
     {
-      
-        public EmployeePage()
+
+        private string storeID;
+
+        public EmployeePage(string storeID)
         {
             InitializeComponent();
+            this.storeID = storeID;
+            LoadAllEmployees(); // gọi luôn khi khởi tạo
         }
 
         private void listView1_ItemActivate(object sender, EventArgs e)
@@ -26,27 +31,51 @@ namespace EmployeePage
             EmployeeView.EmployeeView employeeView = new EmployeeView.EmployeeView();
             employeeView.ShowDialog();
         }
-        private void UpdateEmployeeList(List<string[]> employees)
+        private void UpdateEmployeeList(List<Employee> employees)
         {
             listView1.Items.Clear();
-            foreach (var employee in employees)
+
+            foreach (var emp in employees)
             {
-                ListViewItem item = new ListViewItem(employee[0]); // Employee ID
-                item.SubItems.Add(employee[1]); // Employee Name
-                string role = DatabaseAccess.roleemployee(employee[0]) ?? "Không xác định";
-                item.SubItems.Add(role); // Role
-                item.SubItems.Add(employee[8]);
-                string status = DatabaseAccess.statusEmployee(employee[0]);
-                item.SubItems.Add(status); // Status
+                ListViewItem item = new ListViewItem(emp.Employee_ID); // cột 0
+                item.SubItems.Add(emp.Employee_Name);                  // cột 1
+
+                string role = DatabaseAccess.roleemployee(emp.Employee_ID) ?? "Không xác định";
+                item.SubItems.Add(role);                               // cột 2
+
+                item.SubItems.Add(emp.Employee_Email);                 // cột 3
+
+                string status = DatabaseAccess.statusEmployee(emp.Employee_ID);
+                item.SubItems.Add(status);                             // cột 4
 
                 listView1.Items.Add(item);
             }
         }
 
+        private void LoadAllEmployees()
+        {   
+            var employees = DatabaseAccess.GetEmployeesByStoreID(storeID); // hoặc GlobalSession.StoreID
+            UpdateEmployeeList(employees);
+        }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            var addForm = new list_empoyee(); // tạo một instance của form thêm nhân viên
+
+            var result = addForm.ShowDialog(); // mở form thêm
+
+            if (result == DialogResult.OK)
+            {
+                // Nếu thêm thành công, reload lại danh sách nhân viên
+                LoadAllEmployees();
+            }
+        }
+      
+
     }
 }
