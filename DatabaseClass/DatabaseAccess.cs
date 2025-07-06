@@ -15,8 +15,9 @@ namespace DatabaseClass
 
     public class DatabaseAccess
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
-
+        public static string CurrentEmail { get; set; }
+        //static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
+        static string connectionString = "Data Source=DESKTOP-30NMLHM\\Wuang_Kai;Initial Catalog=TenDatabase;Integrated Security=True;";
         public class Manager
         {
             public string Manager_ID { get; set; }
@@ -341,5 +342,15 @@ namespace DatabaseClass
                 return store_ID;
             }
         }
+        public static Employee GetEmployeesByEmail(string email)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM Employee WHERE Employee_Email = @Email";
+                return connection.QueryFirstOrDefault<Employee>(sql, new { Email = email });
+            }
+        }
+
     }
 }

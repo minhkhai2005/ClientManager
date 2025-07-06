@@ -1,81 +1,93 @@
 ﻿using DatabaseClass;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DatabaseClass.DatabaseAccess;
-
+using Sign_In;
+using System.Diagnostics.Eventing.Reader;
 namespace EmployeePage
 {
-    public partial class EmployeePage: UserControl
+    public partial class EmployeePage : UserControl
     {
-
-        private string storeID;
-
-        public EmployeePage(string storeID)
+        public EmployeePage()
         {
             InitializeComponent();
-            this.storeID = storeID;
-            LoadAllEmployees(); // gọi luôn khi khởi tạo
+            LoadAllEmployees(); // gọi khi khởi tạo
         }
 
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
+            if (listView1.SelectedItems.Count == 0) return;
+
             ListViewItem selectedItem = listView1.SelectedItems[0];
             string employeeId = selectedItem.SubItems[0].Text;
-            EmployeeView.EmployeeView employeeView = new EmployeeView.EmployeeView();
+
+            var employeeView = new EmployeeView.EmployeeView();  // form xem chi tiết
             employeeView.ShowDialog();
         }
+
         private void UpdateEmployeeList(List<Employee> employees)
         {
             listView1.Items.Clear();
 
             foreach (var emp in employees)
             {
-                ListViewItem item = new ListViewItem(emp.Employee_ID); // cột 0
-                item.SubItems.Add(emp.Employee_Name);                  // cột 1
+                ListViewItem item = new ListViewItem(emp.Employee_ID);
+                item.SubItems.Add(emp.Employee_Name);
 
                 string role = DatabaseAccess.roleemployee(emp.Employee_ID) ?? "Không xác định";
-                item.SubItems.Add(role);                               // cột 2
+                item.SubItems.Add(role);
 
-                item.SubItems.Add(emp.Employee_Email);                 // cột 3
+                item.SubItems.Add(emp.Employee_Email);
 
                 string status = DatabaseAccess.statusEmployee(emp.Employee_ID);
-                item.SubItems.Add(status);                             // cột 4
+                item.SubItems.Add(status);
 
                 listView1.Items.Add(item);
             }
         }
 
         private void LoadAllEmployees()
-        {   
-            var employees = DatabaseAccess.GetEmployeesByStoreID(storeID); // hoặc GlobalSession.StoreID
-            UpdateEmployeeList(employees);
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string email = Sign_In.Sign_in.Session.Email;
 
+                // Lấy nhân viên hiện tại
+                Employee emp = DatabaseAccess.GetEmployeesByEmail(email);
+                if (emp == null)
+                {
+                    MessageBox.Show("Không tìm thấy nhân viên với email đăng nhập.");
+                    return;
+                }
+
+                // Lấy storeID từ nhân viên đó
+                string storeID = emp.Store_ID;
+
+                // Lấy danh sách nhân viên trong cùng cửa hàng
+                var employees = DatabaseAccess.GetEmployeesByStoreID(storeID);
+                UpdateEmployeeList(employees);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách nhân viên: " + ex.Message);
+            }
         }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            var addForm = new list_empoyee(); // tạo một instance của form thêm nhân viên
-
-            var result = addForm.ShowDialog(); // mở form thêm
+            var addForm = new list_empoyee();
+            var result = addForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                // Nếu thêm thành công, reload lại danh sách nhân viên
-                LoadAllEmployees();
+                LoadAllEmployees(); // reload danh sách nếu thêm thành công
             }
         }
-      
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // có thể xử lý thêm nếu cần
+        }
     }
 }
