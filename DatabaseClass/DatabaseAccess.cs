@@ -39,7 +39,7 @@ namespace DatabaseClass
         {
             public string Employee_ID { get; set; }
             public string Employee_Name { get; set; }
-            public string Employee_Gender { get; set; }
+            public bool Employee_Gender { get; set; }
             public string Employee_Birth { get; set; }
             public string Employee_PhoneNumber { get; set; }
             public string Employee_Email { get; set; }
@@ -64,7 +64,7 @@ namespace DatabaseClass
                 int hashCode = -1127884199;
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_ID);
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Name);
-                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Gender);
+                hashCode = hashCode * -1521134295 + EqualityComparer<bool>.Default.GetHashCode(Employee_Gender);
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Birth);
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_PhoneNumber);
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Email);
@@ -83,8 +83,7 @@ namespace DatabaseClass
                                 Employee_Birth = @Employee_Birth, 
                                 Employee_PhoneNumber = @Employee_PhoneNumber, 
                                 Employee_Email = @Employee_Email, 
-                                Employee_Salary = @Employee_Salary, 
-                                Store_ID = @Store_ID
+                                Employee_Salary = @Employee_Salary
                             WHERE Employee_ID = @Employee_ID";
                     connection.Execute(sqlQuery, this);
                 }
@@ -359,6 +358,27 @@ namespace DatabaseClass
             public TimeSpan Shift_Start { get; set; }
             public TimeSpan Shift_Finish { get; set; }
             public bool Is_Active { get; set; }
+
+            public static void SaveShifts(List<Shift> employeeShifts)
+            {
+                // delete old shifts
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string deleteQuery = "DELETE FROM Shift WHERE Employee_ID = @Employee_ID";
+                    connection.Execute(deleteQuery, new { Employee_ID = employeeShifts.First().Employee_ID });
+                }
+
+                // update new shifts
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string insertQuery = @"INSERT INTO Shift (Employee_ID, Day_of_Week, Shift_Start, Shift_Finish, Is_Active) 
+                                           VALUES (@Employee_ID, @Day_of_Week, @Shift_Start, @Shift_Finish, @Is_Active)";
+                    connection.Execute(insertQuery, employeeShifts);
+                }
+            }
+
             public void UpdateShift()
             {
                 using (var connection = new SqlConnection(connectionString))

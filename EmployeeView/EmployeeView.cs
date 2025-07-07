@@ -34,21 +34,7 @@ namespace EmployeeView
 
         private void bodyEmployeeView1_SaveBtnClick(object sender, EventArgs e)
         {
-            // handle save button click
-            DialogResult result = MessageBox.Show("Are you sure you want to save this employee?",
-                "Save Employee",
-                MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) {
-                // save the employee
-
-                // finally close the form
-                this.Close();
-            }
-            else
-            {
-                // if the user clicks no, do nothing
-            }
-            
+            this.Close();
         }
 
         private void bodyEmployeeView1_DelBtnClick(object sender, EventArgs e)

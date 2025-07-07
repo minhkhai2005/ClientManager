@@ -31,26 +31,25 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.DateOfBirth = new System.Windows.Forms.Label();
-            this.EmployeeBirthTextBox = new System.Windows.Forms.TextBox();
+            this.StoreID = new System.Windows.Forms.Label();
+            this.EmployeeStoreIDTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.DateOfBirth = new System.Windows.Forms.Label();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.Email = new System.Windows.Forms.Label();
             this.EmployeeEmailTextBox = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.EmployeeID = new System.Windows.Forms.Label();
             this.EmployeeIDTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.EmployeePhone = new System.Windows.Forms.Label();
             this.EmployeePhoneTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.Salary = new System.Windows.Forms.Label();
             this.EmployeeSalaryTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Information = new System.Windows.Forms.Label();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.StoreID = new System.Windows.Forms.Label();
-            this.EmployeeStoreIDTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.SaveBtn = new System.Windows.Forms.Button();
@@ -61,6 +60,9 @@
             this.DayCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinishCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeBirthDtp = new System.Windows.Forms.DateTimePicker();
+            this.GenderLabel = new System.Windows.Forms.Label();
+            this.EmployeeGenderComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
@@ -70,6 +72,7 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel12.SuspendLayout();
             this.Shift.SuspendLayout();
@@ -130,6 +133,36 @@
             this.flowLayoutPanel7.Size = new System.Drawing.Size(378, 37);
             this.flowLayoutPanel7.TabIndex = 6;
             // 
+            // StoreID
+            // 
+            this.StoreID.AutoSize = true;
+            this.StoreID.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreID.Location = new System.Drawing.Point(3, 0);
+            this.StoreID.MinimumSize = new System.Drawing.Size(75, 0);
+            this.StoreID.Name = "StoreID";
+            this.StoreID.Size = new System.Drawing.Size(75, 21);
+            this.StoreID.TabIndex = 1;
+            this.StoreID.Text = "Store ID";
+            // 
+            // EmployeeStoreIDTextBox
+            // 
+            this.EmployeeStoreIDTextBox.Enabled = false;
+            this.EmployeeStoreIDTextBox.Location = new System.Drawing.Point(84, 3);
+            this.EmployeeStoreIDTextBox.Name = "EmployeeStoreIDTextBox";
+            this.EmployeeStoreIDTextBox.Size = new System.Drawing.Size(198, 20);
+            this.EmployeeStoreIDTextBox.TabIndex = 2;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.DateOfBirth);
+            this.flowLayoutPanel6.Controls.Add(this.EmployeeBirthDtp);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 185);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(378, 37);
+            this.flowLayoutPanel6.TabIndex = 5;
+            // 
             // DateOfBirth
             // 
             this.DateOfBirth.AutoSize = true;
@@ -141,23 +174,16 @@
             this.DateOfBirth.TabIndex = 0;
             this.DateOfBirth.Text = "Birth";
             // 
-            // EmployeeBirthTextBox
+            // flowLayoutPanel5
             // 
-            this.EmployeeBirthTextBox.Location = new System.Drawing.Point(84, 3);
-            this.EmployeeBirthTextBox.Name = "EmployeeBirthTextBox";
-            this.EmployeeBirthTextBox.Size = new System.Drawing.Size(198, 20);
-            this.EmployeeBirthTextBox.TabIndex = 2;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.DateOfBirth);
-            this.flowLayoutPanel6.Controls.Add(this.EmployeeBirthTextBox);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 185);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(378, 37);
-            this.flowLayoutPanel6.TabIndex = 5;
+            this.flowLayoutPanel5.Controls.Add(this.Email);
+            this.flowLayoutPanel5.Controls.Add(this.EmployeeEmailTextBox);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 148);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(378, 37);
+            this.flowLayoutPanel5.TabIndex = 4;
             // 
             // Email
             // 
@@ -177,16 +203,16 @@
             this.EmployeeEmailTextBox.Size = new System.Drawing.Size(198, 20);
             this.EmployeeEmailTextBox.TabIndex = 1;
             // 
-            // flowLayoutPanel5
+            // flowLayoutPanel4
             // 
-            this.flowLayoutPanel5.Controls.Add(this.Email);
-            this.flowLayoutPanel5.Controls.Add(this.EmployeeEmailTextBox);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 148);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(378, 37);
-            this.flowLayoutPanel5.TabIndex = 4;
+            this.flowLayoutPanel4.Controls.Add(this.EmployeeID);
+            this.flowLayoutPanel4.Controls.Add(this.EmployeeIDTextBox);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 111);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(378, 37);
+            this.flowLayoutPanel4.TabIndex = 3;
             // 
             // EmployeeID
             // 
@@ -207,16 +233,16 @@
             this.EmployeeIDTextBox.Size = new System.Drawing.Size(198, 20);
             this.EmployeeIDTextBox.TabIndex = 4;
             // 
-            // flowLayoutPanel4
+            // flowLayoutPanel3
             // 
-            this.flowLayoutPanel4.Controls.Add(this.EmployeeID);
-            this.flowLayoutPanel4.Controls.Add(this.EmployeeIDTextBox);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 111);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(378, 37);
-            this.flowLayoutPanel4.TabIndex = 3;
+            this.flowLayoutPanel3.Controls.Add(this.EmployeePhone);
+            this.flowLayoutPanel3.Controls.Add(this.EmployeePhoneTextBox);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 74);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(378, 37);
+            this.flowLayoutPanel3.TabIndex = 2;
             // 
             // EmployeePhone
             // 
@@ -236,16 +262,16 @@
             this.EmployeePhoneTextBox.Size = new System.Drawing.Size(198, 20);
             this.EmployeePhoneTextBox.TabIndex = 2;
             // 
-            // flowLayoutPanel3
+            // flowLayoutPanel2
             // 
-            this.flowLayoutPanel3.Controls.Add(this.EmployeePhone);
-            this.flowLayoutPanel3.Controls.Add(this.EmployeePhoneTextBox);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 74);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(378, 37);
-            this.flowLayoutPanel3.TabIndex = 2;
+            this.flowLayoutPanel2.Controls.Add(this.Salary);
+            this.flowLayoutPanel2.Controls.Add(this.EmployeeSalaryTextBox);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 37);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(378, 37);
+            this.flowLayoutPanel2.TabIndex = 1;
             // 
             // Salary
             // 
@@ -264,17 +290,6 @@
             this.EmployeeSalaryTextBox.Name = "EmployeeSalaryTextBox";
             this.EmployeeSalaryTextBox.Size = new System.Drawing.Size(198, 20);
             this.EmployeeSalaryTextBox.TabIndex = 2;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.Salary);
-            this.flowLayoutPanel2.Controls.Add(this.EmployeeSalaryTextBox);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 37);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(378, 37);
-            this.flowLayoutPanel2.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
@@ -298,31 +313,14 @@
             // 
             // flowLayoutPanel11
             // 
+            this.flowLayoutPanel11.Controls.Add(this.GenderLabel);
+            this.flowLayoutPanel11.Controls.Add(this.EmployeeGenderComboBox);
             this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel11.Location = new System.Drawing.Point(0, 259);
             this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
             this.flowLayoutPanel11.Size = new System.Drawing.Size(378, 37);
             this.flowLayoutPanel11.TabIndex = 7;
-            // 
-            // StoreID
-            // 
-            this.StoreID.AutoSize = true;
-            this.StoreID.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StoreID.Location = new System.Drawing.Point(3, 0);
-            this.StoreID.MinimumSize = new System.Drawing.Size(75, 0);
-            this.StoreID.Name = "StoreID";
-            this.StoreID.Size = new System.Drawing.Size(75, 21);
-            this.StoreID.TabIndex = 1;
-            this.StoreID.Text = "Store ID";
-            // 
-            // EmployeeStoreIDTextBox
-            // 
-            this.EmployeeStoreIDTextBox.Enabled = false;
-            this.EmployeeStoreIDTextBox.Location = new System.Drawing.Point(84, 3);
-            this.EmployeeStoreIDTextBox.Name = "EmployeeStoreIDTextBox";
-            this.EmployeeStoreIDTextBox.Size = new System.Drawing.Size(198, 20);
-            this.EmployeeStoreIDTextBox.TabIndex = 2;
             // 
             // tableLayoutPanel3
             // 
@@ -411,6 +409,8 @@
             // 
             // ShiftDataGridView
             // 
+            this.ShiftDataGridView.AllowUserToAddRows = false;
+            this.ShiftDataGridView.AllowUserToDeleteRows = false;
             this.ShiftDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.ShiftDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ShiftDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -423,6 +423,7 @@
             this.ShiftDataGridView.Name = "ShiftDataGridView";
             this.ShiftDataGridView.Size = new System.Drawing.Size(366, 317);
             this.ShiftDataGridView.TabIndex = 0;
+            this.ShiftDataGridView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShiftDataGridView_KeyPress);
             // 
             // DayCol
             // 
@@ -442,6 +443,36 @@
             this.FinishCol.HeaderText = "Finish";
             this.FinishCol.Name = "FinishCol";
             this.FinishCol.ReadOnly = true;
+            // 
+            // EmployeeBirthDtp
+            // 
+            this.EmployeeBirthDtp.Location = new System.Drawing.Point(84, 3);
+            this.EmployeeBirthDtp.Name = "EmployeeBirthDtp";
+            this.EmployeeBirthDtp.Size = new System.Drawing.Size(200, 20);
+            this.EmployeeBirthDtp.TabIndex = 1;
+            // 
+            // GenderLabel
+            // 
+            this.GenderLabel.AutoSize = true;
+            this.GenderLabel.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenderLabel.Location = new System.Drawing.Point(3, 0);
+            this.GenderLabel.MinimumSize = new System.Drawing.Size(75, 0);
+            this.GenderLabel.Name = "GenderLabel";
+            this.GenderLabel.Size = new System.Drawing.Size(75, 21);
+            this.GenderLabel.TabIndex = 2;
+            this.GenderLabel.Text = "Gender";
+            // 
+            // EmployeeGenderComboBox
+            // 
+            this.EmployeeGenderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.EmployeeGenderComboBox.FormattingEnabled = true;
+            this.EmployeeGenderComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.EmployeeGenderComboBox.Location = new System.Drawing.Point(84, 3);
+            this.EmployeeGenderComboBox.Name = "EmployeeGenderComboBox";
+            this.EmployeeGenderComboBox.Size = new System.Drawing.Size(198, 21);
+            this.EmployeeGenderComboBox.TabIndex = 3;
             // 
             // BodyEmployeeView
             // 
@@ -469,6 +500,8 @@
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel11.ResumeLayout(false);
+            this.flowLayoutPanel11.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel12.ResumeLayout(false);
             this.Shift.ResumeLayout(false);
@@ -496,7 +529,6 @@
         private System.Windows.Forms.Label StoreID;
         private System.Windows.Forms.TextBox EmployeeStoreIDTextBox;
         private System.Windows.Forms.Label DateOfBirth;
-        private System.Windows.Forms.TextBox EmployeeBirthTextBox;
         private System.Windows.Forms.Label Email;
         private System.Windows.Forms.TextBox EmployeeEmailTextBox;
         private System.Windows.Forms.Label EmployeeID;
@@ -512,5 +544,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DayCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinishCol;
+        private System.Windows.Forms.DateTimePicker EmployeeBirthDtp;
+        private System.Windows.Forms.Label GenderLabel;
+        private System.Windows.Forms.ComboBox EmployeeGenderComboBox;
     }
 }
