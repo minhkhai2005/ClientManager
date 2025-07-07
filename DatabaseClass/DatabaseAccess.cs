@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net.NetworkInformation;
 using System.Configuration;
+using static DatabaseClass.DatabaseAccess;
 
 
 namespace DatabaseClass
@@ -44,6 +45,34 @@ namespace DatabaseClass
             public string Employee_Email { get; set; }
             public double Employee_Salary { get; set; }
             public string Store_ID { get; set; }
+
+            public override bool Equals(object obj)
+            {
+                return obj is Employee employee &&
+                       Employee_ID == employee.Employee_ID &&
+                       Employee_Name == employee.Employee_Name &&
+                       Employee_Gender == employee.Employee_Gender &&
+                       Employee_Birth == employee.Employee_Birth &&
+                       Employee_PhoneNumber == employee.Employee_PhoneNumber &&
+                       Employee_Email == employee.Employee_Email &&
+                       Employee_Salary == employee.Employee_Salary &&
+                       Store_ID == employee.Store_ID;
+            }
+
+            public override int GetHashCode()
+            {
+                int hashCode = -1127884199;
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_ID);
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Name);
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Gender);
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Birth);
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_PhoneNumber);
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Email);
+                hashCode = hashCode * -1521134295 + Employee_Salary.GetHashCode();
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Store_ID);
+                return hashCode;
+            }
+
             public void UpdateEmployee() {
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -58,6 +87,24 @@ namespace DatabaseClass
                                 Store_ID = @Store_ID
                             WHERE Employee_ID = @Employee_ID";
                     connection.Execute(sqlQuery, this);
+                }
+            }
+            public List<Shift> GetShifts() 
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Shift WHERE Employee_ID = @EmployeeID";
+                    return connection.Query<Shift>(sqlQuery, new { EmployeeID = this.Employee_ID }).ToList();
+                }
+            }
+            public static Employee GetEmployeeByID(string id)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Employee WHERE Employee_ID = @EmployeeID";
+                    return connection.QueryFirstOrDefault<Employee>(sqlQuery, new { EmployeeID = id });
                 }
             }
         }
@@ -177,6 +224,15 @@ namespace DatabaseClass
                     // Log the exception or handle it as needed
                     Console.WriteLine($"Error fetching information: {ex.Message}");
                     return 0; 
+                }
+            }
+            static public Store GetStoreByID(string storeID)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Store WHERE Store_ID = @Store_ID";
+                    return connection.QueryFirstOrDefault<Store>(sqlQuery, new { Store_ID = storeID });
                 }
             }
         }
@@ -300,8 +356,8 @@ namespace DatabaseClass
         {
             public string Employee_ID { get; set; }
             public int Day_of_Week { get; set; }
-            public string Shift_Start { get; set; }
-            public string Shift_Finish { get; set; }
+            public TimeSpan Shift_Start { get; set; }
+            public TimeSpan Shift_Finish { get; set; }
             public bool Is_Active { get; set; }
             public void UpdateShift()
             {
@@ -446,7 +502,7 @@ namespace DatabaseClass
                 AND s.Day_of_Week = DATEPART(WEEKDAY, GETDATE())  -- Ngày trong tuần hiện tại
                 AND CAST(GETDATE() AS TIME) BETWEEN s.Shift_Start AND s.Shift_Finish  -- Đang trong giờ làm việc
                 AND s.Is_Active = 1;  -- Chỉ lấy ca làm việc đang hoạt động";
-                var result = connection.ExecuteScalar<List<Employee>>(sqlQuery, new { Store_ID = StoreID });
+                var result = connection.Query<Employee>(sqlQuery, new { Store_ID = StoreID }).ToList(); 
                 return result;
             }
         }

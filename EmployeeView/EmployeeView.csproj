@@ -87,6 +87,10 @@
       <Project>{d5824514-f4c1-4b57-9194-ba51b04108d4}</Project>
       <Name>BodyEmployeeView</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DatabaseClass\DatabaseClass.csproj">
+      <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
+      <Name>DatabaseClass</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HeaderEmployeeView\HeaderEmployeeView.csproj">
       <Project>{91afa0b7-fdba-420c-bf26-0034d9f36b3e}</Project>
       <Name>HeaderEmployeeView</Name>

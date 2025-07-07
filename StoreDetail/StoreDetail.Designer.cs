@@ -32,6 +32,7 @@
             this.OverviewTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rightBodyOverviewTabStores1 = new RightBodyOvervewTabStores.RightBodyOverviewTabStores();
+            this.leftBodyOverviewTabStores1 = new LeftBodyOverviewTabStores.LeftBodyOverviewTabStores();
             this.overviewHeader = new OverviewStoresTab.UserControl1();
             this.InventoryTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,7 +68,6 @@
             this.InvoiceTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.InvoiceTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NumItems = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.leftBodyOverviewTabStores1 = new LeftBodyOverviewTabStores.LeftBodyOverviewTabStores();
             this.StatusColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.OverviewTab.SuspendLayout();
@@ -139,6 +139,16 @@
             this.rightBodyOverviewTabStores1.Name = "rightBodyOverviewTabStores1";
             this.rightBodyOverviewTabStores1.Size = new System.Drawing.Size(457, 614);
             this.rightBodyOverviewTabStores1.TabIndex = 1;
+            // 
+            // leftBodyOverviewTabStores1
+            // 
+            this.leftBodyOverviewTabStores1.BackColor = System.Drawing.Color.White;
+            this.leftBodyOverviewTabStores1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.leftBodyOverviewTabStores1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftBodyOverviewTabStores1.Location = new System.Drawing.Point(3, 174);
+            this.leftBodyOverviewTabStores1.Name = "leftBodyOverviewTabStores1";
+            this.leftBodyOverviewTabStores1.Size = new System.Drawing.Size(456, 614);
+            this.leftBodyOverviewTabStores1.TabIndex = 2;
             // 
             // overviewHeader
             // 
@@ -321,7 +331,7 @@
             this.EmployeeListView.TabIndex = 3;
             this.EmployeeListView.UseCompatibleStateImageBehavior = false;
             this.EmployeeListView.View = System.Windows.Forms.View.Details;
-            this.EmployeeListView.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
+            this.EmployeeListView.ItemActivate += new System.EventHandler(this.EmployeeListView_ItemActivate);
             // 
             // EmployeeName
             // 
@@ -500,16 +510,6 @@
             // 
             this.NumItems.Text = "Number of items";
             this.NumItems.Width = 194;
-            // 
-            // leftBodyOverviewTabStores1
-            // 
-            this.leftBodyOverviewTabStores1.BackColor = System.Drawing.Color.White;
-            this.leftBodyOverviewTabStores1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.leftBodyOverviewTabStores1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftBodyOverviewTabStores1.Location = new System.Drawing.Point(3, 174);
-            this.leftBodyOverviewTabStores1.Name = "leftBodyOverviewTabStores1";
-            this.leftBodyOverviewTabStores1.Size = new System.Drawing.Size(456, 614);
-            this.leftBodyOverviewTabStores1.TabIndex = 2;
             // 
             // StatusColumn
             // 

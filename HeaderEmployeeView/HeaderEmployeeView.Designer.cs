@@ -33,7 +33,6 @@
             this.EmployeePicture = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.EmployeeName = new System.Windows.Forms.Label();
-            this.EmployeeRole = new System.Windows.Forms.Label();
             this.EmployeeStore = new System.Windows.Forms.Label();
             this.PictureBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -74,9 +73,8 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.EmployeeName, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.EmployeeRole, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.EmployeeStore, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.PictureBtn, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.EmployeeStore, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(158, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -99,24 +97,13 @@
             this.EmployeeName.Text = "Tên nhân viên";
             this.EmployeeName.Click += new System.EventHandler(this.label1_Click);
             // 
-            // EmployeeRole
-            // 
-            this.EmployeeRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EmployeeRole.AutoSize = true;
-            this.EmployeeRole.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.EmployeeRole.Location = new System.Drawing.Point(3, 49);
-            this.EmployeeRole.Name = "EmployeeRole";
-            this.EmployeeRole.Size = new System.Drawing.Size(139, 21);
-            this.EmployeeRole.TabIndex = 1;
-            this.EmployeeRole.Text = "Vai trò của nhân viên";
-            // 
             // EmployeeStore
             // 
+            this.EmployeeStore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmployeeStore.AutoSize = true;
             this.EmployeeStore.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeStore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.EmployeeStore.Location = new System.Drawing.Point(3, 70);
+            this.EmployeeStore.Location = new System.Drawing.Point(3, 49);
             this.EmployeeStore.Name = "EmployeeStore";
             this.EmployeeStore.Size = new System.Drawing.Size(87, 21);
             this.EmployeeStore.TabIndex = 2;
@@ -159,7 +146,6 @@
         private System.Windows.Forms.PictureBox EmployeePicture;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label EmployeeName;
-        private System.Windows.Forms.Label EmployeeRole;
         private System.Windows.Forms.Label EmployeeStore;
         private System.Windows.Forms.Button PictureBtn;
     }

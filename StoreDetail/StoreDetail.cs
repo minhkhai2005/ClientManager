@@ -15,6 +15,7 @@ using DatabaseClass;
 using System.Data.SqlClient;
 using System.Threading;
 using System.Net.Http.Headers;
+using System.Diagnostics;
 
 namespace StoreDetail
 {
@@ -68,11 +69,6 @@ namespace StoreDetail
         public void ChangeTab(int tabIndex)
         {
             tabControl1.SelectTab(tabIndex);
-        }
-        private void listView1_ItemActivate(object sender, EventArgs e)
-        {
-            EmployeeView.EmployeeView employeeView = new EmployeeView.EmployeeView();
-            employeeView.ShowDialog();   
         }
 
         private void overviewHeader_MsgBtnClicked(object sender, EventArgs e)
@@ -214,6 +210,16 @@ namespace StoreDetail
         private void InventoryListView_ItemActivate(object sender, EventArgs e)
         {
 
+        }
+
+        private void EmployeeListView_ItemActivate(object sender, EventArgs e)
+        {
+            if (EmployeeListView.SelectedItems.Count > 0)
+            {
+                string employeeID = EmployeeListView.SelectedItems[0].SubItems[1].Text;
+                EmployeeView.EmployeeView view = new EmployeeView.EmployeeView(employeeID);
+                view.ShowDialog();
+            }
         }
     }
 }
