@@ -16,5 +16,13 @@ namespace Header_Inventory_Stores
         {
             InitializeComponent();
         }
+        public void UpdateStoreName(string storeName)
+        {
+            StoreName.Text = storeName;
+        }
+        public void UpdateStoreAddress(string storeAddress)
+        {
+            StoreAddress.Text = storeAddress;
+        }
     }
 }

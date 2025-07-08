@@ -35,11 +35,12 @@ namespace LeftBodyOverviewTabStores
         }
         public void UpdateEmployeeList(List<DatabaseAccess.Employee> employees)
         {
-            listView1.Clear();
+            listView1.Items.Clear();
+            if (employees == null)
+                return;
             foreach (var employee in employees)
             {
-                ListViewItem item = new ListViewItem(employee.Employee_ID);
-                item.SubItems.Add(employee.Employee_Name);
+                ListViewItem item = new ListViewItem(employee.Employee_Name);
                 item.SubItems.Add(employee.Employee_ID);
                 item.SubItems.Add("Working");
                 listView1.Items.Add(item);

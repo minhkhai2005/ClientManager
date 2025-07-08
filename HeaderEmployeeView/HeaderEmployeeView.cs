@@ -26,5 +26,13 @@ namespace HeaderEmployeeView
         {
 
         }
+        public void UpdateEmployeeName(string eName)
+        {
+            EmployeeName.Text = eName;
+        }
+        public void UpdateEmployeeWorkAddress(string addr)
+        {
+            EmployeeStore.Text = addr;
+        }
     }
 }
