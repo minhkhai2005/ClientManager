@@ -17,8 +17,9 @@ namespace DatabaseClass
 
     public class DatabaseAccess
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["StoreManagementDB"].ConnectionString;
-
+        public static string CurrentEmail { get; set; }
+        //static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
+        static string connectionString = "Data Source=DESKTOP-30NMLHM\\Wuang_Kai;Initial Catalog=TenDatabase;Integrated Security=True;";
         public class Manager
         {
             public string Manager_ID { get; set; }
@@ -565,13 +566,71 @@ namespace DatabaseClass
                 return connection.Query<Employee>(sqlQuery, new { Store_ID = storeID }).ToList();
             }
         }
-        public static List<Product> GetProductsByStoreID(string storeID)
+        public static List<Employee> GetEmployeesByStoreID(string storeID)
         {
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sqlQuery = "SELECT p.Product_ID, Product_Name, Product_Provider, Product_Price from Product p \r\njoin Inventory i on p.Product_ID = i.Product_ID\r\nWHERE i.Store_ID = @Store_ID";
-                return connection.Query<Product>(sqlQuery, new { Store_ID = storeID }).ToList();
+                string sqlQuery = "SELECT * FROM Employee WHERE Store_ID = @Store_ID";
+                return connection.Query<Employee>(sqlQuery, new { Store_ID = storeID }).ToList();
+            }
+        }
+        public static string statusEmployee(string employeeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = @"SELECT 1 FROM Employee e JOIN Shift s ON e.Employee_ID = s.Employee_ID
+                                WHERE e.Employee_ID = @Employee_ID AND s.Is_Active = 1";
+                var result = connection.ExecuteScalar<int?>(sql, new { Employee_ID = employeeID });
+                return (result.HasValue && result.Value == 1) ? "Đang làm việc" : "Nghỉ việc";
+            }
+        }
+        public static string roleemployee(string employeeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT e.Employee_Role
+            FROM Employee e
+            JOIN Shift s ON e.Employee_ID = s.Employee_ID
+            WHERE e.Employee_ID = @Employee_ID";
+
+                string role = connection.QueryFirstOrDefault<string>(sql, new { Employee_ID = employeeID });
+
+                return role ?? "Không xác định";
+            }
+        }
+
+        public static void CreateNewEmployee(Employee employee)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = @"INSERT INTO Employee (
+                        Employee_ID, 
+                        Employee_Name, 
+                        Employee_Gender, 
+                        Employee_Birth, 
+                        Employee_PhoneNumber, 
+                        Employee_Email, 
+                        Employee_Salary, 
+                        Store_ID
+                    ) 
+                    VALUES (
+                        @Employee_ID, 
+                        @Employee_Name, 
+                        @Employee_Gender, 
+                        @Employee_Birth, 
+                        @Employee_PhoneNumber, 
+                        @Employee_Email, 
+                        @Employee_Salary, 
+                        @Store_ID
+                    )";
+
+                connection.Execute(sql, employee);
             }
         }
         public static List<Inventory> GetInventoriesByStoreID(string storeID)
@@ -599,7 +658,37 @@ namespace DatabaseClass
                 connection.Open();
                 string sqlQuery = "SELECT * FROM Invoice i\r\nJOIN Employee e ON e.Employee_ID = i.Employee_ID\r\nWHERE e.Store_ID = @Store_ID";
                 return connection.Query<Invoice>(sqlQuery, new { Store_ID = storeID }).ToList();
+
             }
         }
+        public static string getstoreidbyemployeeid(string employeeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT Store_ID FROM Employee WHERE Employee_ID = @Employee_ID";
+                var store_ID = connection.ExecuteScalar<string>(sqlQuery, new { Employee_ID = employeeID });
+                return store_ID;
+            }
+        }
+        public static Employee GetEmployeesByEmail(string email)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM Employee WHERE Employee_Email = @Email";
+                return connection.QueryFirstOrDefault<Employee>(sql, new { Email = email });
+            }
+        }
+        public static List<Employee> GetEmployeesByStoreID(string storeID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = "SELECT * FROM Employee WHERE Store_ID = @Store_ID";
+                return connection.Query<Employee>(sqlQuery, new { Store_ID = storeID }).ToList();
+            }
+        }
+
     }
 }

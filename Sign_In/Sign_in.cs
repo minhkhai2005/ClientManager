@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Authentication;
 using Sign_Up;
-
+using Dapper;
+using DatabaseClass;
 
 namespace Sign_In
 {
@@ -33,6 +34,8 @@ namespace Sign_In
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 Session.Email = EmailBox.Text;
+                DatabaseAccess.CurrentEmail = EmailBox.Text; // Lưu email vào DatabaseAccess
+
                 Session.UID = result.Item2; // Lưu UID vào Session
                 this.Close();
             }
