@@ -38,7 +38,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.addBtn = new System.Windows.Forms.Button();
             this.header_Inventory_Stores1 = new Header_Inventory_Stores.Header_Inventory_Stores();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.InventoryListView = new System.Windows.Forms.ListView();
             this.columnProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -179,7 +179,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.addBtn, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.header_Inventory_Stores1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.listView1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.InventoryListView, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -215,25 +215,25 @@
             this.header_Inventory_Stores1.Size = new System.Drawing.Size(917, 130);
             this.header_Inventory_Stores1.TabIndex = 3;
             // 
-            // listView1
+            // InventoryListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.InventoryListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnProductName,
             this.columnProductID,
             this.columnProductPrice,
             this.columnProductStock,
             this.columnProductSold,
             this.columnProductStatus});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 143);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(919, 592);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ItemActivate += new System.EventHandler(this.InventoryListView_ItemActivate);
+            this.InventoryListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InventoryListView.FullRowSelect = true;
+            this.InventoryListView.HideSelection = false;
+            this.InventoryListView.Location = new System.Drawing.Point(3, 143);
+            this.InventoryListView.Name = "InventoryListView";
+            this.InventoryListView.Size = new System.Drawing.Size(919, 592);
+            this.InventoryListView.TabIndex = 4;
+            this.InventoryListView.UseCompatibleStateImageBehavior = false;
+            this.InventoryListView.View = System.Windows.Forms.View.Details;
+            this.InventoryListView.ItemActivate += new System.EventHandler(this.InventoryListView_ItemActivate);
             // 
             // columnProductName
             // 
@@ -573,7 +573,7 @@
         private System.Windows.Forms.ColumnHeader InvoiceTime;
         private System.Windows.Forms.ColumnHeader InvoiceTotal;
         private System.Windows.Forms.ColumnHeader NumItems;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView InventoryListView;
         private System.Windows.Forms.ColumnHeader columnProductName;
         private System.Windows.Forms.ColumnHeader columnProductID;
         private System.Windows.Forms.ColumnHeader columnProductPrice;

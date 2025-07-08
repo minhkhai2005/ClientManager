@@ -31,7 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.headerProductView1 = new HeaderProductView.HeaderProductView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ImportListView = new System.Windows.Forms.ListView();
             this.ProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,7 +70,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.ImportListView);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Afacad", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 148);
@@ -80,10 +80,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "History";
             // 
-            // listView1
+            // ImportListView
             // 
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ImportListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ImportListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ProductName,
             this.ProductID,
             this.Quantity,
@@ -91,15 +91,15 @@
             this.Price,
             this.Cost,
             this.Date});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 25);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(772, 432);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.ImportListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportListView.FullRowSelect = true;
+            this.ImportListView.HideSelection = false;
+            this.ImportListView.Location = new System.Drawing.Point(3, 25);
+            this.ImportListView.Name = "ImportListView";
+            this.ImportListView.Size = new System.Drawing.Size(772, 432);
+            this.ImportListView.TabIndex = 0;
+            this.ImportListView.UseCompatibleStateImageBehavior = false;
+            this.ImportListView.View = System.Windows.Forms.View.Details;
             // 
             // ProductName
             // 
@@ -156,7 +156,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private HeaderProductView.HeaderProductView headerProductView1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView ImportListView;
         private System.Windows.Forms.ColumnHeader ProductName;
         private System.Windows.Forms.ColumnHeader ProductID;
         private System.Windows.Forms.ColumnHeader Quantity;

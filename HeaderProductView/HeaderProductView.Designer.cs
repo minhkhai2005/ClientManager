@@ -39,7 +39,7 @@
             this.Price = new System.Windows.Forms.Label();
             this.PriceTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ProductStatus = new System.Windows.Forms.Label();
+            this.InventoryStatus = new System.Windows.Forms.Label();
             this.ProductName = new System.Windows.Forms.Label();
             this.ProductID = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -192,7 +192,7 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.ProductStatus, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.InventoryStatus, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.ProductName, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.ProductID, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -206,17 +206,17 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(167, 117);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // ProductStatus
+            // InventoryStatus
             // 
-            this.ProductStatus.AutoSize = true;
-            this.ProductStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProductStatus.Font = new System.Drawing.Font("Afacad Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.ProductStatus.Location = new System.Drawing.Point(3, 77);
-            this.ProductStatus.Name = "ProductStatus";
-            this.ProductStatus.Size = new System.Drawing.Size(161, 40);
-            this.ProductStatus.TabIndex = 2;
-            this.ProductStatus.Text = "⚫ Active";
+            this.InventoryStatus.AutoSize = true;
+            this.InventoryStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InventoryStatus.Font = new System.Drawing.Font("Afacad Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.InventoryStatus.Location = new System.Drawing.Point(3, 77);
+            this.InventoryStatus.Name = "InventoryStatus";
+            this.InventoryStatus.Size = new System.Drawing.Size(161, 40);
+            this.InventoryStatus.TabIndex = 2;
+            this.InventoryStatus.Text = "⚫ Active";
             // 
             // ProductName
             // 
@@ -364,7 +364,7 @@
         private System.Windows.Forms.Label RevenueTitle;
         private System.Windows.Forms.Label Price;
         private System.Windows.Forms.Label PriceTitle;
-        private System.Windows.Forms.Label ProductStatus;
+        private System.Windows.Forms.Label InventoryStatus;
         private System.Windows.Forms.Label ProductName;
         private System.Windows.Forms.Label ProductID;
         private System.Windows.Forms.Label Stock;

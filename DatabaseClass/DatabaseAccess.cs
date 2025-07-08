@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Net.NetworkInformation;
 using System.Configuration;
 using static DatabaseClass.DatabaseAccess;
+using System.Runtime.InteropServices.ComTypes;
 
 
 namespace DatabaseClass
@@ -180,6 +181,24 @@ namespace DatabaseClass
                     connection.Execute(sqlQuery, this);
                 }
             }
+            public static List<Import> GetImports(string storeID, string prodID)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Import WHERE Store_ID = @Store_ID AND Product_ID = @Product_ID";
+                    return connection.Query<Import>(sqlQuery, new { Store_ID = storeID, Product_ID = prodID }).ToList();
+                }
+            }
+            public static Import GetImportByID(string importID)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Import WHERE Import_ID = @Import_ID";
+                    return connection.QueryFirstOrDefault<Import>(sqlQuery, new { Import_ID = importID });
+                }
+            }
         }
         public class Store
         {
@@ -240,7 +259,7 @@ namespace DatabaseClass
             public string Product_ID { get; set; }
             public string Product_Name { get; set; }
             public string Product_Provider { get; set; }
-            public string Product_Price { get; set; }
+            public double Product_Price { get; set; }
             public void UpdateProduct()
             {
                 using (var connection = new SqlConnection(connectionString))
@@ -269,7 +288,18 @@ namespace DatabaseClass
             public string Store_ID { get; set; }
             public string Product_ID { get; set; }
             public int Inventory_Stock { get; set; }
-            public string Inventory_Status { get; set; }
+            public bool Inventory_Status { get; set; }
+
+            public static Inventory GetInventoryByID(string storeID, string prodID)
+            {
+                using(var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Inventory WHERE Store_ID = @storeID AND Product_ID = @prodID";
+                    return connection.QueryFirstOrDefault<Inventory>(sqlQuery, new {storeID, prodID });
+                }
+            }
+
             public void UpdateInventory()
             {
                 using (var connection = new SqlConnection(connectionString))

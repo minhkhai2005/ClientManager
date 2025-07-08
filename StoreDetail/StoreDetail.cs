@@ -16,7 +16,6 @@ using System.Data.SqlClient;
 using System.Threading;
 using System.Net.Http.Headers;
 using System.Diagnostics;
-
 namespace StoreDetail
 {
     public partial class StoreDetail: UserControl
@@ -125,17 +124,17 @@ namespace StoreDetail
             header_Inventory_Stores1.UpdateStoreAddress(StoreInformation.Store_Address);
 
             // add item to inventory listView
-            listView1.Items.Clear();
+            InventoryListView.Items.Clear();
             foreach(var inventory in StoreInventoies)
             {
                 var p = DatabaseAccess.Product.GetProductByID(inventory.Product_ID);
                 ListViewItem item = new ListViewItem(p.Product_Name);
                 item.SubItems.Add(p.Product_ID);
-                item.SubItems.Add(p.Product_Price);
+                item.SubItems.Add(p.Product_Price.ToString());
                 item.SubItems.Add(inventory.Inventory_Stock.ToString());
                 item.SubItems.Add(StoreInformation.GetNumberOfSoldItem(inventory.Product_ID).ToString());
-                item.SubItems.Add(inventory.Inventory_Status);
-                listView1.Items.Add(item);
+                item.SubItems.Add(inventory.Inventory_Status?"Active":"Inactive");
+                InventoryListView.Items.Add(item);
             }
         }
         public void EmployeeTabRefresh()
@@ -209,7 +208,13 @@ namespace StoreDetail
 
         private void InventoryListView_ItemActivate(object sender, EventArgs e)
         {
-
+            if (InventoryListView.SelectedItems.Count > 0)
+            {
+                string productID = InventoryListView.SelectedItems[0].SubItems[1].Text;
+                // Open the product view dialog
+                ProductView.ProductView view = new ProductView.ProductView(StoreInformation.Store_ID, productID);
+                view.ShowDialog();
+            }
         }
 
         private void EmployeeListView_ItemActivate(object sender, EventArgs e)
