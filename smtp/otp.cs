@@ -38,13 +38,13 @@ namespace smtp
                 otp += random.Next(0, 10).ToString();
             return otp;
         }
-        static public void SendOtpEmail(string toEmail, string otp)
+        static public void SendOtpEmail(string toEmail, string otp, string mailSubject)
         {
             var fromAddress = new MailAddress("familyfamily4867@gmail.com", "OTP Service");
             var toAddress = new MailAddress(toEmail);
             const string fromPassword = "srxo serp kjbo zkjs"; // dùng app password
-            const string subject = "Mã OTP của bạn xác nhận thêm cửa hàng mới";
-            string body = $"Mã OTP của bạn là: {otp}";
+            string subject = mailSubject;
+            string body = $"Your OTP is: {otp}";
 
             var smtp = new SmtpClient
             {

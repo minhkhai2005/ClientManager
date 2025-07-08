@@ -34,7 +34,7 @@ namespace StoresList
             }
             var newOtp = otp.GenerateOtp();
             otp.StoreOtp(Email.Text, newOtp);
-            otp.SendOtpEmail(Email.Text, newOtp);
+            otp.SendOtpEmail(Email.Text, newOtp, "OTP code to confirm your new store");
         }
 
         private void ConfirmBtn_Click(object sender, EventArgs e)

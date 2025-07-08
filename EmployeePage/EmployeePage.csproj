@@ -58,27 +58,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addEmployee.Designer.cs">
+      <DependentUpon>addEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="EmployeePage.Designer.cs">
       <DependentUpon>EmployeePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="list empoyee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="list empoyee.Designer.cs">
-      <DependentUpon>list empoyee.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="addEmployee.resx">
+      <DependentUpon>addEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeePage.resx">
       <DependentUpon>EmployeePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="list empoyee.resx">
-      <DependentUpon>list empoyee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +97,10 @@
     <ProjectReference Include="..\Sign_Up\Sign_Up.csproj">
       <Project>{3b84dfd8-a9b9-4b9f-86e5-f2aa0616889e}</Project>
       <Name>Sign_Up</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\smtp\smtp.csproj">
+      <Project>{5936ae91-e345-4cd1-94bc-0ff87e8dfbad}</Project>
+      <Name>smtp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
