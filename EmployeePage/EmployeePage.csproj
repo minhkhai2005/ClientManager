@@ -90,6 +90,10 @@
       <Project>{83f88c2d-6b3f-4e57-aa3d-3ba95870c673}</Project>
       <Name>EmployeeView</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ListViewColumnSorter\ListViewColumnSorter.csproj">
+      <Project>{f6be400a-a5c4-4222-b7df-1b90212a4877}</Project>
+      <Name>ListViewColumnSorter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sign_In\Sign_In.csproj">
       <Project>{df0eb12a-a056-495a-b674-af302397ba3c}</Project>
       <Name>Sign_In</Name>

@@ -203,6 +203,7 @@
             this.addBtn.TabIndex = 2;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addInventoryBtn_Click);
             // 
             // header_Inventory_Stores1
             // 
@@ -233,6 +234,7 @@
             this.InventoryListView.TabIndex = 4;
             this.InventoryListView.UseCompatibleStateImageBehavior = false;
             this.InventoryListView.View = System.Windows.Forms.View.Details;
+            this.InventoryListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.InventoryListView_ColumnClick);
             this.InventoryListView.ItemActivate += new System.EventHandler(this.InventoryListView_ItemActivate);
             // 
             // columnProductName
@@ -331,6 +333,7 @@
             this.EmployeeListView.TabIndex = 3;
             this.EmployeeListView.UseCompatibleStateImageBehavior = false;
             this.EmployeeListView.View = System.Windows.Forms.View.Details;
+            this.EmployeeListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.EmployeeListView_ColumnClick);
             this.EmployeeListView.ItemActivate += new System.EventHandler(this.EmployeeListView_ItemActivate);
             // 
             // EmployeeName
@@ -489,6 +492,7 @@
             this.InvoiceListView.TabIndex = 0;
             this.InvoiceListView.UseCompatibleStateImageBehavior = false;
             this.InvoiceListView.View = System.Windows.Forms.View.Details;
+            this.InvoiceListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.InvoiceListView_ColumnClick);
             this.InvoiceListView.ItemActivate += new System.EventHandler(this.InvoiceListView_ItemActivate);
             // 
             // InvoiceID

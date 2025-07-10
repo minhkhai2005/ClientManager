@@ -21,5 +21,13 @@ namespace header_product_import
         {
 
         }
+        public void UpdateProductName(string prodName)
+        {
+            ProductNameLabel.Text = prodName;
+        }
+        public void UpdateProductID(string prodID)
+        {
+            ProductIDLabel.Text = prodID;
+        }
     }
 }

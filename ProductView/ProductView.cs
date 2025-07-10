@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseClass;
+using ProductEdit;
 
 namespace ProductView
 {
     public partial class ProductView: Form
     {
         DatabaseAccess.Inventory inventory { get; set; }
+        DatabaseAccess.Product product { get; set; }
+        DatabaseAccess.Store store { get; set; }
         public ProductView()
         {
             InitializeComponent();
@@ -26,32 +29,43 @@ namespace ProductView
             LoadProductDetails(inventory);
         }
         private void LoadProductDetails(DatabaseAccess.Inventory inventory) { 
-            var prod = DatabaseAccess.Product.GetProductByID(inventory.Product_ID);
-            var store = DatabaseAccess.Store.GetStoreByID(inventory.Store_ID);
+            product = DatabaseAccess.Product.GetProductByID(inventory.Product_ID);
+            store = DatabaseAccess.Store.GetStoreByID(inventory.Store_ID);
             int NumberOfSold = store.GetNumberOfSoldItem(inventory.Product_ID);
-            double revenue = prod.Product_Price * NumberOfSold;
+            double revenue = product.Product_Price * NumberOfSold;
             headerProductView1.SetProductDetails(
-                prod.Product_Name,
+                product.Product_Name,
                 inventory.Product_ID,
                 inventory.Inventory_Stock,
                 NumberOfSold,
-                prod.Product_Price,
+                product.Product_Price,
                 revenue,
                 inventory.Inventory_Status
             );
             ImportListView.Items.Clear();
-            List<DatabaseAccess.Import> imports = DatabaseAccess.Import.GetImports(store.Store_ID, prod.Product_ID);
+            List<DatabaseAccess.Import> imports = DatabaseAccess.Import.GetImports(store.Store_ID, product.Product_ID);
             foreach (var import in imports)
             {
-                ListViewItem item = new ListViewItem(prod.Product_Name);
-                item.SubItems.Add(import.Product_ID);
+                ListViewItem item = new ListViewItem(product.Product_Name);
+                item.SubItems.Add(import.Import_ID);
                 item.SubItems.Add(import.Import_Quantity.ToString());
                 item.SubItems.Add(import.Import_Provider);
-                item.SubItems.Add(prod.Product_Price.ToString("C2"));
                 item.SubItems.Add(import.Import_Price.ToString("C2"));
+                item.SubItems.Add(import.Import_Total.ToString("C2"));
                 item.SubItems.Add(import.Import_Date.ToShortDateString());
                 ImportListView.Items.Add(item);
             }
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            ProductEdit.ProductEdit productEdit = new ProductEdit.ProductEdit(inventory, product);
+            productEdit.ShowDialog();
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

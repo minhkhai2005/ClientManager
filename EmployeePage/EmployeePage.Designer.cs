@@ -83,6 +83,7 @@
             this.EmployeeListView.TabIndex = 1;
             this.EmployeeListView.UseCompatibleStateImageBehavior = false;
             this.EmployeeListView.View = System.Windows.Forms.View.Details;
+            this.EmployeeListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.EmployeeListView_ColumnClick);
             this.EmployeeListView.ItemActivate += new System.EventHandler(this.EmployeeListView_ItemActivate);
             // 
             // EmployeeID

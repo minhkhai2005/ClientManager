@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ConfirmBtn = new System.Windows.Forms.Button();
             this.SendOTPBtn = new System.Windows.Forms.Button();
+            this.StoreIDTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // emailTextBox
@@ -45,7 +47,7 @@
             // 
             // otpTextBox
             // 
-            this.otpTextBox.Location = new System.Drawing.Point(12, 110);
+            this.otpTextBox.Location = new System.Drawing.Point(12, 161);
             this.otpTextBox.Name = "otpTextBox";
             this.otpTextBox.Size = new System.Drawing.Size(226, 20);
             this.otpTextBox.TabIndex = 1;
@@ -62,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 94);
+            this.label2.Location = new System.Drawing.Point(12, 145);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 3;
@@ -70,7 +72,7 @@
             // 
             // ConfirmBtn
             // 
-            this.ConfirmBtn.Location = new System.Drawing.Point(12, 146);
+            this.ConfirmBtn.Location = new System.Drawing.Point(12, 204);
             this.ConfirmBtn.Name = "ConfirmBtn";
             this.ConfirmBtn.Size = new System.Drawing.Size(93, 29);
             this.ConfirmBtn.TabIndex = 4;
@@ -88,12 +90,30 @@
             this.SendOTPBtn.UseVisualStyleBackColor = true;
             this.SendOTPBtn.Click += new System.EventHandler(this.SendOTPBtn_Click);
             // 
+            // StoreIDTextBox
+            // 
+            this.StoreIDTextBox.Location = new System.Drawing.Point(12, 106);
+            this.StoreIDTextBox.Name = "StoreIDTextBox";
+            this.StoreIDTextBox.Size = new System.Drawing.Size(226, 20);
+            this.StoreIDTextBox.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Store ID";
+            // 
             // addEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(347, 333);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.StoreIDTextBox);
             this.Controls.Add(this.SendOTPBtn);
             this.Controls.Add(this.ConfirmBtn);
             this.Controls.Add(this.label2);
@@ -101,7 +121,7 @@
             this.Controls.Add(this.otpTextBox);
             this.Controls.Add(this.emailTextBox);
             this.Name = "addEmployee";
-            this.Text = "addEmployee";
+            this.Text = "Add new employee";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +135,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ConfirmBtn;
         private System.Windows.Forms.Button SendOTPBtn;
+        private System.Windows.Forms.TextBox StoreIDTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }

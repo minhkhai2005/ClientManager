@@ -42,10 +42,10 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.071429F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.285714F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.07143F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.693713F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.19878F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.73428F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.37323F));
             this.tableLayoutPanel1.Controls.Add(this.logo, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.softwareName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.uesrname, 3, 0);
@@ -53,13 +53,12 @@
             this.tableLayoutPanel1.Controls.Add(this.avt, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1867, 123);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1400, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -67,11 +66,11 @@
             // 
             this.logo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logo.Image = global::Header_control.Properties.Resources.AnyConv_com__svgviewer_output;
-            this.logo.Location = new System.Drawing.Point(3, 2);
-            this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.logo.Location = new System.Drawing.Point(2, 2);
+            this.logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.logo.Name = "logo";
             this.tableLayoutPanel1.SetRowSpan(this.logo, 2);
-            this.logo.Size = new System.Drawing.Size(126, 119);
+            this.logo.Size = new System.Drawing.Size(89, 96);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
@@ -82,13 +81,14 @@
             this.softwareName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.softwareName.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.softwareName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.softwareName.Location = new System.Drawing.Point(135, 0);
+            this.softwareName.Location = new System.Drawing.Point(95, 0);
+            this.softwareName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.softwareName.Name = "softwareName";
             this.tableLayoutPanel1.SetRowSpan(this.softwareName, 2);
-            this.softwareName.Size = new System.Drawing.Size(167, 123);
+            this.softwareName.Size = new System.Drawing.Size(194, 100);
             this.softwareName.TabIndex = 1;
             this.softwareName.Text = "USMS";
-            this.softwareName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.softwareName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uesrname
             // 
@@ -97,9 +97,10 @@
             this.uesrname.AutoSize = true;
             this.uesrname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.uesrname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.uesrname.Location = new System.Drawing.Point(1625, 0);
+            this.uesrname.Location = new System.Drawing.Point(1227, 0);
+            this.uesrname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uesrname.Name = "uesrname";
-            this.uesrname.Size = new System.Drawing.Size(189, 61);
+            this.uesrname.Size = new System.Drawing.Size(152, 50);
             this.uesrname.TabIndex = 3;
             this.uesrname.Text = "Tran Minh Khai";
             this.uesrname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -110,9 +111,10 @@
             this.userRole.AutoSize = true;
             this.userRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.userRole.Location = new System.Drawing.Point(1625, 61);
+            this.userRole.Location = new System.Drawing.Point(1227, 50);
+            this.userRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.userRole.Name = "userRole";
-            this.userRole.Size = new System.Drawing.Size(90, 25);
+            this.userRole.Size = new System.Drawing.Size(72, 20);
             this.userRole.TabIndex = 4;
             this.userRole.Text = "Manager";
             this.userRole.Click += new System.EventHandler(this.userRole_Click);
@@ -122,12 +124,12 @@
             this.avt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.avt.Image = global::Header_control.Properties.Resources.AnyConv_com__avatar_boy_svgrepo_com__3_;
-            this.avt.Location = new System.Drawing.Point(1486, 2);
-            this.avt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.avt.MaximumSize = new System.Drawing.Size(133, 118);
+            this.avt.Location = new System.Drawing.Point(1123, 2);
+            this.avt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.avt.MaximumSize = new System.Drawing.Size(100, 96);
             this.avt.Name = "avt";
             this.tableLayoutPanel1.SetRowSpan(this.avt, 2);
-            this.avt.Size = new System.Drawing.Size(133, 118);
+            this.avt.Size = new System.Drawing.Size(100, 96);
             this.avt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avt.TabIndex = 2;
             this.avt.TabStop = false;
@@ -135,13 +137,13 @@
             // 
             // Header
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Header";
-            this.Size = new System.Drawing.Size(1867, 123);
+            this.Size = new System.Drawing.Size(1400, 100);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();

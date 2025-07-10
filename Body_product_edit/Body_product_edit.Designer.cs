@@ -33,21 +33,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ProductNameTextBox = new System.Windows.Forms.TextBox();
+            this.StockTextBox = new System.Windows.Forms.TextBox();
+            this.AlertQuantityTextBox = new System.Windows.Forms.TextBox();
+            this.ProductPriceTextBox = new System.Windows.Forms.TextBox();
             this.ChangeBtn = new System.Windows.Forms.Button();
             this.ImportBtn = new System.Windows.Forms.Button();
-            this.ExportBtn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.StatusCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(32, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -57,37 +56,37 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(32, 79);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 22);
+            this.label2.Size = new System.Drawing.Size(48, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Stock";
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(32, 119);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 22);
+            this.label3.Size = new System.Drawing.Size(48, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Price";
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(32, 160);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 22);
+            this.label4.Size = new System.Drawing.Size(58, 22);
             this.label4.TabIndex = 3;
             this.label4.Text = "Status";
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(301, 40);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -96,58 +95,42 @@
             this.label5.Text = "Alert Quantity";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // textBox1
+            // ProductNameTextBox
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(94, 38);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(110, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.ProductNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProductNameTextBox.Location = new System.Drawing.Point(94, 38);
+            this.ProductNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ProductNameTextBox.Name = "ProductNameTextBox";
+            this.ProductNameTextBox.Size = new System.Drawing.Size(153, 20);
+            this.ProductNameTextBox.TabIndex = 5;
+            this.ProductNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // StockTextBox
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(94, 79);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(110, 20);
-            this.textBox2.TabIndex = 7;
+            this.StockTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StockTextBox.Location = new System.Drawing.Point(94, 79);
+            this.StockTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.StockTextBox.Name = "StockTextBox";
+            this.StockTextBox.Size = new System.Drawing.Size(153, 20);
+            this.StockTextBox.TabIndex = 7;
             // 
-            // textBox4
+            // AlertQuantityTextBox
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(391, 42);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(110, 20);
-            this.textBox4.TabIndex = 9;
+            this.AlertQuantityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AlertQuantityTextBox.Location = new System.Drawing.Point(403, 42);
+            this.AlertQuantityTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.AlertQuantityTextBox.Name = "AlertQuantityTextBox";
+            this.AlertQuantityTextBox.Size = new System.Drawing.Size(140, 20);
+            this.AlertQuantityTextBox.TabIndex = 9;
             // 
-            // textBox5
+            // ProductPriceTextBox
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(94, 117);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(110, 20);
-            this.textBox5.TabIndex = 10;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Afacad", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(94, 160);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(65, 24);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Active";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ProductPriceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProductPriceTextBox.Location = new System.Drawing.Point(94, 117);
+            this.ProductPriceTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ProductPriceTextBox.Name = "ProductPriceTextBox";
+            this.ProductPriceTextBox.Size = new System.Drawing.Size(153, 20);
+            this.ProductPriceTextBox.TabIndex = 10;
             // 
             // ChangeBtn
             // 
@@ -156,9 +139,9 @@
             this.ChangeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeBtn.ForeColor = System.Drawing.Color.White;
             this.ChangeBtn.Location = new System.Drawing.Point(34, 198);
-            this.ChangeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChangeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ChangeBtn.Name = "ChangeBtn";
-            this.ChangeBtn.Size = new System.Drawing.Size(104, 24);
+            this.ChangeBtn.Size = new System.Drawing.Size(104, 34);
             this.ChangeBtn.TabIndex = 12;
             this.ChangeBtn.Text = "Change picture";
             this.ChangeBtn.UseVisualStyleBackColor = false;
@@ -168,26 +151,14 @@
             this.ImportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ImportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportBtn.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ImportBtn.Location = new System.Drawing.Point(34, 236);
-            this.ImportBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ImportBtn.Location = new System.Drawing.Point(34, 245);
+            this.ImportBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ImportBtn.Name = "ImportBtn";
-            this.ImportBtn.Size = new System.Drawing.Size(104, 24);
+            this.ImportBtn.Size = new System.Drawing.Size(104, 29);
             this.ImportBtn.TabIndex = 13;
             this.ImportBtn.Text = "Import";
             this.ImportBtn.UseVisualStyleBackColor = true;
-            // 
-            // ExportBtn
-            // 
-            this.ExportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportBtn.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ExportBtn.Location = new System.Drawing.Point(34, 271);
-            this.ExportBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ExportBtn.Name = "ExportBtn";
-            this.ExportBtn.Size = new System.Drawing.Size(104, 24);
-            this.ExportBtn.TabIndex = 14;
-            this.ExportBtn.Text = "Export";
-            this.ExportBtn.UseVisualStyleBackColor = true;
+            this.ImportBtn.Click += new System.EventHandler(this.ImportBtn_Click);
             // 
             // button4
             // 
@@ -195,12 +166,13 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.button4.Location = new System.Drawing.Point(403, 362);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(58, 24);
             this.button4.TabIndex = 15;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // button5
             // 
@@ -208,12 +180,24 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(485, 362);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(58, 24);
             this.button5.TabIndex = 16;
             this.button5.Text = "Save";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // StatusCheckBox
+            // 
+            this.StatusCheckBox.AutoSize = true;
+            this.StatusCheckBox.Location = new System.Drawing.Point(94, 163);
+            this.StatusCheckBox.Name = "StatusCheckBox";
+            this.StatusCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.StatusCheckBox.TabIndex = 17;
+            this.StatusCheckBox.Text = "Inactive";
+            this.StatusCheckBox.UseVisualStyleBackColor = true;
+            this.StatusCheckBox.CheckStateChanged += new System.EventHandler(this.StatusCheckBox_CheckStateChanged);
             // 
             // Body_product_edit
             // 
@@ -221,22 +205,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.StatusCheckBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.ExportBtn);
             this.Controls.Add(this.ImportBtn);
             this.Controls.Add(this.ChangeBtn);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ProductPriceTextBox);
+            this.Controls.Add(this.AlertQuantityTextBox);
+            this.Controls.Add(this.StockTextBox);
+            this.Controls.Add(this.ProductNameTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Body_product_edit";
             this.Size = new System.Drawing.Size(583, 399);
             this.ResumeLayout(false);
@@ -251,15 +234,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox ProductNameTextBox;
+        private System.Windows.Forms.TextBox StockTextBox;
+        private System.Windows.Forms.TextBox AlertQuantityTextBox;
+        private System.Windows.Forms.TextBox ProductPriceTextBox;
         private System.Windows.Forms.Button ChangeBtn;
         private System.Windows.Forms.Button ImportBtn;
-        private System.Windows.Forms.Button ExportBtn;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.CheckBox StatusCheckBox;
     }
 }

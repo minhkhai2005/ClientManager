@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addNewInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addNewInventory.Designer.cs">
+      <DependentUpon>addNewInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="StoreDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="addNewInventory.resx">
+      <DependentUpon>addNewInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StoreDetail.resx">
       <DependentUpon>StoreDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +109,10 @@
     <ProjectReference Include="..\LeftBodyOverviewTabStores\LeftBodyOverviewTabStores.csproj">
       <Project>{43c0141a-92af-48db-a95c-b30acb61874e}</Project>
       <Name>LeftBodyOverviewTabStores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ListViewColumnSorter\ListViewColumnSorter.csproj">
+      <Project>{f6be400a-a5c4-4222-b7df-1b90212a4877}</Project>
+      <Name>ListViewColumnSorter</Name>
     </ProjectReference>
     <ProjectReference Include="..\NoInternetConnectionControl\NoInternetConnectionControl.csproj">
       <Project>{6E0482FA-515A-4E03-95EA-C6519871655B}</Project>

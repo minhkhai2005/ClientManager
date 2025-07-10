@@ -8,15 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseClass;
+using static ListViewColumnSorter;
 
 namespace LeftBodyOverviewTabStores
 {
     public partial class LeftBodyOverviewTabStores: UserControl
     {
+        private ListViewColumnSorter lvwColumnSorter;
         public event EventHandler<string> EmployeeSelected;
         public LeftBodyOverviewTabStores()
         {
             InitializeComponent();
+            // Create an instance of a ListView column sorter and assign it
+            // to the ListView control.
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.listView1.ListViewItemSorter = lvwColumnSorter;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -36,6 +42,8 @@ namespace LeftBodyOverviewTabStores
         public void UpdateEmployeeList(List<DatabaseAccess.Employee> employees)
         {
             listView1.Items.Clear();
+            listView1.ListViewItemSorter = null;
+            listView1.BeginUpdate();
             if (employees == null)
                 return;
             foreach (var employee in employees)
@@ -45,6 +53,9 @@ namespace LeftBodyOverviewTabStores
                 item.SubItems.Add("Working");
                 listView1.Items.Add(item);
             }
+            listView1.ListViewItemSorter = lvwColumnSorter; // re-enable sorting
+            listView1.EndUpdate();
+            listView1.Sort(); // sort the list view
         }
     }
 }

@@ -266,7 +266,24 @@ namespace BodyEmployeeView
 
         private void DelBtn_Click(object sender, EventArgs e)
         {
-            DelBtnClick?.Invoke(this, EventArgs.Empty);
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this employee?",
+               "Delete Employee",
+               MessageBoxButtons.YesNo);
+            // handle delete button click
+
+            if (result == DialogResult.Yes)
+            {
+                // if the user clicks yes, delete the employee
+                employee.Store_ID = null; // remove the employee from the store
+                employee.UpdateEmployee();
+
+                // finally close the form
+                DelBtnClick?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                // if the user clicks no, do nothing
+            }
         }
         private void ShiftDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -299,7 +316,7 @@ namespace BodyEmployeeView
         {
             employee.Employee_Salary = double.Parse(EmployeeSalaryTextBox.Text);
             employee.Employee_PhoneNumber = EmployeePhoneTextBox.Text;
-            employee.Employee_Birth = EmployeeBirthDtp.Value.ToString();
+            employee.Employee_Birth = EmployeeBirthDtp.Value;
             employee.Employee_Gender = EmployeeGenderComboBox.Text=="Male" ? false : true;
             employee.Employee_Email = EmployeeEmailTextBox.Text;
             employee.UpdateEmployee();

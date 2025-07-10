@@ -107,6 +107,10 @@
       <Project>{b7f2461f-b273-4f64-a8e4-e5780de5c6d7}</Project>
       <Name>HeaderProductView</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProductEdit\ProductEdit.csproj">
+      <Project>{349c9b79-206b-4b40-9265-210051a8ec9f}</Project>
+      <Name>ProductEdit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

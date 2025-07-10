@@ -90,6 +90,10 @@
       <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
       <Name>DatabaseClass</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ListViewColumnSorter\ListViewColumnSorter.csproj">
+      <Project>{f6be400a-a5c4-4222-b7df-1b90212a4877}</Project>
+      <Name>ListViewColumnSorter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sign_In\Sign_In.csproj">
       <Project>{df0eb12a-a056-495a-b674-af302397ba3c}</Project>
       <Name>Sign_In</Name>

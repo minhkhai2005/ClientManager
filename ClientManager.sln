@@ -83,6 +83,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseClass", "DatabaseCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smtp", "smtp\smtp.csproj", "{5936AE91-E345-4CD1-94BC-0FF87E8DFBAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListViewColumnSorter", "ListViewColumnSorter\ListViewColumnSorter.csproj", "{F6BE400A-A5C4-4222-B7DF-1B90212A4877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "FirebaseAuthentication\Authentication.csproj", "{585C4AF8-1988-47DF-A11E-135025525A4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -249,6 +253,14 @@ Global
 		{5936AE91-E345-4CD1-94BC-0FF87E8DFBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5936AE91-E345-4CD1-94BC-0FF87E8DFBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5936AE91-E345-4CD1-94BC-0FF87E8DFBAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BE400A-A5C4-4222-B7DF-1B90212A4877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BE400A-A5C4-4222-B7DF-1B90212A4877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BE400A-A5C4-4222-B7DF-1B90212A4877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BE400A-A5C4-4222-B7DF-1B90212A4877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585C4AF8-1988-47DF-A11E-135025525A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585C4AF8-1988-47DF-A11E-135025525A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585C4AF8-1988-47DF-A11E-135025525A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585C4AF8-1988-47DF-A11E-135025525A4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

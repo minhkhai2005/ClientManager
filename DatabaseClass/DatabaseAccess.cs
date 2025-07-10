@@ -42,7 +42,7 @@ namespace DatabaseClass
             public string Employee_ID { get; set; }
             public string Employee_Name { get; set; }
             public bool Employee_Gender { get; set; }
-            public string Employee_Birth { get; set; }
+            public DateTime Employee_Birth { get; set; }
             public string Employee_PhoneNumber { get; set; }
             public string Employee_Email { get; set; }
             public double Employee_Salary { get; set; }
@@ -67,7 +67,7 @@ namespace DatabaseClass
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_ID);
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Name);
                 hashCode = hashCode * -1521134295 + EqualityComparer<bool>.Default.GetHashCode(Employee_Gender);
-                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Birth);
+                hashCode = hashCode * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(Employee_Birth);
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_PhoneNumber);
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Employee_Email);
                 hashCode = hashCode * -1521134295 + Employee_Salary.GetHashCode();
@@ -85,7 +85,8 @@ namespace DatabaseClass
                                 Employee_Birth = @Employee_Birth, 
                                 Employee_PhoneNumber = @Employee_PhoneNumber, 
                                 Employee_Email = @Employee_Email, 
-                                Employee_Salary = @Employee_Salary
+                                Employee_Salary = @Employee_Salary,
+                                Store_ID = @Store_ID
                             WHERE Employee_ID = @Employee_ID";
                     connection.Execute(sqlQuery, this);
                 }
@@ -175,6 +176,7 @@ namespace DatabaseClass
             public string Import_Provider { get; set; }
             public double Import_Price { get; set; }
             public DateTime Import_Date { get; set; }
+            public double Import_Total { get; set; }
             public void UpdateImport()
             {
                 using (var connection = new SqlConnection(connectionString))
@@ -186,7 +188,8 @@ namespace DatabaseClass
                                 Import_Quantity = @Import_Quantity, 
                                 Import_Provider = @Import_Provider, 
                                 Import_Price = @Import_Price, 
-                                Import_Date = @Import_Date
+                                Import_Date = @Import_Date,
+                                Import_Total = @Import_Total
                             WHERE Import_ID = @Import_ID";
                     connection.Execute(sqlQuery, this);
                 }
@@ -207,6 +210,15 @@ namespace DatabaseClass
                     connection.Open();
                     string sqlQuery = "SELECT * FROM Import WHERE Import_ID = @Import_ID";
                     return connection.QueryFirstOrDefault<Import>(sqlQuery, new { Import_ID = importID });
+                }
+            }
+            public void CreateNewImport()
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "INSERT INTO Import (Import_ID, Product_ID, Store_ID, Import_Quantity, Import_Provider, Import_Price, Import_Date, Import_Total) VALUES (@Import_ID, @Product_ID, @Store_ID, @Import_Quantity, @Import_Provider, @Import_Price, @Import_Date, @Import_Total)";
+                    connection.Execute(sqlQuery, this);
                 }
             }
         }
@@ -292,6 +304,15 @@ namespace DatabaseClass
                     return connection.QueryFirstOrDefault<Product>(sqlQuery, new { Product_ID = id });
                 }
             }
+            public static void CreateNewProduct(Product product)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "INSERT INTO Product (Product_ID, Product_Name, Product_Provider, Product_Price) VALUES (@Product_ID, @Product_Name, @Product_Provider, @Product_Price)";
+                    connection.Execute(sqlQuery, product);
+                }
+            }
         }
         public class Inventory
         {
@@ -299,6 +320,7 @@ namespace DatabaseClass
             public string Product_ID { get; set; }
             public int Inventory_Stock { get; set; }
             public bool Inventory_Status { get; set; }
+            public int Inventory_AlertQuantity { get; set; }
 
             public static Inventory GetInventoryByID(string storeID, string prodID)
             {
@@ -320,6 +342,14 @@ namespace DatabaseClass
                                 Inventory_Status = @Inventory_Status
                             WHERE Store_ID = @Store_ID AND Product_ID = @Product_ID";
                     connection.Execute(sqlQuery, this);
+                }
+            }
+            public static void  CreateNewInventory(Inventory inventory) {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlQuery = "INSERT INTO Inventory (Store_ID, Product_ID, Inventory_Stock, Inventory_Status, Inventory_AlertQuantity) VALUES (@Store_ID, @Product_ID, @Inventory_Stock, @Inventory_Status, @Inventory_AlertQuantity)";
+                    connection.Execute(sqlQuery, inventory);
                 }
             }
         }

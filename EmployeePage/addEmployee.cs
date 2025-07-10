@@ -61,11 +61,24 @@ namespace EmployeePage
         private void ConfirmBtn_Click(object sender, EventArgs e)
         {
             string enteredOtp = otpTextBox.Text;
+            string storeID = StoreIDTextBox.Text;
+            var store = DatabaseClass.DatabaseAccess.GetStoreByID(storeID);
+            if (store == null)
+            {
+                MessageBox.Show("Store ID does not exist, please check again.");
+                return;
+            }
+            else
+            if (store.Manager_ID != Sign_In.Sign_in.Session.UID)
+            {
+                MessageBox.Show("You are not authorized to add employees to this store.");
+                return;
+            }
             if (otp.VerifyOtp(emailTextBox.Text, enteredOtp))
             {
                 MessageBox.Show("OTP verified successfully!");
                 // Here you can add code to proceed with adding the employee
-                emp.Store_ID = Sign_In.Sign_in.Session.UID;
+                emp.Store_ID = store.Store_ID;
                 emp.UpdateEmployee();
                 MessageBox.Show("Employee has been added successfully!");
                 this.Close();

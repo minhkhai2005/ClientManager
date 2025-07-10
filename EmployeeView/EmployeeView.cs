@@ -39,22 +39,7 @@ namespace EmployeeView
 
         private void bodyEmployeeView1_DelBtnClick(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this employee?", 
-                "Delete Employee", 
-                MessageBoxButtons.YesNo);
-            // handle delete button click
-           
-            if (result == DialogResult.Yes) {
-                // if the user clicks yes, delete the employee
-
-
-                // finally close the form
-                this.Close();
-            }
-            else
-            {
-                // if the user clicks no, do nothing
-            }
+            this.Close();
 
         }
     }

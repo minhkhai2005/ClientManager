@@ -20,6 +20,7 @@ namespace StoreDetail
 {
     public partial class StoreDetail: UserControl
     {
+        private ListViewColumnSorter lvwColumnSorter;
         DatabaseAccess.Store StoreInformation { get; set; }
         private double Revenue { get; set; }
         private int NumberOfOrders { get; set; }
@@ -31,6 +32,12 @@ namespace StoreDetail
         public StoreDetail()
         {
             InitializeComponent();
+            // Create an instance of a ListView column sorter and assign it
+            // to the ListView control.
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.InventoryListView.ListViewItemSorter = lvwColumnSorter;
+            this.EmployeeListView.ListViewItemSorter = lvwColumnSorter;
+            this.InvoiceListView.ListViewItemSorter = lvwColumnSorter;
         }
         public StoreDetail(string storeID)
         {
@@ -74,19 +81,6 @@ namespace StoreDetail
         {
             ChangeTab(3);
         }
-
-        private void productCard1_EditBtnClick(object sender, string e)
-        {
-            ProductEdit.ProductEdit productEdit = new ProductEdit.ProductEdit();
-            productEdit.ShowDialog();
-        }
-
-        private void productCard1_ViewBtnClick(object sender, string e)
-        {
-            ProductView.ProductView productView = new ProductView.ProductView();
-            productView.ShowDialog();
-        }
-
         private void addEmployeeBtn_Click(object sender, EventArgs e)
         {
             // TODO: Implement the logic to handle adding a new employee
@@ -101,6 +95,8 @@ namespace StoreDetail
             id.UpdateInfo();
             id.ShowDialog();
         }
+
+        // refresh methods for each tab
         public void OverviewTabRefresh()
         {
             // Refresh the overview tab with the latest data
@@ -125,7 +121,9 @@ namespace StoreDetail
 
             // add item to inventory listView
             InventoryListView.Items.Clear();
-            foreach(var inventory in StoreInventoies)
+            InventoryListView.ListViewItemSorter = null; // turn off sorting temporarily
+            InventoryListView.BeginUpdate();
+            foreach (var inventory in StoreInventoies)
             {
                 var p = DatabaseAccess.Product.GetProductByID(inventory.Product_ID);
                 ListViewItem item = new ListViewItem(p.Product_Name);
@@ -136,6 +134,9 @@ namespace StoreDetail
                 item.SubItems.Add(inventory.Inventory_Status?"Active":"Inactive");
                 InventoryListView.Items.Add(item);
             }
+            InventoryListView.EndUpdate();
+            InventoryListView.ListViewItemSorter = lvwColumnSorter; // re-enable sorting
+            InventoryListView.Sort();
         }
         public void EmployeeTabRefresh()
         {
@@ -145,6 +146,8 @@ namespace StoreDetail
 
             // update employee listView
             EmployeeListView.Items.Clear();
+            EmployeeListView.ListViewItemSorter = null; // turn off sorting temporarily
+            EmployeeListView.BeginUpdate();
             foreach (var employee in StoreEmployees)
             {
                 ListViewItem item = new ListViewItem(employee.Employee_Name);
@@ -152,6 +155,9 @@ namespace StoreDetail
                 item.SubItems.Add(OnDutyEmployee==null?"Idle":(OnDutyEmployee.Contains(employee)?"Working":"Idle"));
                 EmployeeListView.Items.Add(item);
             }
+            EmployeeListView.EndUpdate();
+            EmployeeListView.ListViewItemSorter = lvwColumnSorter; // re-enable sorting
+            EmployeeListView.Sort();
         }
         public void MessageTabRefresh()
         {
@@ -167,6 +173,8 @@ namespace StoreDetail
 
             // update invoice listView
             InvoiceListView.Items.Clear();
+            InvoiceListView.ListViewItemSorter = null; // turn off sorting temporarily
+            InvoiceListView.BeginUpdate();
             foreach (var invoice in StoreInvoices)
             {
                 ListViewItem item = new ListViewItem(invoice.Invoice_ID);
@@ -176,6 +184,9 @@ namespace StoreDetail
                 item.SubItems.Add(invoice.Invoice_Status);
                 InvoiceListView.Items.Add(item);
             }
+            InvoiceListView.EndUpdate();
+            InvoiceListView.ListViewItemSorter = lvwColumnSorter; // re-enable sorting
+            InvoiceListView.Sort();
         }
         private void InventoryTab_Enter(object sender, EventArgs e)
         {
@@ -225,6 +236,96 @@ namespace StoreDetail
                 EmployeeView.EmployeeView view = new EmployeeView.EmployeeView(employeeID);
                 view.ShowDialog();
             }
+        }
+
+        private void addInventoryBtn_Click(object sender, EventArgs e)
+        {
+            addNewInventory addNewInventory = new addNewInventory();
+            addNewInventory.storeID = StoreInformation.Store_ID; // Set the store ID for the new inventory
+            addNewInventory.InventoryAdded += async (s, args) =>
+            {
+                // Refresh the inventory tab when a new inventory is added
+                await Task.Run(() => StoreInventoies = DatabaseAccess.GetInventoriesByStoreID(StoreInformation.Store_ID)); // Ensure the store employees are updated
+                InventoryTabRefresh();
+            };
+            addNewInventory.ShowDialog();
+        }
+        private void InventoryListView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == System.Windows.Forms.SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.InventoryListView.Sort();
+        }
+
+        private void EmployeeListView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == System.Windows.Forms.SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.InventoryListView.Sort();
+        }
+
+        private void InvoiceListView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == System.Windows.Forms.SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.InventoryListView.Sort();
         }
     }
 }

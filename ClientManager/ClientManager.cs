@@ -47,24 +47,25 @@ namespace ClientManager
             storeDetail.OverviewTabRefresh();
             LoadPage(storeDetail); // Load the StoreDetail UserControl
         }
-        private void sidebar_sidebarPageChanged(object sender, SidebarControl.sidebar.sidebarPage e)
+        private async void sidebar_sidebarPageChanged(object sender, SidebarControl.sidebar.sidebarPage e)
         {
             switch (e)
             {
                 case SidebarControl.sidebar.sidebarPage.Dashboard:
-                    // Ensure Dashboard is a UserControl  
                     string email = Session.Email;
                     (double revenue, int orders) = DatabaseAccess.GetDashboardData(email);
-                    dashboardPage.UpdateData(revenue, orders); // This line is commented out in the original code
+                    dashboardPage.UpdateData(revenue, orders);
                     LoadPage(dashboardPage);
                     break;
                 case SidebarControl.sidebar.sidebarPage.Stores:
-                    var stores = DatabaseAccess.GetStoresByManagerID(Session.UID);
-                    storesPage.UpdateStoreList(stores); // Assuming you have a method to update the store list in StoresList UserControl
-                    LoadPage(storesPage);  
+                    LoadPage(storesPage);
+                    await Task.Run(() => storesPage.FetchStoresList());
+                    storesPage.Invoke((Action)(() => storesPage.UpdateStoreList()));
                     break;
                 case SidebarControl.sidebar.sidebarPage.Employees:
                     LoadPage(employeePage);
+                    await Task.Run(() => employeePage.FetchEmployeesList());
+                    employeePage.Invoke((Action)(() => employeePage.UpdateEmployeeList()));
                     break;
                 case SidebarControl.sidebar.sidebarPage.Customers:
                     LoadPage(customersPage);

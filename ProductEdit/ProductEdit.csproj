@@ -103,9 +103,17 @@
       <Project>{93ff9e36-5a48-4f6d-9e09-ad9ac4b02f56}</Project>
       <Name>Body_product_edit</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DatabaseClass\DatabaseClass.csproj">
+      <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
+      <Name>DatabaseClass</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Header_Product_edit\Header_Product_edit.csproj">
       <Project>{8eabd059-da39-4fb3-9190-5c8793b455df}</Project>
       <Name>Header_Product_edit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductImport\ProductImport.csproj">
+      <Project>{0b148d9b-5775-4071-8009-04e8b46544d0}</Project>
+      <Name>ProductImport</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
