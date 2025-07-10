@@ -52,5 +52,10 @@ namespace EmployeePage
                 EmployeeListView.Items.Add(item);
             }
         }
+
+        private void EmployeeListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
