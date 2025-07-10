@@ -17,8 +17,10 @@ namespace DatabaseClass
 
     public class DatabaseAccess
     {
+        static string connectionString = "Server=100.118.245.104,1433;Database=StoreManagement;User Id=qk;Password=1;";
+
         public static string CurrentEmail { get; set; }
-        static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
+        //static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
         //static string connectionString = "Data Source=DESKTOP-30NMLHM\\Wuang_Kai;Initial Catalog=TenDatabase;Integrated Security=True;";
         public class Manager
         {
@@ -75,7 +77,8 @@ namespace DatabaseClass
                 return hashCode;
             }
 
-            public void UpdateEmployee() {
+            public void UpdateEmployee()
+            {
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -91,7 +94,7 @@ namespace DatabaseClass
                     connection.Execute(sqlQuery, this);
                 }
             }
-            public List<Shift> GetShifts() 
+            public List<Shift> GetShifts()
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -263,7 +266,7 @@ namespace DatabaseClass
                 {
                     // Log the exception or handle it as needed
                     Console.WriteLine($"Error fetching information: {ex.Message}");
-                    return 0; 
+                    return 0;
                 }
             }
             static public Store GetStoreByID(string storeID)
@@ -324,11 +327,11 @@ namespace DatabaseClass
 
             public static Inventory GetInventoryByID(string storeID, string prodID)
             {
-                using(var connection = new SqlConnection(connectionString))
+                using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlQuery = "SELECT * FROM Inventory WHERE Store_ID = @storeID AND Product_ID = @prodID";
-                    return connection.QueryFirstOrDefault<Inventory>(sqlQuery, new {storeID, prodID });
+                    return connection.QueryFirstOrDefault<Inventory>(sqlQuery, new { storeID, prodID });
                 }
             }
 
@@ -419,7 +422,7 @@ namespace DatabaseClass
                     return connection.Query<InvoiceDetail>(sqlQuery, new { Invoice_ID = invoiceID }).ToList();
                 }
             }
-            
+
         }
         public class Shift
         {
@@ -592,7 +595,7 @@ namespace DatabaseClass
                 AND s.Day_of_Week = DATEPART(WEEKDAY, GETDATE())  -- Ngày trong tuần hiện tại
                 AND CAST(GETDATE() AS TIME) BETWEEN s.Shift_Start AND s.Shift_Finish  -- Đang trong giờ làm việc
                 AND s.Is_Active = 1;  -- Chỉ lấy ca làm việc đang hoạt động";
-                var result = connection.Query<Employee>(sqlQuery, new { Store_ID = StoreID }).ToList(); 
+                var result = connection.Query<Employee>(sqlQuery, new { Store_ID = StoreID }).ToList();
                 return result;
             }
         }
@@ -685,5 +688,27 @@ namespace DatabaseClass
                 return connection.Query<Employee>(sqlQuery, new { managerID }).ToList();
             }
         }
+
+        public static List<Customer> GetCustomersbyManagerID(string managerID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = @"
+        SELECT 
+            c.Customer_ID,
+            c.Customer_Name,
+            c.Customer_Phone
+        FROM Customer c
+        INNER JOIN Store s ON c.Store_ID = s.Store_ID
+        INNER JOIN Manager m ON s.Manager_ID = m.Manager_ID
+        WHERE m.Manager_ID = @managerID
+        ORDER BY c.Customer_Name;";
+
+            return connection.Query<Customer>(sqlQuery, new { managerID }).ToList();
+            }
+        }
+
     }
 }
+

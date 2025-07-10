@@ -107,5 +107,10 @@ namespace EmployeePage
             // Perform the sort with these new sort options.
             this.EmployeeListView.Sort();
         }
+
+        private void EmployeeListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
