@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Xml.Linq;
 
 namespace Authentication
 {
-    class FirebaseAuthentication
+    public class FirebaseAuthentication
     {
         static string apiKey = "AIzaSyBI5v4TWR-xOYnNiL8_7-C6PsBv36cm_mA"; // <-- Dán API Key ở đây
         static async Task<bool> CheckEmailVerified(string idToken)
@@ -56,7 +57,14 @@ namespace Authentication
             //Console.WriteLine($"❌ Lỗi khi gửi email xác nhận: \n{result}");
             //MessageBox.Show($"Lỗi khi gửi email xác nhận: \n{result}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        public static async Task<bool> SignUp(string email, string password)
+        public class SignUpResult
+        {
+            public bool Success { get; set; }
+            public string Email { get; set; }
+            public string Username { get; set; }
+            public string UID { get; set; }
+        }
+        public static async Task<SignUpResult> SignUp(string email, string password)
         {
             var client = new HttpClient();
             var url = $"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={apiKey}";
@@ -77,13 +85,26 @@ namespace Authentication
                 //Console.WriteLine($"Đăng ký thành công! idToken: {auth.idToken}");
                 //MessageBox.Show("Đăng ký thành công!\nXác nhận email để hoàn tất đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await SendEmailVerification(auth.idToken);
-                return true;
+
+                return new SignUpResult
+                {
+                    Success = true,
+                    Email = auth.email,
+                    Username = "",
+                    UID = auth.localId
+                };
             }
             else
             {
                 //Console.WriteLine($"Lỗi khi đăng ký:\n{result}");
                 //MessageBox.Show($"Lỗi khi đăng ký:\n{result}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return new SignUpResult
+                {
+                    Success = false,
+                    Email = email,
+                    Username = "",
+                    UID = null
+                };
             }
         }
 
@@ -124,6 +145,23 @@ namespace Authentication
 
         static StringContent SerializeJson(object data) =>
             new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+        public static async Task<bool> SendResetPasswordEmail(string email)
+        {
+            var client = new HttpClient();
+            var url = $"https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key={apiKey}";
+
+            var payload = new
+            {
+                requestType = "PASSWORD_RESET",
+                email = email
+            };
+
+            var response = await client.PostAsync(url, SerializeJson(payload));
+            var result = await response.Content.ReadAsStringAsync();
+
+            return response.IsSuccessStatusCode;
+        }
     }
 
     public class AuthResponse
@@ -134,4 +172,5 @@ namespace Authentication
         public string expiresIn { get; set; }
         public string localId { get; set; }
     }
+
 }

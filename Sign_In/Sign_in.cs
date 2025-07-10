@@ -61,5 +61,30 @@ namespace Sign_In
         {
 
         }
+
+        private async void PasswordReset_Click(object sender, EventArgs e)
+        {
+            // show a message box to comfirm the action
+            var result = MessageBox.Show("Bạn có chắc muốn đặt lại mật khẩu không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                // Open the ResetPassword form
+                bool sendRequestResult = false;
+                await Task.Run(() => sendRequestResult =  FirebaseAuthentication.SendResetPasswordEmail(EmailBox.Text).Result);
+                if (!sendRequestResult)
+                {
+                    MessageBox.Show("Không thể gửi yêu cầu đặt lại mật khẩu. Vui lòng kiểm tra lại email.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Đã gửi yêu cầu đặt lại mật khẩu. Vui lòng kiểm tra email của bạn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                // Do nothing
+            }
+        }
     }
 }

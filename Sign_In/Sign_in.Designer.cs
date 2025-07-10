@@ -120,6 +120,7 @@
             this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Forgot password";
+            this.label5.Click += new System.EventHandler(this.PasswordReset_Click);
             // 
             // Sign_in
             // 
@@ -136,7 +137,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Sign_in";
-            this.Text = "Form1";
+            this.Text = "Sign in";
             this.Load += new System.EventHandler(this.Sign_in_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
