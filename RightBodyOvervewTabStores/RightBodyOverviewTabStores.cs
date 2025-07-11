@@ -14,16 +14,11 @@ namespace RightBodyOvervewTabStores
     
     public partial class RightBodyOverviewTabStores: UserControl
     {
-        private readonly string[] languages = {"English", "Vietnamese"};
-        private readonly string[] time = { "Day", "Week" };
+       
         public RightBodyOverviewTabStores()
         {
             InitializeComponent();
             //DisplayBarChart();
-            LanguagesBox.Items.AddRange(languages);
-            TimeBox.Items.AddRange(time);
-            LanguagesBox.SelectedIndex = 0;
-            TimeBox.SelectedIndex = 0;
         }
         public void UpdateRevenue(double revenue)
         {

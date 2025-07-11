@@ -28,26 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.StorePicture = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.StoreName = new System.Windows.Forms.Label();
             this.StoreAddress = new System.Windows.Forms.Label();
             this.StoreStatus = new System.Windows.Forms.Label();
             this.msgBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StorePicture)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.Controls.Add(this.StorePicture, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -56,17 +51,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 155);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // StorePicture
-            // 
-            this.StorePicture.Image = ((System.Drawing.Image)(resources.GetObject("StorePicture.Image")));
-            this.StorePicture.Location = new System.Drawing.Point(759, 11);
-            this.StorePicture.Margin = new System.Windows.Forms.Padding(10);
-            this.StorePicture.Name = "StorePicture";
-            this.StorePicture.Size = new System.Drawing.Size(128, 128);
-            this.StorePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.StorePicture.TabIndex = 0;
-            this.StorePicture.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -84,7 +68,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 147);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(892, 147);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // StoreName
@@ -153,7 +137,6 @@
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(900, 155);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.StorePicture)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -163,7 +146,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox StorePicture;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label StoreName;
         private System.Windows.Forms.Label StoreAddress;

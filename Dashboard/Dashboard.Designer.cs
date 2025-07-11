@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.TimeBox = new System.Windows.Forms.ComboBox();
-            this.formsPlot1 = new ScottPlot.WinForms.FormsPlot();
+            this.TimeComboBox = new System.Windows.Forms.ComboBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.RevenueText = new System.Windows.Forms.Label();
@@ -42,6 +45,7 @@
             this.Title = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -66,8 +70,8 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.TimeBox, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.formsPlot1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.TimeComboBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.chart1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 325);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -77,23 +81,33 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(945, 550);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // TimeBox
+            // TimeComboBox
             // 
-            this.TimeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TimeBox.FormattingEnabled = true;
-            this.TimeBox.Location = new System.Drawing.Point(3, 3);
-            this.TimeBox.Name = "TimeBox";
-            this.TimeBox.Size = new System.Drawing.Size(121, 21);
-            this.TimeBox.TabIndex = 0;
+            this.TimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TimeComboBox.FormattingEnabled = true;
+            this.TimeComboBox.Location = new System.Drawing.Point(3, 3);
+            this.TimeComboBox.Name = "TimeComboBox";
+            this.TimeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.TimeComboBox.TabIndex = 0;
+            this.TimeComboBox.SelectedIndexChanged += new System.EventHandler(this.TimeComboBox_SelectedIndexChanged);
             // 
-            // formsPlot1
+            // chart1
             // 
-            this.formsPlot1.DisplayScale = 0F;
-            this.formsPlot1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formsPlot1.Location = new System.Drawing.Point(3, 33);
-            this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(939, 514);
-            this.formsPlot1.TabIndex = 1;
+            this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(3, 33);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(939, 514);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
             // 
             // tableLayoutPanel3
             // 
@@ -134,7 +148,6 @@
             this.RevenueText.Size = new System.Drawing.Size(141, 37);
             this.RevenueText.TabIndex = 0;
             this.RevenueText.Text = "Revenue";
-            this.RevenueText.Click += new System.EventHandler(this.RevenueText_Click);
             // 
             // RevenueValue
             // 
@@ -145,7 +158,6 @@
             this.RevenueValue.Size = new System.Drawing.Size(150, 37);
             this.RevenueValue.TabIndex = 1;
             this.RevenueValue.Text = "$130,000";
-            this.RevenueValue.Click += new System.EventHandler(this.RevenueValue_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -203,6 +215,7 @@
             this.Size = new System.Drawing.Size(951, 878);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -217,8 +230,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ComboBox TimeBox;
-        private ScottPlot.WinForms.FormsPlot formsPlot1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label RevenueText;
@@ -227,5 +238,7 @@
         private System.Windows.Forms.Label OrderText;
         private System.Windows.Forms.Label OrderValue;
         private System.Windows.Forms.Label Title;
+        private System.Windows.Forms.ComboBox TimeComboBox;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

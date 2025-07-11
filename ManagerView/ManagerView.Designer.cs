@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.headerManagerView1 = new HeaderManagerView.HeaderManagerView();
             this.bodyManagerView1 = new BodyManagerView.BodyManagerView();
+            this.headerManagerView1 = new HeaderManagerView.HeaderManagerView();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,10 +45,21 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.65309F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.34691F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.63732F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.36268F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 761);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // bodyManagerView1
+            // 
+            this.bodyManagerView1.BackColor = System.Drawing.Color.White;
+            this.bodyManagerView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bodyManagerView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyManagerView1.Location = new System.Drawing.Point(3, 122);
+            this.bodyManagerView1.Name = "bodyManagerView1";
+            this.bodyManagerView1.Padding = new System.Windows.Forms.Padding(12);
+            this.bodyManagerView1.Size = new System.Drawing.Size(578, 636);
+            this.bodyManagerView1.TabIndex = 1;
             // 
             // headerManagerView1
             // 
@@ -57,19 +68,8 @@
             this.headerManagerView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerManagerView1.Location = new System.Drawing.Point(3, 3);
             this.headerManagerView1.Name = "headerManagerView1";
-            this.headerManagerView1.Size = new System.Drawing.Size(578, 174);
+            this.headerManagerView1.Size = new System.Drawing.Size(578, 113);
             this.headerManagerView1.TabIndex = 0;
-            // 
-            // bodyManagerView1
-            // 
-            this.bodyManagerView1.BackColor = System.Drawing.Color.White;
-            this.bodyManagerView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bodyManagerView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyManagerView1.Location = new System.Drawing.Point(3, 183);
-            this.bodyManagerView1.Name = "bodyManagerView1";
-            this.bodyManagerView1.Padding = new System.Windows.Forms.Padding(12);
-            this.bodyManagerView1.Size = new System.Drawing.Size(578, 575);
-            this.bodyManagerView1.TabIndex = 1;
             // 
             // ManagerView
             // 

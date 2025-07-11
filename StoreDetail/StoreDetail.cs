@@ -44,6 +44,12 @@ namespace StoreDetail
             InitializeComponent();
             // Load store details based on the storeID
             LoadStoreDetails(storeID);
+            // Create an instance of a ListView column sorter and assign it
+            // to the ListView control.
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.InventoryListView.ListViewItemSorter = lvwColumnSorter;
+            this.EmployeeListView.ListViewItemSorter = lvwColumnSorter;
+            this.InvoiceListView.ListViewItemSorter = lvwColumnSorter;
         }
         public void LoadStoreDetails(string storeID)
         {
@@ -299,7 +305,7 @@ namespace StoreDetail
             }
 
             // Perform the sort with these new sort options.
-            this.InventoryListView.Sort();
+            this.EmployeeListView.Sort();
         }
 
         private void InvoiceListView_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -325,7 +331,7 @@ namespace StoreDetail
             }
 
             // Perform the sort with these new sort options.
-            this.InventoryListView.Sort();
+            this.InvoiceListView.Sort();
         }
     }
 }
