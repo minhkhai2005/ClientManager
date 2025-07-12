@@ -17,13 +17,14 @@ namespace DatabaseClass
 
     public class DatabaseAccess
     {
-        static string connectionString = "Server=100.118.245.104,1433;Database=StoreManagement;User Id=qk;Password=1;";
-
-        public static string CurrentEmail { get; set; }
+        //static string connectionString = "Server=100.118.245.104,1433;Database=StoreManagement;User Id=qk;Password=1;";
+        static string connectionString = "Server=MYLAPTOP\\VONG;Database=StoreManagement;Trusted_Connection=True;";
         //static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
         //static string connectionString = "Data Source=DESKTOP-30NMLHM\\Wuang_Kai;Initial Catalog=TenDatabase;Integrated Security=True;";
+        public static string CurrentEmail { get; set; }
         public class Manager
         {
+            
             public string Manager_ID { get; set; }
             public string Manager_Name { get; set; }
             public string Manager_Phone { get; set; }
