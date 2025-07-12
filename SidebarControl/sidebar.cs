@@ -31,8 +31,6 @@ namespace SidebarControl
             storesBtn.Click += Button_Click;
             employeesBtn.Click += Button_Click;
             customerBtn.Click += Button_Click;
-            notificationsBtn.Click += Button_Click;
-            configurationBtn.Click += Button_Click;
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -66,12 +64,6 @@ namespace SidebarControl
                     break;
                 case var _btn when _btn == customerBtn:
                     sidebarPageChanged?.Invoke(this, sidebarPage.Customers);
-                    break;
-                case var _btn when _btn == notificationsBtn:
-                    sidebarPageChanged?.Invoke(this, sidebarPage.Notifications);
-                    break;
-                case var _btn when _btn == configurationBtn:
-                    sidebarPageChanged?.Invoke(this, sidebarPage.Configuration);
                     break;
                 default:
                     break;

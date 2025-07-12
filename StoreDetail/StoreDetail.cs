@@ -20,7 +20,9 @@ namespace StoreDetail
 {
     public partial class StoreDetail: UserControl
     {
-        private ListViewColumnSorter lvwColumnSorter;
+        private ListViewColumnSorter lvwColumnSorter1;
+        private ListViewColumnSorter lvwColumnSorter2;
+        private ListViewColumnSorter lvwColumnSorter3;
         DatabaseAccess.Store StoreInformation { get; set; }
         private double Revenue { get; set; }
         private int NumberOfOrders { get; set; }
@@ -34,10 +36,12 @@ namespace StoreDetail
             InitializeComponent();
             // Create an instance of a ListView column sorter and assign it
             // to the ListView control.
-            lvwColumnSorter = new ListViewColumnSorter();
-            this.InventoryListView.ListViewItemSorter = lvwColumnSorter;
-            this.EmployeeListView.ListViewItemSorter = lvwColumnSorter;
-            this.InvoiceListView.ListViewItemSorter = lvwColumnSorter;
+            lvwColumnSorter1 = new ListViewColumnSorter();
+            lvwColumnSorter2 = new ListViewColumnSorter();
+            lvwColumnSorter3 = new ListViewColumnSorter();
+            this.InventoryListView.ListViewItemSorter = lvwColumnSorter1;
+            this.EmployeeListView.ListViewItemSorter = lvwColumnSorter2;
+            this.InvoiceListView.ListViewItemSorter = lvwColumnSorter3;
         }
         public StoreDetail(string storeID)
         {
@@ -46,10 +50,12 @@ namespace StoreDetail
             LoadStoreDetails(storeID);
             // Create an instance of a ListView column sorter and assign it
             // to the ListView control.
-            lvwColumnSorter = new ListViewColumnSorter();
-            this.InventoryListView.ListViewItemSorter = lvwColumnSorter;
-            this.EmployeeListView.ListViewItemSorter = lvwColumnSorter;
-            this.InvoiceListView.ListViewItemSorter = lvwColumnSorter;
+            lvwColumnSorter1 = new ListViewColumnSorter();
+            lvwColumnSorter2 = new ListViewColumnSorter();
+            lvwColumnSorter3 = new ListViewColumnSorter();
+            this.InventoryListView.ListViewItemSorter = lvwColumnSorter1;
+            this.EmployeeListView.ListViewItemSorter = lvwColumnSorter2;
+            this.InvoiceListView.ListViewItemSorter = lvwColumnSorter3;
         }
         public void LoadStoreDetails(string storeID)
         {
@@ -141,7 +147,7 @@ namespace StoreDetail
                 InventoryListView.Items.Add(item);
             }
             InventoryListView.EndUpdate();
-            InventoryListView.ListViewItemSorter = lvwColumnSorter; // re-enable sorting
+            InventoryListView.ListViewItemSorter = lvwColumnSorter1; // re-enable sorting
             InventoryListView.Sort();
         }
         public void EmployeeTabRefresh()
@@ -162,7 +168,7 @@ namespace StoreDetail
                 EmployeeListView.Items.Add(item);
             }
             EmployeeListView.EndUpdate();
-            EmployeeListView.ListViewItemSorter = lvwColumnSorter; // re-enable sorting
+            EmployeeListView.ListViewItemSorter = lvwColumnSorter2; // re-enable sorting
             EmployeeListView.Sort();
         }
         public void MessageTabRefresh()
@@ -191,7 +197,7 @@ namespace StoreDetail
                 InvoiceListView.Items.Add(item);
             }
             InvoiceListView.EndUpdate();
-            InvoiceListView.ListViewItemSorter = lvwColumnSorter; // re-enable sorting
+            InvoiceListView.ListViewItemSorter = lvwColumnSorter3; // re-enable sorting
             InvoiceListView.Sort();
         }
         private void InventoryTab_Enter(object sender, EventArgs e)
@@ -259,23 +265,23 @@ namespace StoreDetail
         private void InventoryListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             // Determine if clicked column is already the column that is being sorted.
-            if (e.Column == lvwColumnSorter.SortColumn)
+            if (e.Column == lvwColumnSorter1.SortColumn)
             {
                 // Reverse the current sort direction for this column.
-                if (lvwColumnSorter.Order == System.Windows.Forms.SortOrder.Ascending)
+                if (lvwColumnSorter1.Order == System.Windows.Forms.SortOrder.Ascending)
                 {
-                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Descending;
+                    lvwColumnSorter1.Order = System.Windows.Forms.SortOrder.Descending;
                 }
                 else
                 {
-                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                    lvwColumnSorter1.Order = System.Windows.Forms.SortOrder.Ascending;
                 }
             }
             else
             {
                 // Set the column number that is to be sorted; default to ascending.
-                lvwColumnSorter.SortColumn = e.Column;
-                lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                lvwColumnSorter1.SortColumn = e.Column;
+                lvwColumnSorter1.Order = System.Windows.Forms.SortOrder.Ascending;
             }
 
             // Perform the sort with these new sort options.
@@ -285,23 +291,23 @@ namespace StoreDetail
         private void EmployeeListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             // Determine if clicked column is already the column that is being sorted.
-            if (e.Column == lvwColumnSorter.SortColumn)
+            if (e.Column == lvwColumnSorter2.SortColumn)
             {
                 // Reverse the current sort direction for this column.
-                if (lvwColumnSorter.Order == System.Windows.Forms.SortOrder.Ascending)
+                if (lvwColumnSorter2.Order == System.Windows.Forms.SortOrder.Ascending)
                 {
-                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Descending;
+                    lvwColumnSorter2.Order = System.Windows.Forms.SortOrder.Descending;
                 }
                 else
                 {
-                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                    lvwColumnSorter2.Order = System.Windows.Forms.SortOrder.Ascending;
                 }
             }
             else
             {
                 // Set the column number that is to be sorted; default to ascending.
-                lvwColumnSorter.SortColumn = e.Column;
-                lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                lvwColumnSorter2.SortColumn = e.Column;
+                lvwColumnSorter2.Order = System.Windows.Forms.SortOrder.Ascending;
             }
 
             // Perform the sort with these new sort options.
@@ -311,23 +317,23 @@ namespace StoreDetail
         private void InvoiceListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             // Determine if clicked column is already the column that is being sorted.
-            if (e.Column == lvwColumnSorter.SortColumn)
+            if (e.Column == lvwColumnSorter3.SortColumn)
             {
                 // Reverse the current sort direction for this column.
-                if (lvwColumnSorter.Order == System.Windows.Forms.SortOrder.Ascending)
+                if (lvwColumnSorter3.Order == System.Windows.Forms.SortOrder.Ascending)
                 {
-                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Descending;
+                    lvwColumnSorter3.Order = System.Windows.Forms.SortOrder.Descending;
                 }
                 else
                 {
-                    lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                    lvwColumnSorter3.Order = System.Windows.Forms.SortOrder.Ascending;
                 }
             }
             else
             {
                 // Set the column number that is to be sorted; default to ascending.
-                lvwColumnSorter.SortColumn = e.Column;
-                lvwColumnSorter.Order = System.Windows.Forms.SortOrder.Ascending;
+                lvwColumnSorter3.SortColumn = e.Column;
+                lvwColumnSorter3.Order = System.Windows.Forms.SortOrder.Ascending;
             }
 
             // Perform the sort with these new sort options.

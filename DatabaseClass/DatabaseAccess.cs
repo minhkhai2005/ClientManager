@@ -17,7 +17,7 @@ namespace DatabaseClass
 
     public class DatabaseAccess
     {
-        //static string connectionString = "Server=100.118.245.104,1433;Database=StoreManagement;User Id=qk;Password=1;";
+        //static string connectionString = "Server=tcp:wuangkai.database.windows.net,1433;Initial Catalog=WuangKai;Persist Security Info=False;User ID=wuangkai;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
 
         public static string CurrentEmail { get; set; }
@@ -591,8 +591,6 @@ namespace DatabaseClass
                 INNER JOIN Shift s ON e.Employee_ID = s.Employee_ID
                 INNER JOIN Store st ON e.Store_Id = st.Store_ID
                 WHERE e.Store_Id = @Store_ID  -- Thay đổi Store_ID tại đây
-                AND s.Day_of_Week = DATEPART(WEEKDAY, GETDATE())  -- Ngày trong tuần hiện tại
-                AND CAST(GETDATE() AS TIME) BETWEEN s.Shift_Start AND s.Shift_Finish  -- Đang trong giờ làm việc
                 AND s.Is_Active = 1;  -- Chỉ lấy ca làm việc đang hoạt động";
                 var result = connection.Query<Employee>(sqlQuery, new { Store_ID = StoreID }).ToList();
                 return result;
