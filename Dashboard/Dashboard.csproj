@@ -122,6 +122,16 @@
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseClass\DatabaseClass.csproj">
+      <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
+      <Name>DatabaseClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sign_In\Sign_In.csproj">
+      <Project>{df0eb12a-a056-495a-b674-af302397ba3c}</Project>
+      <Name>Sign_In</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0.3\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0.3\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -18,9 +18,12 @@ namespace DatabaseClass
     public class DatabaseAccess
     {
         //static string connectionString = "Server=100.118.245.104,1433;Database=StoreManagement;User Id=qk;Password=1;";
-        static string connectionString = "Server=MYLAPTOP\\VONG;Database=StoreManagement;Trusted_Connection=True;";
+
+        //static string connectionString = "Server=MYLAPTOP\\VONG;Database=StoreManagement;Trusted_Connection=True;";
         //static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
         //static string connectionString = "Data Source=DESKTOP-30NMLHM\\Wuang_Kai;Initial Catalog=TenDatabase;Integrated Security=True;";
+
+        static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
         public static string CurrentEmail { get; set; }
         public class Manager
         {
@@ -709,7 +712,136 @@ namespace DatabaseClass
             return connection.Query<Customer>(sqlQuery, new { managerID }).ToList();
             }
         }
+        
+        public class MonthRevenue
+        {
+            public int month { get; set; }
+            public double revenue { get; set; }
+        }
 
+        public class WeekRevenue
+        {
+            public int week { get; set; }
+            public double revenue { get; set; }
+        }
+        public class DayRevenue
+        {
+            public int day { get; set; }
+            public double revenue { get; set; }
+
+        }
+        public static List<MonthRevenue> GetMonthlyRevenue(string managerID) 
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = @"
+                    WITH MonthlyRevenue AS (
+                        SELECT 
+                            MONTH(i.Invoice_Date) AS month,
+                            SUM(i.Invoice_TotalAmount) AS revenue
+                        FROM Invoice i
+                        INNER JOIN Employee e ON i.Employee_ID = e.Employee_ID
+                        INNER JOIN Store s ON e.Store_Id = s.Store_ID
+                        WHERE YEAR(i.Invoice_Date) = YEAR(GETDATE())  -- Current year
+                            AND i.Invoice_Status = 'Paid'  -- Only count paid invoices
+                            AND s.Manager_ID = @Manager_ID  -- Filter by Manager ID
+                        GROUP BY MONTH(i.Invoice_Date)
+                    ),
+                    AllMonths AS (
+                        -- Generate all 12 months to show 0 revenue for months with no sales
+                        SELECT 1 AS month UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL 
+                        SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL 
+                        SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL 
+                        SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12
+                    )
+                    SELECT 
+                        am.month,
+                        ISNULL(mr.revenue, 0) AS revenue
+                    FROM AllMonths am
+                    LEFT JOIN MonthlyRevenue mr ON am.month = mr.month
+                    ORDER BY am.month;
+                ";
+                return connection.Query<MonthRevenue>(sqlQuery, new { Manager_ID = managerID }).ToList();
+            }
+        }
+        public static List<WeekRevenue> GetWeeklyRevenue(string managerID)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = @"
+                    WITH WeeklyRevenue AS (
+                        SELECT 
+                            DATEPART(WEEK, i.Invoice_Date) - DATEPART(WEEK, DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)) + 1 AS week,
+                            SUM(i.Invoice_TotalAmount) AS revenue
+                        FROM Invoice i
+                        INNER JOIN Employee e ON i.Employee_ID = e.Employee_ID
+                        INNER JOIN Store s ON e.Store_Id = s.Store_ID
+                        WHERE YEAR(i.Invoice_Date) = YEAR(GETDATE())  -- Current year
+                            AND MONTH(i.Invoice_Date) = MONTH(GETDATE())  -- Current month
+                            AND i.Invoice_Status = 'Paid'  -- Only count paid invoices
+                            AND s.Manager_ID = @Manager_ID  -- Filter by Manager ID
+                        GROUP BY DATEPART(WEEK, i.Invoice_Date) - DATEPART(WEEK, DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)) + 1
+                    ),
+                    AllWeeks AS (
+                        -- Generate all possible weeks in current month (usually 4-6 weeks)
+                        SELECT 1 AS week UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL 
+                        SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6
+                    )
+                    SELECT 
+                        aw.week,
+                        ISNULL(wr.revenue, 0) AS revenue
+                    FROM AllWeeks aw
+                    LEFT JOIN WeeklyRevenue wr ON aw.week = wr.week
+                    WHERE aw.week <= (
+                        -- Calculate maximum week number for current month
+                        SELECT 
+                            DATEPART(WEEK, EOMONTH(GETDATE())) - DATEPART(WEEK, DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)) + 1
+                    )
+                    ORDER BY aw.week;";
+                return connection.Query<WeekRevenue>(sqlQuery, new { Manager_ID = managerID }).ToList();
+            }
+        }
+        public static List<DayRevenue> GetDailyRevenue(string managerID) 
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = @"  
+                    WITH DailyRevenue AS (
+                        SELECT 
+                            CASE DATEPART(WEEKDAY, i.Invoice_Date)
+                                WHEN 1 THEN 7  -- Sunday = 7
+                                ELSE DATEPART(WEEKDAY, i.Invoice_Date) - 1  -- Monday=1, Tuesday=2, ..., Saturday=6
+                            END AS day,
+                            SUM(i.Invoice_TotalAmount) AS revenue
+                        FROM Invoice i
+                        INNER JOIN Employee e ON i.Employee_ID = e.Employee_ID
+                        INNER JOIN Store s ON e.Store_Id = s.Store_ID
+                        WHERE DATEPART(WEEK, i.Invoice_Date) = DATEPART(WEEK, GETDATE())  -- Current week
+                            AND YEAR(i.Invoice_Date) = YEAR(GETDATE())  -- Current year
+                            AND i.Invoice_Status = 'Paid'  -- Only count paid invoices
+                            AND s.Manager_ID = @Manager_ID  -- Filter by Manager ID
+                        GROUP BY CASE DATEPART(WEEKDAY, i.Invoice_Date)
+                                    WHEN 1 THEN 7  -- Sunday = 7
+                                    ELSE DATEPART(WEEKDAY, i.Invoice_Date) - 1  -- Monday=1, Tuesday=2, ..., Saturday=6
+                                END
+                    ),
+                    AllDays AS (
+                        -- Generate all 7 days of the week (1=Monday, 2=Tuesday, ..., 7=Sunday)
+                        SELECT 1 AS day UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL 
+                        SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7
+                    )
+                    SELECT 
+                        ad.day,
+                        ISNULL(dr.revenue, 0) AS revenue
+                    FROM AllDays ad
+                    LEFT JOIN DailyRevenue dr ON ad.day = dr.day
+                    ORDER BY ad.day;";
+                return connection.Query<DayRevenue>(sqlQuery, new { Manager_ID = managerID }).ToList();
+            }
+        }
     }
 }
 

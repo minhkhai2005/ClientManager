@@ -33,7 +33,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rightBodyOverviewTabStores1 = new RightBodyOvervewTabStores.RightBodyOverviewTabStores();
             this.leftBodyOverviewTabStores1 = new LeftBodyOverviewTabStores.LeftBodyOverviewTabStores();
-            this.overviewHeader = new OverviewStoresTab.UserControl1();
             this.InventoryTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.addBtn = new System.Windows.Forms.Button();
@@ -69,6 +68,7 @@
             this.InvoiceTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NumItems = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StatusColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.overviewHeader = new OverviewStoresTab.UserControl1();
             this.tabControl1.SuspendLayout();
             this.OverviewTab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -150,17 +150,6 @@
             this.leftBodyOverviewTabStores1.Size = new System.Drawing.Size(456, 614);
             this.leftBodyOverviewTabStores1.TabIndex = 2;
             // 
-            // overviewHeader
-            // 
-            this.overviewHeader.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.SetColumnSpan(this.overviewHeader, 2);
-            this.overviewHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overviewHeader.Location = new System.Drawing.Point(3, 3);
-            this.overviewHeader.Name = "overviewHeader";
-            this.overviewHeader.Size = new System.Drawing.Size(919, 165);
-            this.overviewHeader.TabIndex = 3;
-            this.overviewHeader.MsgBtnClicked += new System.EventHandler(this.overviewHeader_MsgBtnClicked);
-            // 
             // InventoryTab
             // 
             this.InventoryTab.Controls.Add(this.tableLayoutPanel2);
@@ -184,8 +173,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.95238F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.27371F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.72629F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(925, 791);
             this.tableLayoutPanel2.TabIndex = 0;
@@ -213,7 +202,7 @@
             this.header_Inventory_Stores1.Location = new System.Drawing.Point(4, 5);
             this.header_Inventory_Stores1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.header_Inventory_Stores1.Name = "header_Inventory_Stores1";
-            this.header_Inventory_Stores1.Size = new System.Drawing.Size(917, 130);
+            this.header_Inventory_Stores1.Size = new System.Drawing.Size(917, 147);
             this.header_Inventory_Stores1.TabIndex = 3;
             // 
             // InventoryListView
@@ -228,9 +217,9 @@
             this.InventoryListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InventoryListView.FullRowSelect = true;
             this.InventoryListView.HideSelection = false;
-            this.InventoryListView.Location = new System.Drawing.Point(3, 143);
+            this.InventoryListView.Location = new System.Drawing.Point(3, 160);
             this.InventoryListView.Name = "InventoryListView";
-            this.InventoryListView.Size = new System.Drawing.Size(919, 592);
+            this.InventoryListView.Size = new System.Drawing.Size(919, 575);
             this.InventoryListView.TabIndex = 4;
             this.InventoryListView.UseCompatibleStateImageBehavior = false;
             this.InventoryListView.View = System.Windows.Forms.View.Details;
@@ -519,6 +508,17 @@
             // 
             this.StatusColumn.Text = "Status";
             this.StatusColumn.Width = 100;
+            // 
+            // overviewHeader
+            // 
+            this.overviewHeader.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.SetColumnSpan(this.overviewHeader, 2);
+            this.overviewHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.overviewHeader.Location = new System.Drawing.Point(3, 3);
+            this.overviewHeader.Name = "overviewHeader";
+            this.overviewHeader.Size = new System.Drawing.Size(919, 165);
+            this.overviewHeader.TabIndex = 3;
+            this.overviewHeader.MsgBtnClicked += new System.EventHandler(this.overviewHeader_MsgBtnClicked);
             // 
             // StoreDetail
             // 

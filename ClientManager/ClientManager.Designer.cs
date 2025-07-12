@@ -78,8 +78,6 @@
             this.sidebar.Name = "sidebar";
             this.sidebar.Size = new System.Drawing.Size(400, 762);
             this.sidebar.TabIndex = 0;
-
-            // Update the event handler subscription to match the expected return type of the method.
             this.sidebar.sidebarPageChanged += new System.EventHandler<SidebarControl.sidebar.sidebarPage>(this.sidebar_sidebarPageChanged);
             // 
             // header1
