@@ -41,8 +41,8 @@
     <Reference Include="Dapper.Mapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Mapper.2.0.0\lib\net451\Dapper.Mapper.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.1\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.7, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.7\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -102,6 +102,30 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BodyEmployeeView\BodyEmployeeView.csproj">
+      <Project>{d5824514-f4c1-4b57-9194-ba51b04108d4}</Project>
+      <Name>BodyEmployeeView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BodyManagerView\BodyManagerView.csproj">
+      <Project>{bed8df01-7c3b-4a38-8dc9-4b5d8e782388}</Project>
+      <Name>BodyManagerView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Body_product_edit\Body_product_edit.csproj">
+      <Project>{93ff9e36-5a48-4f6d-9e09-ad9ac4b02f56}</Project>
+      <Name>Body_product_edit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Body_product_import\Body_product_import.csproj">
+      <Project>{846589c1-fac5-4223-af33-12d2021f1146}</Project>
+      <Name>Body_product_import</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\card displaying\card_displaying_store_in4.csproj">
+      <Project>{c713d0bb-3e75-4ff1-9d65-fa3c7cfe3afc}</Project>
+      <Name>card_displaying_store_in4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Card_staff\Card_staff.csproj">
+      <Project>{d7ccad7d-fa59-4b3b-a221-8547a9689264}</Project>
+      <Name>Card_staff</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConfigurationPage\ConfigurationPage.csproj">
       <Project>{d9944b7b-4a76-4c99-b8e7-9b37684fc765}</Project>
       <Name>ConfigurationPage</Name>
@@ -118,13 +142,65 @@
       <Project>{b009b594-9eba-4ada-bb90-2e4fc5f7f7c6}</Project>
       <Name>DatabaseClass</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EmployeeCard_Overview_Stores\EmployeeCard_Overview_Stores.csproj">
+      <Project>{8de699fb-1e69-48dc-87e9-ff54debf08f2}</Project>
+      <Name>EmployeeCard_Overview_Stores</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EmployeePage\EmployeePage.csproj">
       <Project>{79706f2d-6901-41c4-828b-3e51378a05c3}</Project>
       <Name>EmployeePage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EmployeeView\EmployeeView.csproj">
+      <Project>{83f88c2d-6b3f-4e57-aa3d-3ba95870c673}</Project>
+      <Name>EmployeeView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FirebaseAuthentication\Authentication.csproj">
+      <Project>{585c4af8-1988-47df-a11e-135025525a4e}</Project>
+      <Name>Authentication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HeaderEmployeeView\HeaderEmployeeView.csproj">
+      <Project>{91afa0b7-fdba-420c-bf26-0034d9f36b3e}</Project>
+      <Name>HeaderEmployeeView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HeaderManagerView\HeaderManagerView.csproj">
+      <Project>{a2764322-06cc-40c5-8252-16d665b572eb}</Project>
+      <Name>HeaderManagerView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HeaderProductView\HeaderProductView.csproj">
+      <Project>{b7f2461f-b273-4f64-a8e4-e5780de5c6d7}</Project>
+      <Name>HeaderProductView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Header_control\Header_control.csproj">
       <Project>{d90bfa5f-c571-4823-8d65-600f7b13c969}</Project>
       <Name>Header_control</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Header_Inventory_Stores\Header_Inventory_Stores.csproj">
+      <Project>{55db4317-df1c-4dd7-82f2-0fafb4c332bb}</Project>
+      <Name>Header_Inventory_Stores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Header_Product_edit\Header_Product_edit.csproj">
+      <Project>{8eabd059-da39-4fb3-9190-5c8793b455df}</Project>
+      <Name>Header_Product_edit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\header_product_import\header_product_import.csproj">
+      <Project>{4cd7d152-75b2-4140-a3cd-3fffb2f8025a}</Project>
+      <Name>header_product_import</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryProductCard\InventoryProductCard.csproj">
+      <Project>{67374619-db17-4dc3-8976-a84fe303182c}</Project>
+      <Name>InventoryProductCard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InvoiceDetailForm\Invoice_Detail.csproj">
+      <Project>{00f1b0d6-6ba2-4baf-9bfa-eda25c514c70}</Project>
+      <Name>Invoice_Detail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeftBodyOverviewTabStores\LeftBodyOverviewTabStores.csproj">
+      <Project>{43c0141a-92af-48db-a95c-b30acb61874e}</Project>
+      <Name>LeftBodyOverviewTabStores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ListViewColumnSorter\ListViewColumnSorter.csproj">
+      <Project>{f6be400a-a5c4-4222-b7df-1b90212a4877}</Project>
+      <Name>ListViewColumnSorter</Name>
     </ProjectReference>
     <ProjectReference Include="..\ManagerView\ManagerView.csproj">
       <Project>{7d990ac2-881f-42dd-9ee6-23e0aa5e134e}</Project>
@@ -138,6 +214,34 @@
       <Project>{60ca1597-7c85-46df-b8a9-8455f369f5db}</Project>
       <Name>NotificationsPage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OverviewStoresTab\OverviewStoresTab.csproj">
+      <Project>{0008c9a4-4e62-4bf1-9074-1dae0d87b12f}</Project>
+      <Name>OverviewStoresTab</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductAdd\ProductAdd.csproj">
+      <Project>{439af163-0bb5-4756-a652-649df7e2dd2d}</Project>
+      <Name>ProductAdd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductEdit\ProductEdit.csproj">
+      <Project>{349c9b79-206b-4b40-9265-210051a8ec9f}</Project>
+      <Name>ProductEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductImport\ProductImport.csproj">
+      <Project>{0b148d9b-5775-4071-8009-04e8b46544d0}</Project>
+      <Name>ProductImport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProductView\ProductView.csproj">
+      <Project>{2a970e9e-657e-41db-a7ca-c6334afb9ed0}</Project>
+      <Name>ProductView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Product_add\Product_add.csproj">
+      <Project>{6b3f1aeb-96d8-4ca9-acef-729f8752a00a}</Project>
+      <Name>Product_add</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RightBodyOvervewTabStores\RightBodyOvervewTabStores.csproj">
+      <Project>{09338cbc-342b-4146-b01f-196b99e94d05}</Project>
+      <Name>RightBodyOvervewTabStores</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SidebarControl\SidebarControl.csproj">
       <Project>{1fd9d7dc-981c-4c78-a8de-fdf0da90e0df}</Project>
       <Name>SidebarControl</Name>
@@ -145,6 +249,14 @@
     <ProjectReference Include="..\Sign_In\Sign_In.csproj">
       <Project>{df0eb12a-a056-495a-b674-af302397ba3c}</Project>
       <Name>Sign_In</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sign_Up\Sign_Up.csproj">
+      <Project>{3b84dfd8-a9b9-4b9f-86e5-f2aa0616889e}</Project>
+      <Name>Sign_Up</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\smtp\smtp.csproj">
+      <Project>{5936ae91-e345-4cd1-94bc-0ff87e8dfbad}</Project>
+      <Name>smtp</Name>
     </ProjectReference>
     <ProjectReference Include="..\StoreDetail\StoreDetail.csproj">
       <Project>{af52424f-1d8e-4cd4-a2e6-d1b9566e17ba}</Project>

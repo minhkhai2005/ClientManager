@@ -43,7 +43,7 @@ namespace ClientManager
         private void LoadDetailStore(object sender, string storeID)
         {
             // Handle the event when a store is selected in the StoresList UserControl
-            StoreDetail.StoreDetail storeDetail = new StoreDetail.StoreDetail(storeID);
+            StoreDetail.StoreDetail storeDetail = new StoreDetail.StoreDetail(storeID, Sign_In.Sign_in.Session.Email);
             storeDetail.OverviewTabRefresh();
             LoadPage(storeDetail); // Load the StoreDetail UserControl
         }

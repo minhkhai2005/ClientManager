@@ -16,6 +16,13 @@ using System.Data.SqlClient;
 using System.Threading;
 using System.Net.Http.Headers;
 using System.Diagnostics;
+using Microsoft.AspNetCore.SignalR.Client;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using Newtonsoft.Json;
+using System.Timers;
+using System.Diagnostics;
 namespace StoreDetail
 {
     public partial class StoreDetail: UserControl
@@ -29,6 +36,10 @@ namespace StoreDetail
         private List<DatabaseAccess.Invoice> StoreInvoices { get; set; }
         private List<DatabaseAccess.Inventory> StoreInventoies { get; set; }
         private List<DatabaseAccess.Employee> OnDutyEmployee { get; set; }
+        private System.Timers.Timer pollingTimer;
+        private string currentStoreId;
+        private string currentUserId = "Manager"; // Lấy từ Session nếu có
+        private List<Message> lastMessages = new List<Message>();
         public StoreDetail()
         {
             InitializeComponent();
@@ -39,10 +50,10 @@ namespace StoreDetail
             this.EmployeeListView.ListViewItemSorter = lvwColumnSorter;
             this.InvoiceListView.ListViewItemSorter = lvwColumnSorter;
         }
-        public StoreDetail(string storeID)
+        public StoreDetail(string storeID, string managerEmail)
         {
             InitializeComponent();
-            // Load store details based on the storeID
+            currentUserId = managerEmail;
             LoadStoreDetails(storeID);
             // Create an instance of a ListView column sorter and assign it
             // to the ListView control.
@@ -211,6 +222,8 @@ namespace StoreDetail
         private void MessageTab_Enter(object sender, EventArgs e)
         {
             MessageTabRefresh();
+            // Tích hợp SignalR chat khi vào tab Message
+            InitPolling(StoreInformation.Store_ID);
         }
 
         private void InvoiceTab_Enter(object sender, EventArgs e)
@@ -332,6 +345,96 @@ namespace StoreDetail
 
             // Perform the sort with these new sort options.
             this.InvoiceListView.Sort();
+        }
+        public void InitPolling(string storeId)
+        {
+            currentStoreId = storeId;
+            // Khởi tạo timer polling mỗi 2 giây
+            pollingTimer = new System.Timers.Timer(2000);
+            pollingTimer.Elapsed += PollingTimer_Elapsed;
+            pollingTimer.AutoReset = true;
+            pollingTimer.Enabled = true;
+        }
+        private async void PollingTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://localhost:55135/");
+                    var response = await client.GetAsync($"api/message/history?user1={currentUserId}&user2={currentStoreId}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var json = await response.Content.ReadAsStringAsync();
+                        var messages = JsonConvert.DeserializeObject<List<Message>>(json);
+                        if (messages != null && !Enumerable.SequenceEqual(messages, lastMessages))
+                        {
+                            lastMessages = messages;
+                            this.Invoke((Action)(() =>
+                            {
+                                richTextBox1.Clear();
+                                foreach (var msg in messages)
+                                {
+                                    string who = msg.SenderId == currentUserId ? "Bạn" : StoreInformation.Store_Name;
+                                    richTextBox1.AppendText($"{who}: {msg.Content}\n");
+                                }
+                            }));
+                        }
+                    }
+                }
+            }
+            catch { /* Có thể log lỗi nếu cần */ }
+        }
+        private async void sendBtn_Click(object sender, EventArgs e)
+        {
+            string messageText = richTextBox2.Text.Trim();
+            if (!string.IsNullOrEmpty(messageText))
+            {
+                try
+                {
+                    var message = new Message
+                    {
+                        SenderId = currentUserId, // email manager
+                        ReceiverId = currentStoreId, // Store_ID
+                        Content = messageText
+                    };
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri("http://localhost:55135/");
+                        client.DefaultRequestHeaders.Accept.Clear();
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                        var json = JsonConvert.SerializeObject(message);
+                        var content = new StringContent(json, Encoding.UTF8, "application/json");
+                        var response = await client.PostAsync("api/message/send", content);
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show($"Lỗi gửi tin nhắn: {response.StatusCode}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Gửi thành công: {messageText}");
+                            richTextBox2.Clear();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi gửi tin nhắn: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập nội dung tin nhắn!");
+            }
+        }
+        // Định nghĩa class Message cho client
+        public class Message
+        {
+            public int Id { get; set; }
+            public string SenderId { get; set; }
+            public string ReceiverId { get; set; }
+            public string Content { get; set; }
+            public DateTime Timestamp { get; set; }
         }
     }
 }
