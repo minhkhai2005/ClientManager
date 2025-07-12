@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rightBodyOverviewTabStores1 = new RightBodyOvervewTabStores.RightBodyOverviewTabStores();
             this.leftBodyOverviewTabStores1 = new LeftBodyOverviewTabStores.LeftBodyOverviewTabStores();
+            this.overviewHeader = new OverviewStoresTab.UserControl1();
             this.InventoryTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.addBtn = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.columnProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductStock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnProductSold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnProductStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EmployeeTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,7 +68,7 @@
             this.InvoiceTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NumItems = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StatusColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.overviewHeader = new OverviewStoresTab.UserControl1();
+            this.columnProductSold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.OverviewTab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -81,7 +81,7 @@
             this.InvoiceTab.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
-                        this.SuspendLayout();
+            this.SuspendLayout();
             // 
             // tabControl1
             // 
@@ -149,6 +149,17 @@
             this.leftBodyOverviewTabStores1.Name = "leftBodyOverviewTabStores1";
             this.leftBodyOverviewTabStores1.Size = new System.Drawing.Size(456, 614);
             this.leftBodyOverviewTabStores1.TabIndex = 2;
+            // 
+            // overviewHeader
+            // 
+            this.overviewHeader.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.SetColumnSpan(this.overviewHeader, 2);
+            this.overviewHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.overviewHeader.Location = new System.Drawing.Point(3, 3);
+            this.overviewHeader.Name = "overviewHeader";
+            this.overviewHeader.Size = new System.Drawing.Size(919, 165);
+            this.overviewHeader.TabIndex = 3;
+            this.overviewHeader.MsgBtnClicked += new System.EventHandler(this.overviewHeader_MsgBtnClicked);
             // 
             // InventoryTab
             // 
@@ -244,10 +255,6 @@
             // columnProductStock
             // 
             this.columnProductStock.Text = "Stock";
-            // 
-            // columnProductSold
-            // 
-            this.columnProductSold.Text = "Sold";
             // 
             // columnProductStatus
             // 
@@ -414,6 +421,7 @@
             this.sendBtn.TabIndex = 4;
             this.sendBtn.Text = "Send";
             this.sendBtn.UseVisualStyleBackColor = false;
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
             // InvoiceTab
             // 
@@ -509,16 +517,9 @@
             this.StatusColumn.Text = "Status";
             this.StatusColumn.Width = 100;
             // 
-            // overviewHeader
+            // columnProductSold
             // 
-            this.overviewHeader.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.SetColumnSpan(this.overviewHeader, 2);
-            this.overviewHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overviewHeader.Location = new System.Drawing.Point(3, 3);
-            this.overviewHeader.Name = "overviewHeader";
-            this.overviewHeader.Size = new System.Drawing.Size(919, 165);
-            this.overviewHeader.TabIndex = 3;
-            this.overviewHeader.MsgBtnClicked += new System.EventHandler(this.overviewHeader_MsgBtnClicked);
+            this.columnProductSold.Text = "Sold";
             // 
             // StoreDetail
             // 
@@ -539,7 +540,6 @@
             this.InvoiceTab.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             this.ResumeLayout(false);
 
         }
@@ -583,9 +583,9 @@
         private System.Windows.Forms.ColumnHeader columnProductID;
         private System.Windows.Forms.ColumnHeader columnProductPrice;
         private System.Windows.Forms.ColumnHeader columnProductStock;
-        private System.Windows.Forms.ColumnHeader columnProductSold;
         private System.Windows.Forms.ColumnHeader columnProductStatus;
         private System.Windows.Forms.ColumnHeader IDColumn;
         private System.Windows.Forms.ColumnHeader StatusColumn;
+        private System.Windows.Forms.ColumnHeader columnProductSold;
     }
 }

@@ -31,7 +31,7 @@ namespace ProductView
         private void LoadProductDetails(DatabaseAccess.Inventory inventory) { 
             product = DatabaseAccess.Product.GetProductByID(inventory.Product_ID);
             store = DatabaseAccess.Store.GetStoreByID(inventory.Store_ID);
-            int NumberOfSold = store.GetNumberOfSoldItem(inventory.Product_ID);
+            int NumberOfSold = store.GetNumberOfSoldItem(store.Store_ID,inventory.Product_ID);
             double revenue = product.Product_Price * NumberOfSold;
             headerProductView1.SetProductDetails(
                 product.Product_Name,

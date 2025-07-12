@@ -255,15 +255,15 @@ namespace DatabaseClass
                     return -1; // Return -1 to indicate failure
                 }
             }
-            public int GetNumberOfSoldItem(string productID)
+            public int GetNumberOfSoldItem(string storeID, string productID)
             {
                 try
                 {
                     using (var connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
-                        string sqlQuery = "SELECT \r\n    ISNULL(SUM(id.InvoiceDetail_Quantity), 0) AS Total_Sold_Quantity\r\nFROM InvoiceDetail id\r\nINNER JOIN Invoice i ON id.Invoice_ID = i.Invoice_ID\r\nINNER JOIN Customer c ON i.Customer_ID = c.Customer_ID\r\nWHERE id.Product_ID = @Product_ID  -- Replace with your specific Product_ID\r\n    AND c.Store_ID = @Store_ID   -- Replace with your specific Store_ID\r\n    AND i.Invoice_Status = 'Paid';  -- Only count paid invoices";
-                        return connection.Execute(sqlQuery, new { Store_Name, Product_ID = productID });
+                        string sqlQuery = "SELECT \r\n    ISNULL(SUM(id.InvoiceDetail_TotalPrice), 0) AS Product_Revenue\r\nFROM Product p\r\nINNER JOIN InvoiceDetail id ON p.Product_ID = id.Product_ID\r\nINNER JOIN Invoice i ON id.Invoice_ID = i.Invoice_ID\r\nINNER JOIN Employee e ON i.Employee_ID = e.Employee_ID\r\nINNER JOIN Store s ON e.Store_Id = s.Store_ID\r\nWHERE p.Product_ID = @ProductID\r\n    AND s.Store_ID = @StoreID\r\n    AND i.Invoice_Status = 'Paid';";
+                        return connection.Execute(sqlQuery, new { StoreID = storeID, ProductID = productID });
                     }
                 }
                 catch (Exception ex)

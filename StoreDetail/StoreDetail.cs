@@ -153,7 +153,7 @@ namespace StoreDetail
                 item.SubItems.Add(p.Product_ID);
                 item.SubItems.Add(p.Product_Price.ToString());
                 item.SubItems.Add(inventory.Inventory_Stock.ToString());
-                item.SubItems.Add(StoreInformation.GetNumberOfSoldItem(inventory.Product_ID).ToString());
+                item.SubItems.Add(StoreInformation.GetNumberOfSoldItem(inventory.Store_ID,inventory.Product_ID).ToString());
                 item.SubItems.Add(inventory.Inventory_Status?"Active":"Inactive");
                 InventoryListView.Items.Add(item);
             }
