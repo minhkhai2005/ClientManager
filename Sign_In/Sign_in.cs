@@ -20,6 +20,8 @@ namespace Sign_In
         {
             public static string Email { get; set; }
             public static string UID { get; set; }
+            public static string ManagerID { get; set; }
+            public static string ManagerName { get; set; } // Thêm biến lưu tên manager
         }
         public Sign_in()
         {
@@ -37,7 +39,17 @@ namespace Sign_In
                 DatabaseAccess.CurrentEmail = EmailBox.Text; // Lưu email vào DatabaseAccess
 
                 Session.UID = result.Item2; // Lưu UID vào Session
-                this.Close();
+                var manager = DatabaseAccess.GetManagerByEmail(Session.Email);
+                if (manager != null)
+                {
+                    Session.ManagerID = manager.Manager_ID;
+                    Session.ManagerName = manager.Manager_Name; // Gán tên manager
+                }
+                else
+                {
+                    Session.ManagerID = null;
+                    Session.ManagerName = null;
+                }
             }
             else
             {

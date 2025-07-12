@@ -81,7 +81,7 @@
             this.InvoiceTab.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.SuspendLayout();
+                        this.SuspendLayout();
             // 
             // tabControl1
             // 
@@ -539,6 +539,7 @@
             this.InvoiceTab.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             this.ResumeLayout(false);
 
         }
